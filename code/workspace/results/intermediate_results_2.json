@@ -1,0 +1,58 @@
+[
+  {
+    "accuracy": 0.7729468599033816,
+    "precision": 0.7899029982363316,
+    "recall": 0.7729468599033816,
+    "f1_score": 0.7644178740952935,
+    "g_mean": 0.7355411572106966,
+    "auc_roc": 0.8130434782608695,
+    "training_time": 24.441775798797607,
+    "epochs_trained": 65,
+    "dataset_name": "Australian.mat",
+    "n_samples": 690,
+    "n_features": 14,
+    "n_classes": 2,
+    "imbalance_ratio": 1.2465116279069768,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.4332425068119891,
+    "precision": 0.795170637415869,
+    "recall": 0.4332425068119891,
+    "f1_score": 0.4777518068451343,
+    "g_mean": 0.5424351150556891,
+    "auc_roc": 0.6638551031200424,
+    "training_time": 6.41624116897583,
+    "epochs_trained": 16,
+    "dataset_name": "Bank.mat",
+    "n_samples": 1223,
+    "n_features": 14,
+    "n_classes": 2,
+    "imbalance_ratio": 4.986013986013986,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  }
+]

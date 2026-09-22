@@ -1,0 +1,50 @@
+[
+  {
+    "accuracy": 0.8743961352657005,
+    "precision": 0.879240585122938,
+    "recall": 0.8743961352657005,
+    "f1_score": 0.8747787149849006,
+    "g_mean": 0.8775718347473196,
+    "auc_roc": 0.926937618147448,
+    "training_time": 0.05804586410522461,
+    "epochs_trained": 1,
+    "dataset_name": "Australian.mat",
+    "n_samples": 690,
+    "n_features": 14,
+    "n_classes": 2,
+    "imbalance_ratio": 1.2465116279069768,
+    "config": {
+      "kernel": "rbf",
+      "C": 1.0,
+      "gamma": "scale",
+      "class_weight": "balanced",
+      "probability": true,
+      "max_iter": -1,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.8474114441416893,
+    "precision": 0.8898083629995864,
+    "recall": 0.8474114441416893,
+    "f1_score": 0.8597926496976142,
+    "g_mean": 0.8439287640895689,
+    "auc_roc": 0.9076679005817028,
+    "training_time": 0.08600544929504395,
+    "epochs_trained": 1,
+    "dataset_name": "Bank.mat",
+    "n_samples": 1223,
+    "n_features": 14,
+    "n_classes": 2,
+    "imbalance_ratio": 4.986013986013986,
+    "config": {
+      "kernel": "rbf",
+      "C": 1.0,
+      "gamma": "scale",
+      "class_weight": "balanced",
+      "probability": true,
+      "max_iter": -1,
+      "random_state": 42
+    }
+  }
+]

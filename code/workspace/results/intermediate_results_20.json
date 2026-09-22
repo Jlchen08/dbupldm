@@ -1,0 +1,562 @@
+[
+  {
+    "accuracy": 0.7729468599033816,
+    "precision": 0.7899029982363316,
+    "recall": 0.7729468599033816,
+    "f1_score": 0.7644178740952935,
+    "g_mean": 0.7355411572106966,
+    "auc_roc": 0.8130434782608695,
+    "training_time": 24.441775798797607,
+    "epochs_trained": 65,
+    "dataset_name": "Australian.mat",
+    "n_samples": 690,
+    "n_features": 14,
+    "n_classes": 2,
+    "imbalance_ratio": 1.2465116279069768,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.4332425068119891,
+    "precision": 0.795170637415869,
+    "recall": 0.4332425068119891,
+    "f1_score": 0.4777518068451343,
+    "g_mean": 0.5424351150556891,
+    "auc_roc": 0.6638551031200424,
+    "training_time": 6.41624116897583,
+    "epochs_trained": 16,
+    "dataset_name": "Bank.mat",
+    "n_samples": 1223,
+    "n_features": 14,
+    "n_classes": 2,
+    "imbalance_ratio": 4.986013986013986,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.4711111111111111,
+    "precision": 0.7708569166831584,
+    "recall": 0.4711111111111111,
+    "f1_score": 0.48023259033642535,
+    "g_mean": 0.5499719409228703,
+    "auc_roc": 0.6548083170890189,
+    "training_time": 1.4529378414154053,
+    "epochs_trained": 21,
+    "dataset_name": "Blood_Transfusion_Service.mat",
+    "n_samples": 748,
+    "n_features": 4,
+    "n_classes": 2,
+    "imbalance_ratio": 3.217741935483871,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.7662337662337663,
+    "precision": 0.7691765124480676,
+    "recall": 0.7662337662337663,
+    "f1_score": 0.7674707253020505,
+    "g_mean": 0.7467901132520628,
+    "auc_roc": 0.8176954732510289,
+    "training_time": 3.0895376205444336,
+    "epochs_trained": 43,
+    "dataset_name": "Diabetes.mat",
+    "n_samples": 768,
+    "n_features": 8,
+    "n_classes": 2,
+    "imbalance_ratio": 1.8716577540106951,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.775,
+    "precision": 0.7675000000000001,
+    "recall": 0.775,
+    "f1_score": 0.7662471395881008,
+    "g_mean": 0.6918326955503611,
+    "auc_roc": 0.7635327635327636,
+    "training_time": 1.1583764553070068,
+    "epochs_trained": 56,
+    "dataset_name": "Echocardiogram.mat",
+    "n_samples": 131,
+    "n_features": 10,
+    "n_classes": 2,
+    "imbalance_ratio": 2.033333333333333,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.9292929292929293,
+    "precision": 0.9292802713855346,
+    "recall": 0.9292929292929293,
+    "f1_score": 0.929189868492315,
+    "g_mean": 0.9264926898356709,
+    "auc_roc": 0.9796511627906976,
+    "training_time": 2.3111345767974854,
+    "epochs_trained": 59,
+    "dataset_name": "Ecoil.mat",
+    "n_samples": 327,
+    "n_features": 7,
+    "n_classes": 2,
+    "imbalance_ratio": 1.28,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.6666666666666666,
+    "precision": 0.8518518518518517,
+    "recall": 0.6666666666666666,
+    "f1_score": 0.7196969696969696,
+    "g_mean": 0.7002746713858894,
+    "auc_roc": 0.6538461538461539,
+    "training_time": 0.34171223640441895,
+    "epochs_trained": 16,
+    "dataset_name": "Fertility.mat",
+    "n_samples": 100,
+    "n_features": 9,
+    "n_classes": 2,
+    "imbalance_ratio": 7.75,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.7566666666666667,
+    "precision": 0.7530232558139535,
+    "recall": 0.7566666666666667,
+    "f1_score": 0.7546218487394958,
+    "g_mean": 0.6891448577190683,
+    "auc_roc": 0.7726455026455026,
+    "training_time": 18.725618362426758,
+    "epochs_trained": 58,
+    "dataset_name": "German.mat",
+    "n_samples": 1000,
+    "n_features": 24,
+    "n_classes": 2,
+    "imbalance_ratio": 2.3333333333333335,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.6847826086956522,
+    "precision": 0.6719447117487534,
+    "recall": 0.6847826086956522,
+    "f1_score": 0.6776769888437076,
+    "g_mean": 0.5192377520339357,
+    "auc_roc": 0.5447303921568627,
+    "training_time": 1.097205638885498,
+    "epochs_trained": 35,
+    "dataset_name": "Haberman.mat",
+    "n_samples": 306,
+    "n_features": 3,
+    "n_classes": 2,
+    "imbalance_ratio": 2.754385964912281,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.8679245283018868,
+    "precision": 0.8669362084456425,
+    "recall": 0.8679245283018868,
+    "f1_score": 0.8670967932657843,
+    "g_mean": 0.8484186711088271,
+    "auc_roc": 0.9316950464396285,
+    "training_time": 1.422842025756836,
+    "epochs_trained": 43,
+    "dataset_name": "Ionosphere.mat",
+    "n_samples": 351,
+    "n_features": 34,
+    "n_classes": 2,
+    "imbalance_ratio": 1.7840909090909092,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.5149700598802395,
+    "precision": 0.5164801618482492,
+    "recall": 0.5149700598802395,
+    "f1_score": 0.5089522750254978,
+    "g_mean": 0.5035730052912496,
+    "auc_roc": 0.630665519219736,
+    "training_time": 1.1037583351135254,
+    "epochs_trained": 23,
+    "dataset_name": "Monk_1.mat",
+    "n_samples": 556,
+    "n_features": 7,
+    "n_classes": 2,
+    "imbalance_ratio": 1.0051546391752577,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.6850828729281768,
+    "precision": 0.726664585892078,
+    "recall": 0.6850828729281768,
+    "f1_score": 0.693021042939755,
+    "g_mean": 0.6973597732114862,
+    "auc_roc": 0.7758877744646245,
+    "training_time": 2.9273667335510254,
+    "epochs_trained": 57,
+    "dataset_name": "Monk_2.mat",
+    "n_samples": 601,
+    "n_features": 7,
+    "n_classes": 2,
+    "imbalance_ratio": 1.9166666666666667,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.7844311377245509,
+    "precision": 0.8356326308422116,
+    "recall": 0.7844311377245509,
+    "f1_score": 0.7781057603103652,
+    "g_mean": 0.7706915837359192,
+    "auc_roc": 0.8931034482758621,
+    "training_time": 3.3149633407592773,
+    "epochs_trained": 66,
+    "dataset_name": "Monk_3.mat",
+    "n_samples": 554,
+    "n_features": 7,
+    "n_classes": 2,
+    "imbalance_ratio": 1.0806451612903225,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.875886524822695,
+    "precision": 0.9504152270109716,
+    "recall": 0.875886524822695,
+    "f1_score": 0.90547394769778,
+    "g_mean": 0.7681949341086046,
+    "auc_roc": 0.8052469135802468,
+    "training_time": 4.484600067138672,
+    "epochs_trained": 61,
+    "dataset_name": "Oil_Spill.mat",
+    "n_samples": 937,
+    "n_features": 49,
+    "n_classes": 2,
+    "imbalance_ratio": 21.586206896551722,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.7487684729064039,
+    "precision": 0.856721504476872,
+    "recall": 0.7487684729064039,
+    "f1_score": 0.788925036834194,
+    "g_mean": 0.6495371763382791,
+    "auc_roc": 0.7300351582119539,
+    "training_time": 2.210388422012329,
+    "epochs_trained": 40,
+    "dataset_name": "Pharyngitis.mat",
+    "n_samples": 676,
+    "n_features": 18,
+    "n_classes": 2,
+    "imbalance_ratio": 8.27450980392157,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.5741444866920152,
+    "precision": 0.8663880967469371,
+    "recall": 0.5741444866920152,
+    "f1_score": 0.6427554856936508,
+    "g_mean": 0.673613346595406,
+    "auc_roc": 0.7122529644268774,
+    "training_time": 1.111565351486206,
+    "epochs_trained": 16,
+    "dataset_name": "Phoneme.mat",
+    "n_samples": 876,
+    "n_features": 5,
+    "n_classes": 2,
+    "imbalance_ratio": 7.065789473684211,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.7402597402597403,
+    "precision": 0.7337348641696467,
+    "recall": 0.7402597402597403,
+    "f1_score": 0.7348651348651348,
+    "g_mean": 0.6831300510639732,
+    "auc_roc": 0.7809053497942386,
+    "training_time": 3.345414161682129,
+    "epochs_trained": 55,
+    "dataset_name": "Pima_Indians.mat",
+    "n_samples": 768,
+    "n_features": 8,
+    "n_classes": 2,
+    "imbalance_ratio": 1.8716577540106951,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.45454545454545453,
+    "precision": 0.661818181818182,
+    "recall": 0.45454545454545453,
+    "f1_score": 0.4502164502164502,
+    "g_mean": 0.5,
+    "auc_roc": 0.42467948717948717,
+    "training_time": 1.1147582530975342,
+    "epochs_trained": 48,
+    "dataset_name": "Plrx.mat",
+    "n_samples": 182,
+    "n_features": 12,
+    "n_classes": 2,
+    "imbalance_ratio": 2.5277777777777777,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.6984126984126984,
+    "precision": 0.6993746993746994,
+    "recall": 0.6984126984126984,
+    "f1_score": 0.6987178714980384,
+    "g_mean": 0.6977215890464484,
+    "auc_roc": 0.7525354969574037,
+    "training_time": 1.2119619846343994,
+    "epochs_trained": 46,
+    "dataset_name": "Sonar.mat",
+    "n_samples": 208,
+    "n_features": 60,
+    "n_classes": 2,
+    "imbalance_ratio": 1.1323529411764706,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  },
+  {
+    "accuracy": 0.5925925925925926,
+    "precision": 0.5896464646464646,
+    "recall": 0.5925925925925926,
+    "f1_score": 0.5903069970391148,
+    "g_mean": 0.5773502691896257,
+    "auc_roc": 0.6623456790123458,
+    "training_time": 1.561100959777832,
+    "epochs_trained": 51,
+    "dataset_name": "Statlog_Heart.mat",
+    "n_samples": 270,
+    "n_features": 13,
+    "n_classes": 2,
+    "imbalance_ratio": 1.25,
+    "config": {
+      "hidden_dims": [
+        8,
+        4
+      ],
+      "dropout_rate": 0.3,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 100,
+      "gamma": 2.0,
+      "patience": 15,
+      "random_state": 42
+    }
+  }
+]
