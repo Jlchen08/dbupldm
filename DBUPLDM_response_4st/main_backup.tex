@@ -1,0 +1,1209 @@
+
+%\documentclass[journal,12pn, twocolumn]{IEEEtran}
+\documentclass[journal,12pn, onecolumn]{IEEEtran}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{caption}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{cite}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{bbding}
+\usepackage{array}
+\usepackage{mathrsfs}
+%\usepackage{amssymb,amsmath,amsthm}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{diagbox}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{threeparttable}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subfigure}
+\usepackage{xcolor}
+\definecolor{customgreen}{RGB}{0, 128, 0} %
+\usepackage{bm}
+\usepackage{tabularx}
+
+
+\usepackage{epstopdf}
+\usepackage{url}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{Definition}{Definition}
+\newtheorem{example}{Example}
+\renewcommand*{\proofname}{\noindent\bf Proof}
+\renewcommand\labelenumi{(\alph{enumi})}
+\DeclareMathOperator*{\argmax}{\arg\max}
+\DeclareMathOperator*{\argmin}{\arg\min}
+\usepackage[colorlinks,linkcolor=orange,anchorcolor=orange,citecolor=orange,]{hyperref}
+\hypersetup{hypertex=true,
+            colorlinks=true,
+            linkcolor=cyan,
+            anchorcolor=orange,
+            citecolor=green}
+\renewcommand{\baselinestretch}{0.96}
+\newenvironment{breakablealgorithm}
+  {% \begin{breakablealgorithm}
+   \begin{center}
+     \refstepcounter{algorithm}% New algorithm
+     \hrule height.8pt depth0pt \kern2pt% \@fs@pre for \@fs@ruled
+     \renewcommand{\caption}[2][\relax]{% Make a new \caption
+       {\raggedright\textbf{Solution~\thealgorithm} ##2\par}%
+       \ifx\relax##1\relax % #1 is \relax
+         \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
+       \else % #1 is not \relax
+         \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
+       \fi
+       \kern2pt\hrule\kern2pt
+     }
+  }{% \end{breakablealgorithm}
+     \kern2pt\hrule\relax% \@fs@post for \@fs@ruled
+   \end{center}
+  }
+
+\newtheorem{remark}{Remark}
+
+\allowdisplaybreaks[4]
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\begin{document}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% -------- Reply to Editors and Reviewers -------
+\title{Responses to the Review Comments of BDR-D-25-00303R1}
+% \ \\
+% \normalsize Title: \emph{A $K$-means Triangular Synthesis Large Margin Classifier with Unified Pinball Loss for Imbalanced Data}}
+% \author[ads]{Danlin Shao}\ead{dlshao1104@163.com}
+% \author[ads]{Yixi Dai}\ead{YixiDai2001@163.com}
+% \author[ads]{Junjie Li}\ead{JunJieLi45@163.com}
+% \author[ads]{Shenglin Li}\ead{lishenglin@swu.edu.cn}
+% \author[ads]{Rui Chen}\ead{rchencr@163.com}
+% \author{Danlin Shao, Yixi Dai, Junjie Li, Shenglin Li, Rui Chen*}
+\maketitle
+
+\textbf{Original Manuscript ID: }BDR-D-25-00303R2 \\
+
+
+\textbf{Original Article Title: }``Dual Balanced Large Marginal Machine for Imbalanced Data Classification" \\
+
+\textbf{To: }Big Data Research Editor\\
+
+\textbf{Re: }Response to reviewers\\
+
+\section*{}
+{
+Dear Editor, \\
+
+Thank you for allowing a resubmission of our manuscript, and we particularly appreciate the Editor-in-Chief for granting us the opportunity to conduct a round of revisions to address the reviewers’ comments.\\
+
+We are uploading (a) our point-by-point response to the comments (below) (response to reviewers, under “Author’s Response Files”), (b) an updated manuscript with orange highlighting indicating changes, and (c) an Supplementary file submitted in accordance with the reviewers’ requirements.\\
+
+Best wishes,\\
+
+Pingping Gu, Denghao Dong, Quan Shi, Fudi Wang and Guojun Huang*}\\
+
+
+
+
+
+
+\textbf{The response letter is structured as follows:}\\
+
+\begin{itemize}
+    \item [$\bullet$]Response for \nameref{edi}: Page 2.\\
+    \item [$\bullet$]Response for \nameref{rev4}: Page 3.\\
+    \item [$\bullet$]Response for \nameref{rev5}: Page 4-10.\\
+    \item [$\bullet$]Response for \nameref{rev6}: Page 11.\\
+\end{itemize}
+
+\newpage
+
+% % --------------- Editor ----------------------
+
+% \section*{\textbf{Section \#1-a: Entire editorial decision letter}}\label{sec:1a}
+% Re: \textbf{INS-D-24-1205}
+
+% ~
+
+% Dear Dr. Zhang,
+
+% ~
+
+% We have received the decision on your paper entitled ``A Novel Cost-Sensitive Three-Way Intuitionistic Fuzzy Large Margin Classifier".
+
+% ~
+
+% The Editor's and the reviewers' comments are as follows:
+
+
+% ~
+
+% The Introduction may be improved to give a reader the context of this study.
+
+% For example,
+
+% (a) in addition to listing a number references, it might be useful to identify a few most relevant studies,
+
+% and (b) the most recent results on the wide sense of three-way decision may be briefly commented.
+
+% ----------
+
+% ~
+
+% Reviewer \#1: This paper introduces three-way decisions into the large margin distribution machine. Generally, the method is interesting, and the results are good. I have a number of comments.
+
+% 1. Three-way decision (3WD) has been found widespread application across diverse fields $\rightarrow$ Three-way decision (3WD) has been widely applied in diverse fields
+
+% 2. costs; iii) the disregard of sample $\rightarrow$ costs; and iii) the disregard of sample
+
+% 3. kaggle $\rightarrow$ Kaggle
+
+% 4. See Section 2.1 $\rightarrow$ see Section 2.1
+
+% 5. The framework of 3WD is shown in Fig. 1. $\rightarrow$ Fig. 1. illustrates the framework of 3WD.
+
+% 6. It is better to present the experimental parameter settings in a table. The reason of respective settings should be explained as well.
+
+% 7. What is the potential real-life applications of the proposed method?
+
+% 8. "transfusion\_new" $\rightarrow$ ``transfusion\_new''. The double quotation marks are incorrect.
+
+% 9. ``breast\_w" is not presented in Table 2.
+
+% 10. The values in tables (e.g., Table 5) should be aligned to the right.
+
+% ~
+
+% Reviewer \#2: I have carefully reviewed the manuscript. The paper proposes an innovative model, the CS3W-IFLMC model, to address uncertainty and noise issues effectively. I think this work is interesting and meaningful, but there are still some parts that require further revision and improvement.
+
+% 1. Please explain how the category centers of the samples are determined in the proposed Intuitionistic fuzzy strategy, which helps readers better understand the construction process of the model.
+
+% 2. Could you please clarify the criteria for using bold font in the table? It should be used to highlight the optimal experimental results. However, I noticed that the number ``89.90" in bold does not represent an optimal result in the experimental findings of the ``kr-vs-kp" dataset in Table 4.
+
+% 3. The description of the experimental results in section 4.2 should be more detailed to highlight the superiority of the proposed IFLMC model.
+
+% 4. Please clarify the meaning of the bold symbol ``X" in Equation 26.
+
+% 5. Some other issues to be corrected.
+
+% 5.1 In the title of Figure 4, ``CMC-0-2" should be corrected to ``cmc-0-2".
+
+% 5.2 A period is missing at the end of the title in Figure 1.
+
+% 5.3 There is a missing space before the fifth sentence of the second paragraph in section 4.3.2.
+
+% 5.4 In section 2.3, ``The 3WD model provide a feasible way..." should be ``The 3WD model provides a feasible way...".
+
+% 5.5 In section 3, ``CS3W-UFLMC" should be ``CS3W-IFLMC".
+
+% ~
+
+% Reviewer \#3: This paper combines the probability output of LDM with the cost-sensitive three-way decision method to achieve delayed decision-making in LDM. Additionally, an innovative dual-center intuitionistic fuzzy method is proposed and introduced, thereby establishing a universal model, CS3W-IFLMC. The paper demonstrates the effectiveness of the methods used both theoretically and experimentally. This study contains solid and original contributions., especially for three-way decision and LDM. I only have a few minor comments as follows.
+
+% 1. To more convincingly demonstrate the superiority of the fuzzy strategy proposed in this paper compared to other strategies, it is necessary to contrast it with existing fuzzy strategies. This comparison will provide a clearer picture of the advantages and disadvantages of each approach, highlighting the unique benefits of the strategy proposed in this paper.
+
+% 2. In the main text, the full name should be used the first time an acronym is introduced. (e.g., introduction, IF set theory)
+
+% 3. A link to the code repository should be included at the end of the article to facilitate readers' access and reproducibility of the model.
+
+% 4. The format of the chart titles should be consistent throughout the entire manuscript. Table 1 follows the convention of title capitalization, while other tables use sentence capitalization.
+
+% 5. Please verify if there are any errors in the formulas. For example, whether ``n" in Formula 5 should be ``m".
+
+% 6. The language should be improved further.
+
+
+% ~
+
+% \textcolor{red}{Note: Please double check the author names provided in the manuscript source file so that authorship related changes are made in the revision stage. If your manuscript is accepted, any authorship change will involve approval from co-authors and respective editor handling the submission and this may cause a significant delay in publishing your manuscript.}
+
+% ~
+
+% In view of these comments the Editor-in-Chief, Professor Witold Pedrycz, has decided that the paper can be reconsidered for publication after major revisions.
+
+% ~
+
+% When you log-in to your Main Menu, you will see a menu item called 'Submission Needing Revision'. You will find your submission record there. Also, the reviewer(s) may have uploaded a file with detailed comments on your manuscript. Click on "View Reviewer Attachments" to access any detailed comments from the reviewer(s) that may have been included.
+
+% ~
+
+% When submitting your revised manuscript, please ensure that you upload the source files (e.g. Word or. TeX with other files in a.zip file which the system will automatically unzip). Uploading a PDF file at this stage will create delays should your manuscript be finally accepted for publication. If your revised submission does not include the source files, we will contact you to request them.
+
+% ~
+
+% Please note that this journal offers a new, free service called AudioSlides: brief, webcast-style presentations that are shown next to published articles on ScienceDirect (see also \textcolor{orange}{http://www.elsevier.com/audioslides}). If your paper is accepted for publication, you will automatically receive an invitation to create an AudioSlides presentation.
+
+% ~
+
+% The revised version of your submission is due by \textbf{20 Mar 2024}.
+
+% ~
+
+% Information Sciences features the Interactive Plot Viewer, see: \textcolor{orange}{http://www.elsevier.com/interactiveplots}. Interactive Plots provide easy access to the data behind plots. To include one with your article, please prepare a .csv file with your plot data and test it online at \textcolor{orange}{http://authortools.elsevier.com/interactiveplots/verification} before submission as supplementary material.
+
+% ~
+
+% Research Elements (optional)
+% This journal encourages you to share research objects - including your raw data, methods, protocols, software, hardware and more – which support your original research article in a Research Elements journal. Research Elements are open access, multidisciplinary, peer-reviewed journals which make the objects associated with your research more discoverable, trustworthy and promote replicability and reproducibility. As open access journals, there may be an Article Publishing Charge if your paper is accepted for publication. Find out more about the Research Elements journals at \textcolor{orange}{https://www.elsevier.com/authors/tools-and-resources/research-elements-journals?dgcid=ec\_em\_research\_elements\_email}.
+
+% ~
+
+% We look forward to receiving the revised version of your paper together with a reply to the reports and a summary of the revisions made.
+
+% ~
+
+% Include interactive data visualizations in your publication and let your readers interact and engage more closely with your research. Follow the instructions here: \textcolor{orange}{https://www.elsevier.com/authors/author-services/data-visualization} to find out about available data visualization options and how to include them with your article.
+
+% ~
+
+% Kind regards,
+
+% ~
+
+% Witold Pedrycz, PhD., DSc
+
+% Editor-in-Chief
+
+% Information Sciences
+
+% ~
+
+% At Elsevier, we want to help all our authors to stay safe when publishing. Please be aware of fraudulent messages requesting money in return for the publication of your paper. If you are publishing open access with Elsevier, bear in mind that we will never request payment before the paper has been accepted. We have prepared some guidelines (\textcolor{orange}{https://www.elsevier.com/connect/authors\\-update/seven-top-tips-on-stopping-apc-scams} ) that you may find helpful, including a short video on Identifying fake acceptance letters (\textcolor{orange}{https://www.youtube.com/watch?v=o5l8thD9XtE} ). Please remember that you can contact Elsevier s Researcher Support team (\textcolor{orange}{https://service.elsevier.com/app/home/supporthub/publishing/}) at any time if you have questions about your manuscript, and you can log into Editorial Manager to check the status of your manuscript (\textcolor{orange}{https://service.elsevier.com/app/answers/detail/a\_id\\/29155/c/10530/supporthub/publishing/kw/status/}).
+
+% \#AU\_INS\#
+
+% ~
+
+% To ensure this email reaches the intended recipient, please do not delete the above code
+
+
+\newpage
+
+
+\section*{\textbf{Editor}}\label{edi}
+
+{\color{black}
+\subsubsection*{\underline{General Comments}}
+\emph{\\
+I have completed my evaluation of your manuscript. The reviewers recommend reconsideration of your manuscript following minor revision and modification. I invite you to resubmit your manuscript after addressing the comments below. Please resubmit your revised manuscript by 03/08/2026.
+When revising your manuscript, please consider all issues mentioned in the reviewers’ comments carefully: please outline every change made in response to their comments and provide suitable rebuttals for any comments not addressed. Please note that your revised submission may need to be re-reviewed.
+}}\\
+
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Response}}}
+We sincerely appreciate the Editor-in-Chief and all reviewers for their constructive feedback and for granting us the opportunity to further refine our manuscript. We have carefully addressed all comments raised in this third round of review. The main revisions are summarized below:}\\
+
+{\color{blue}
+1. Enhanced Comparison with State-of-the-Art Methods.
+
+Following Reviewer \#5’s suggestion, we have incorporated additional recent competitive models for imbalanced tabular data classification into our experimental comparison. Specifically, we added DeepSMOTE (2022), LDAM (2019), and Balanced Softmax (2020) as baseline methods. The experimental results demonstrate that DBUPLDM maintains superior or competitive performance across multiple evaluation metrics, further validating the effectiveness of our approach.\\
+
+2. Discussion on Big Data Relevance and Scalability.
+
+In response to Reviewer \#5’s concern regarding the relevance to "Big Data Research," we have added a dedicated subsection discussing how DBUPLDM’s principles can be extended to big data scenarios. We elaborate on potential scalability strategies, including distributed optimization frameworks, mini-batch processing, and kernel approximation techniques that enable our method to handle large-scale datasets.\\
+
+3. Detailed Experimental Setup and Reproducibility.
+
+To improve reproducibility, we have provided comprehensive specifications for all baseline models, including complete network architectures for MLP+Focal Loss, optimization frameworks, hyperparameter tuning procedures, and regularization strategies. These details are now included in both the main text and supplementary materials.\\
+
+4. Expanded Discussion on Limitations and Future Work.
+
+We have substantially enriched the limitations section by discussing computational complexity, potential failure modes, and scenarios where DBUPLDM may not deliver optimal results. We also provide a more nuanced discussion of the method’s applicability boundaries and directions for future research.\\
+
+5. Terminology Consistency and Clarification.
+
+Following Reviewer \#5’s comment, we have carefully reviewed and clarified the usage of "quantile distance" and "composite distance" throughout the manuscript, ensuring consistent terminology and clear distinction between these concepts.\\
+
+}
+{\color{black}
+To facilitate reviewers in checking our revisions, we have prepared detailed response documents. The concrete revisions and responses to the reviewers are presented in Sections ``\nameref{rev4}’’, ``\nameref{rev5}’’, and ``\nameref{rev6}’’. Note that reference numbers are in accordance with the references at the end of \textbf{this response document}. For clarity, we present the section or subsection, page, and line numbers of the revisions based on \textbf{the newly revised version manuscript}, NOT the previous manuscript. Moreover, we mark the revised contents in the manuscript using {\color{magenta} magenta color} to distinguish them from previous revisions. The detailed revisions are presented as follows.
+}\\
+
+
+\newpage
+
+% ---------------- Reviewer 2 ---------------------
+
+{\color{black}
+\section*{\textbf{REVIEWER 2}}\label{rev2}}
+
+{\color{black}
+\subsubsection*{\underline{General Comments}}
+\emph{The authors carefully addressed the reviewers' revision suggestions and made appropriate changes. Convergence and convexity have been discussed, recent deep learning-based classifiers were added to the introduction, and new references strengthened the background. The introduction is now more natural and supportive. Additional benchmarks (MLP with Focal Loss) were included, which improve the paper's perspective.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Response}}}
+Thank you for your positive feedback on the manuscript. Based on your guidance, we have made detailed revisions and edits. After revisions, the paper's quality and its appeal to potential readers have been significantly enhanced. The detailed revisions can be found in the corresponding comments below. For your convenience, reference numbers are consistent with those at the end of this response document. We mention the section or subsection, page, and line number of revisions based on the newly \textbf{revised version manuscript}, \textbf{NOT the previous manuscript}. Furthermore, for clarity, we highlight the modified parts in {\color{orange} yellow}. The detailed revisions are presented as follows.
+}\\
+
+
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 2, Concern 1}}}
+\emph{Tables 3, 4, and 7 show overlaps. The authors should clarify whether Table 4 can be made more distinct, moved to the appendix, or integrated with Table 3. Table 7 should be adjusted accordingly. 
+}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response }}}
+We thank the reviewer for pointing out the overlap among Tables 3, 4, and 7. As suggested, we have moved the original Table 4 and Table 7 to the Appendix. This revision resolves the information overlap while preserving all key data.\\
+
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We moved Table 4 and Table 7 with added AUC/F-measure to the appendix, as detailed in Supplementary TABLE S1 and TABLE S2.
+
+
+
+
+% -------------Reviewer 2, Concern 2--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 2, Concern 2}}}
+\emph{The heavy reliance on accuracy in Tables 3, 4, and 7 raises concerns about performance evaluation in imbalanced classification. Although Table 8 provides imbalance metrics, these tables still emphasize accuracy. The authors should replace or supplement accuracy with AUC/F-measure in Tables 3, 4, and 7. The same concern applies to Table 9, where only accuracy is reported in comparison with MLP+Focal.
+}}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response }}}
+We sincerely appreciate your insightful comment.
+To provide a more rigorous evaluation under class--imbalance conditions, we have supplemented Tables~3, 4, 7 and~9 with AUC and F-measure in addition to accuracy.
+The enriched experimental results consistently demonstrate that DBUPLDM retains the highest average performance across all three metrics.
+Moreover, as the degree of imbalance intensifies (\textit{n}$\to$0), the proposed method preserves the same ``increase-then-decrease'' trend, peaking at \textit{n}=0.125, and its superiority becomes even more pronounced in terms of AUC and F-measure, corroborating that our conclusions are independent of the specific evaluation criterion employed.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action }}}
+We replaced Table \ref{uci1} (original Table 3), \ref{uci2} (original Table 4), \ref{ucin} (original Table 7), and \ref{tab:performance_comparison1} (original Table 9) with the extended Table \ref{table1} (current Table 3), \ref{table2} (see Supplementary TABLE S1), \ref{ucin3} (see Supplementary TABLE S2), and  \ref{tab:performance_comparison2} (current Table 7), respectively, and updated the corresponding experimental description to report Accuracy, AUC and F1-score together. The specific modifications are as follows: \\
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets'', Page 13,  Line 3 below Figure 3:\\
+\par
+{\color{black} $\longrightarrow$  Original  text: ``Table \ref{uci1} and \ref{uci2} demonstrate that DBUPLDM has the best overall performance on all 17 datasets. DBUPLDM consistently maintains the highest average accuracy across all datasets regardless of the adjustment parameter $\eta$. Specifically, the accuracy of DBUPLDM tends to increase and then decrease as $\eta$ decreases, with the best performance found at $\eta = 0.125$. Compared to SVM and some improved versions of SVM (i.e., PinSVM and UPSVM), LDM's accuracy is higher because it takes into account the marginal distribution theory and adds a second-order statistic to the model. However, due to its use of hinge loss function, LDM is not suitable for imbalanced classification tasks, resulting in lower accuracy than that of DBUPLDM. Interestingly, algorithms with pinball loss functions (PinSVM, UPSVM, and DBUPLDM) exhibit better performance when $\tau$ takes negative values."}\\
+\par
+
+
+{\color{orange}$\longrightarrow$Revised text: `` Tables \ref{table1} and \ref{table2} demonstrate that DBUPLDM achieves the best overall performance in terms of Accuracy, AUC, and F1-score across all 17 datasets. Regardless of the adjustment of parameter \(\eta\), DBUPLDM consistently maintains the highest average levels in these three metrics. Specifically, as \(\eta\) decreases, the Accuracy, AUC, and F1-score of DBUPLDM tend to first increase and then decrease, with the optimal performance observed at \(\eta = 0.125\). Compared with SVM and some of its improved versions (i.e., PinSVM and UPSVM), LDM has a higher accuracy because it takes into account the marginal distribution theory and adds a second-order statistic to the model. However, due to its use of the hinge loss function, LDM is not suitable for imbalanced classification tasks, resulting in its Accuracy, AUC, and F1-score being lower than those of DBUPLDM. Interestingly, algorithms with pinball loss functions (PinSVM, UPSVM, and DBUPLDM) perform better in terms of Accuracy, AUC, and F1-score when \(\tau\) takes negative values."}\\
+
+
+\begin{table*}
+\footnotesize
+  \centering
+  \caption{Comparison of the accuracy of the SVM, PinSVM, UPSVM, LDM, and DBUPLDM on the UCI datasets}  \label{tabel1}
+     \setlength{\tabcolsep}{2mm}{
+    \resizebox{\textwidth}{!}{
+            \begin{tabular}{ccccccccccccccc}
+    \toprule
+    \multicolumn{2}{c}{\multirow{2}[4]{*}{Dataset}} & \multicolumn{2}{c}{SVM} & \multicolumn{2}{c}{LDM} & \multicolumn{3}{c}{PinSVM} & \multicolumn{3}{c}{UPSVM} & \multicolumn{3}{c}{\textbf{DBUPLDM}} \\
+\cmidrule{3-15}    \multicolumn{2}{c}{} & Accuracy & C     & Accuracy & C     & Accuracy & C     & $\tau$   & Accuracy & C     & $\tau$   & Accuracy & C     & $\tau$ \\
+    \midrule
+    \multirow{18}[4]{*}{$\eta$ = 1} & Monk1 & 64.35  & 0.06  & 67.59  & 0.06  & 65.28  & 0.03  & 0.20  & 66.44  & 4.00  & -0.40  & \textbf{68.29 } & 1.00  & 0.70  \\
+          & Monk2 & 67.13  & 0.02  & 67.13/ & 0.02  & 67.13  & 0.02  & -0.90  & 67.13  & 0.02  & -0.40  & \textbf{67.82 } & 0.50  & 0.50  \\
+          & Monk3 & 81.02  & 0.06  & 84.03  & 0.13  & 84.26  & 0.02  & 1.00  & 86.34  & 0.25  & -0.40  & \textbf{88.89 } & 0.50  & -0.30  \\
+          & Pima-Indian & 76.42  & 0.02  & 77.36  & 0.02  & 77.36  & 1.00  & -1.00  & 76.42  & 0.02  & -0.30  & 78.30  & 2.00  & 0.50  \\
+          & WDBC  & 86.67  & 0.06  & 85.00  & 0.06  & 86.67  & 0.06  & 0.00  & 86.67  & 0.06  & 0.00  & \textbf{87.50 } & 0.06  & 0.20  \\
+          & Echo  & \textbf{94.04 } & 2.00  & 93.38  & 8.00  & \textbf{94.04 } & 2.00  & 0.00  & \textbf{94.04 } & 2.00  & 0.00  & 92.05  & 0.02  & -0.90  \\
+          & Ionosphere & 67.09  & 0.02  & \textbf{79.91 } & 2.00  & 71.15  & 0.03  & -1.00  & 71.15  & 8.00  & -0.70  & 79.06  & 8.00  & -0.30  \\
+          & Heberman & 79.29  & 0.02  & \textbf{98.82 } & 0.06  & 95.86  & 0.02  & 0.10  & 95.86  & 0.02  & 0.10  & \textbf{98.82 } & 0.50  & -0.20  \\
+          & Statlog & 70.59  & 0.02  & 88.24  & 0.03  & 70.59  & 0.02  & 0.00  & 90.20  & 0.25  & -0.20  & \textbf{92.16 } & 0.25  & -0.50  \\
+          & Germans & 32.80  & 0.02  & 68.00  & 0.02  & 67.20  & 0.25  & -1.00  & 67.20  & 8.00  & -0.80  & \textbf{76.20 } & 2.00  & -0.10  \\
+          & Australian & 84.48  & 0.03  & 86.55  & 0.03  & 84.48  & 0.03  & 0.00  & \textbf{87.24 } & 0.03  & -0.30  & \textbf{87.24 } & 0.03  & -0.90  \\
+          & Votes & 85.11  & 0.02  & 95.74  & 1.00  & 94.04  & 0.02  & -0.90  & 91.49  & 0.02  & -0.10  & 95.32  & 0.50  & 0.00  \\
+          & Diabetes & 67.91  & 0.02  & 81.72  & 1.00  & 67.91  & 0.02  & 0.00  & 72.76  & 8.00  & -0.80  & 81.72  & 2.00  & -0.50  \\
+          & Fertility & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & -1.00  \\
+          & Sonar & 69.44  & 0.13  & 74.07  & 0.06  & 72.22  & 0.02  & -1.00  & 74.07  & 0.03  & -0.30  & \textbf{76.85 } & 0.50  & 0.40  \\
+          & Ecoil & 86.61  & 0.25  & \textbf{94.49 } & 0.13  & \textbf{94.49 } & 0.06  & 0.90  & \textbf{94.49 } & 0.25  & -0.10  & \textbf{94.49 } & 0.02  & -1.00  \\
+          & Plrx  & 67.07  & 0.02  & 67.07  & 0.02  & 67.07  & 0.02  & 0.00  & 67.07  & 0.02  & -1.00  & \textbf{70.73 } & 2.00  & 0.40  \\
+\cmidrule{2-15}          & \textbf{Ave. } & 74.94  &       & 83.50  &       & 79.63  &       &       & 81.33  &       &       & \textbf{84.08 } &       &  \\
+    \midrule
+    \multirow{18}[4]{*}{$\eta$ = 0.5} & Monk1 & 62.73  & 0.13  & 67.59  & 0.06  & 65.28  & 0.03  & 0.20  & 66.44  & 4.00  & -0.40  & \textbf{68.29 } & 1.00  & 0.70  \\
+          & Monk2 & 67.13  & 0.02  & 67.13  & 0.02  & 67.13  & 0.02  & -0.90  & 67.13  & 0.02  & -0.40  & \textbf{67.59 } & 0.50  & 0.90  \\
+          & Monk3 & 81.02  & 0.06  & 84.03  & 0.13  & 84.26  & 0.02  & 1.00  & 86.34  & 0.25  & -0.40  & \textbf{88.89 } & 0.50  & -0.30  \\
+          & Pima-Indian & 76.42  & 0.02  & 77.36  & 0.02  & 78.30  & 0.25  & -1.00  & 76.42  & 0.02  & -0.30  & \textbf{79.25 } & 4.00  & 0.30  \\
+          & WDBC  & 86.67  & 0.06  & 85.00  & 0.06  & 86.67  & 0.06  & 0.00  & 86.67  & 0.06  & 0.00  & \textbf{87.50 } & 0.06  & 0.20  \\
+          & Echo  & \textbf{94.04 } & 2.00  & 93.38  & 8.00  & \textbf{94.04 } & 2.00  & 0.00  & \textbf{94.04 } & 2.00  & 0.00  & 92.72  & 2.00  & 1.00  \\
+          & Ionosphere & 67.09  & 0.02  & \textbf{79.91 } & 2.00  & 67.95  & 0.06  & -1.00  & 71.15  & 8.00  & -0.70  & 78.42  & 8.00  & 0.20  \\
+          & Heberman & 79.29  & 0.02  & \textbf{98.82 } & 0.06  & 95.86  & 0.02  & 0.10  & 95.86  & 0.02  & 0.10  & \textbf{98.82 } & 0.50  & -0.20  \\
+          & Statlog & 70.59  & 0.02  & 88.24  & 0.03  & 76.47  & 4.00  & -1.00  & 90.20  & 0.25  & -0.20  & \textbf{92.16 } & 0.13  & -0.50  \\
+          & Germans & 32.80  & 0.02  & 68.00  & 0.02  & 67.20  & 0.06  & -1.00  & 67.20  & 2.00  & -0.80  & \textbf{77.40 } & 8.00  & -0.60  \\
+          & Australian & 84.48  & 0.03  & 86.55  & 0.03  & 84.48  & 0.03  & 0.00  & \textbf{87.24 } & 0.03  & -0.30  & \textbf{87.24 } & 0.03  & -0.90  \\
+          & Votes & 85.11  & 0.02  & \textbf{95.74 } & 1.00  & 94.04  & 0.02  & -0.90  & 91.49  & 0.02  & -0.10  & 94.89  & 0.25  & -0.50  \\
+          & Diabetes & 67.91  & 0.02  & 81.72  & 1.00  & 72.76  & 0.25  & -1.00  & 72.76  & 8.00  & -0.80  & 81.72  & 0.25  & -0.60  \\
+          & Fertility & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & -1.00  \\
+          & Sonar & 69.44  & 0.13  & 74.07  & 0.06  & 71.30  & 0.06  & 0.10  & 74.07  & 0.03  & -0.30  & \textbf{76.85 } & 0.50  & 0.40  \\
+          & Ecoil & 86.61  & 0.25  & \textbf{94.49 } & 0.13  & \textbf{94.49 } & 0.06  & 0.90  & \textbf{94.49 } & 0.25  & -0.10  & \textbf{94.49 } & 0.02  & -1.00  \\
+          & Plrx  & 67.07  & 0.02  & 67.07  & 0.02  & \textbf{68.29 } & 0.02  & -1.00  & 67.07  & 0.02  & -1.00  & \textbf{68.29 } & 8.00  & -0.20  \\
+\cmidrule{2-15}          & \textbf{Ave. } & 74.85  &       & 82.54  &       & 80.15  &       &       & 81.33  &       &       & \textbf{84.03 } &       &  \\
+    \midrule
+    \multirow{18}[3]{*}{$\eta$ = 0.25} & Monk1 & 62.73  & 0.13  & 67.59  & 0.06  & 65.28  & 0.03  & 0.20  & 66.44  & 4.00  & -0.40  & \textbf{68.29 } & 1.00  & 0.70  \\
+          & Monk2 & 67.13  & 0.02  & 67.13  & 0.02  & 67.13  & 0.02  & -0.90  & 67.13  & 0.02  & -0.40  & \textbf{68.29 } & 1.00  & 0.10  \\
+          & Monk3 & 81.02  & 0.06  & 84.03  & 0.13  & 84.26  & 0.02  & 1.00  & 86.34  & 0.25  & -0.40  & \textbf{88.89 } & 0.50  & -0.30  \\
+          & Pima-Indian & 76.42  & 0.02  & 77.36  & 0.02  & 78.30  & 0.25  & -1.00  & 76.42  & 0.02  & -0.30  & \textbf{79.25 } & 8.00  & 0.10  \\
+          & WDBC  & 86.67  & 0.06  & 85.00  & 0.06  & 86.67  & 0.06  & 0.00  & 86.67  & 0.06  & 0.00  & \textbf{87.50 } & 0.06  & 0.20  \\
+          & Echo  & \textbf{94.04 } & 2.00  & 93.38  & 8.00  & \textbf{94.04 } & 2.00  & 0.00  & \textbf{94.04 } & 2.00  & 0.00  & 92.72  & 8.00  & -0.30  \\
+          & Ionosphere & 67.09  & 0.02  & \textbf{79.91 } & 2.00  & 67.95  & 0.06  & -1.00  & 71.15  & 8.00  & -0.70  & 79.06  & 2.00  & 0.40  \\
+          & Heberman & 79.29  & 0.02  & \textbf{98.82 } & 0.06  & 95.86  & 0.02  & 0.10  & 95.86  & 0.02  & 0.10  & \textbf{98.82 } & 0.50  & -0.20  \\
+          & Statlog & 70.59  & 0.02  & 88.24  & 0.03  & 76.47  & 4.00  & -1.00  & 90.20  & 0.25  & -0.20  & \textbf{92.16 } & 0.25  & -0.50  \\
+          & Germans & 32.80  & 0.02  & 68.00  & 0.02  & 67.20  & 0.06  & -1.00  & 67.20  & 2.00  & -0.80  & \textbf{76.80 } & 4.00  & 0.40  \\
+          & Australian & 84.48  & 0.03  & 86.55  & 0.03  & 84.48  & 0.03  & 0.00  & \textbf{87.24 } & 0.03  & -0.30  & \textbf{87.24 } & 0.03  & -0.90  \\
+          & Votes & 85.11  & 0.02  & 95.74  & 1.00  & 94.04  & 0.02  & -0.90  & 91.49  & 0.02  & -0.10  & \textbf{96.17 } & 1.00  & 0.70  \\
+          & Diabetes & 67.91  & 0.02  & 81.72  & 1.00  & 72.76  & 0.25  & -1.00  & 72.76  & 8.00  & -0.80  & 82.09  & 0.25  & -0.60  \\
+          & Fertility & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & -1.00  \\
+          & Sonar & 69.44  & 0.13  & 74.07  & 0.06  & 71.30  & 0.06  & 0.10  & 74.07  & 0.03  & -0.30  & \textbf{76.85 } & 0.50  & 0.40  \\
+          & Ecoil & 86.61  & 0.25  & \textbf{94.49 } & 0.13  & \textbf{94.49 } & 0.06  & 0.90  & \textbf{94.49 } & 0.25  & -0.10  & \textbf{94.49 } & 0.02  & -1.00  \\
+          & Plrx  & 67.07  & 0.02  & 67.07  & 0.02  & 68.29  & 0.02  & -1.00  & 67.07  & 0.02  & -1.00  & \textbf{69.51 } & 8.00  & -0.10  \\
+          
+\cmidrule{2-15}          & \textbf{Ave. } & 74.85  &       & 82.54  &       & 80.15  &       &       & 81.33  &       &       & \textbf{84.24 } &       &  \\
+\midrule
+    \end{tabular}}}
+    \label{uci1}
+\end{table*}
+
+\begin{table*}
+\footnotesize
+  \centering 
+\caption{\color{orange}Comparison of Accuracy, AUC, and F1-score of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on the UCI datasets}
+\label{tabel1}
+     \setlength{\tabcolsep}{1.5mm}{ % 微调列间距
+    \resizebox{\textwidth}{!}{
+            \begin{tabular}{cc cccc cccc ccccc ccccc ccccc}
+    \toprule
+    \multirow{2}{*}{$\eta$} & \multirow{2}{*}{Dataset} & \multicolumn{4}{c}{SVM} & \multicolumn{4}{c}{LDM} & \multicolumn{5}{c}{PinSVM} & \multicolumn{5}{c}{UPSVM} & \multicolumn{5}{c}{\textbf{DBUPLDM}} \\
+\cmidrule{3-25}    & & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ \\
+    \midrule
+    
+\multirow{18}[4]{*}{$\eta$ = 1} & Monk1 & 64.35  & {\color{orange}62.54} & {\color{orange}0.65} & 0.06  & 67.59  & {\color{orange}68.22} & {\color{orange}0.70} & 0.06  & 65.28  & {\color{orange}65.15} & {\color{orange}0.68} & 0.03  & 0.20  & 66.44  & {\color{orange}66.30} & {\color{orange}0.69} & 4.00  & -0.40  & \textbf{68.29 } & \textbf{{\color{orange}72.55}} & \textbf{{\color{orange}0.75}} & 1.00  & 0.70  \\
+          & Monk2 & 67.13  & {\color{orange}65.42} & {\color{orange}0.68} & 0.02  & 67.13  & {\color{orange}65.38} & {\color{orange}0.68} & 0.02  & 67.13  & {\color{orange}65.26} & {\color{orange}0.68} & 0.02  & -0.90  & 67.13  & {\color{orange}65.32} & {\color{orange}0.68} & 0.02  & -0.40  & \textbf{67.82 } & \textbf{{\color{orange}67.63}} & \textbf{{\color{orange}0.70}} & 0.50  & 0.50  \\
+          & Monk3 & 81.02  & {\color{orange}79.18} & {\color{orange}0.81} & 0.06  & 84.03  & {\color{orange}83.45} & {\color{orange}0.85} & 0.13  & 84.26  & {\color{orange}83.32} & {\color{orange}0.85} & 0.02  & 1.00  & 86.34  & {\color{orange}85.67} & {\color{orange}0.87} & 0.25  & -0.40  & \textbf{88.89 } & \textbf{{\color{orange}89.21}} & \textbf{{\color{orange}0.91}} & 0.50  & -0.30  \\
+          & Pima-Indian & 76.42  & {\color{orange}71.27} & {\color{orange}0.74} & 0.02  & 77.36  & {\color{orange}72.41} & {\color{orange}0.75} & 0.02  & 77.36  & {\color{orange}73.19} & {\color{orange}0.76} & 1.00  & -1.00  & 76.42  & {\color{orange}71.35} & {\color{orange}0.74} & 0.02  & -0.30  & \textbf{78.30}  & \textbf{{\color{orange}75.83}} & \textbf{{\color{orange}0.78}} & 2.00  & 0.50  \\
+          & WDBC  & 86.67  & {\color{orange}85.23} & {\color{orange}0.87} & 0.06  & 85.00  & {\color{orange}84.17} & {\color{orange}0.86} & 0.06  & 86.67  & {\color{orange}85.31} & {\color{orange}0.87} & 0.06  & 0.00  & 86.67  & {\color{orange}85.29} & {\color{orange}0.87} & 0.06  & 0.00  & \textbf{87.50 } & \textbf{{\color{orange}87.66}} & \textbf{{\color{orange}0.89}} & 0.06  & 0.20  \\
+          & Echo  & \textbf{94.04 } & \textbf{{\color{orange}92.45}} & \textbf{{\color{orange}0.93}} & 2.00  & 93.38  & {\color{orange}91.62} & {\color{orange}0.92} & 8.00  & \textbf{94.04 } & {\color{orange}92.38} & \textbf{{\color{orange}0.93}} & 2.00  & 0.00  & \textbf{94.04 } & {\color{orange}92.42} & {\color{orange}0.93} & 2.00  & 0.00  & 92.05  & {\color{orange}90.58} & {\color{orange}0.91} & 0.02  & -0.90  \\
+          & Ionosphere & 67.09  & {\color{orange}65.78} & {\color{orange}0.68} & 0.02  & \textbf{79.91 } & \textbf{{\color{orange}78.55}} & \textbf{{\color{orange}0.80}} & 2.00  & 71.15  & {\color{orange}66.42} & {\color{orange}0.69} & 0.03  & -1.00  & 71.15  & {\color{orange}70.63} & {\color{orange}0.73} & 8.00  & -0.70  & 79.06  & {\color{orange}75.92} & {\color{orange}0.78} & 8.00  & -0.30  \\
+          & Heberman & 79.29  & {\color{orange}78.63} & {\color{orange}0.80} & 0.02  & \textbf{98.82 } & {\color{orange}98.37} & {\color{orange}0.89} & 0.06  & 95.86  & {\color{orange}95.24} & {\color{orange}0.86} & 0.02  & 0.10  & 95.86  & {\color{orange}95.31} & {\color{orange}0.81} & 0.02  & 0.10  & \textbf{98.82 } & \textbf{{\color{orange}98.55} } & \textbf{{\color{orange}0.91}} & 0.50  & -0.20  \\
+          & Statlog & 70.59  & {\color{orange}70.32} & {\color{orange}0.73} & 0.02  & 88.24  & {\color{orange}87.51} & {\color{orange}0.88} & 0.03  & 70.59  & {\color{orange}70.28} & {\color{orange}0.73} & 0.02  & 0.00  & 90.20  & {\color{orange}89.46} & {\color{orange}0.91} & 0.25  & -0.20  & \textbf{92.16 } & \textbf{{\color{orange}91.74}} & \textbf{{\color{orange}0.93}} & 0.25  & -0.50  \\
+          & Germans & 32.80  & {\color{orange}30.55} & {\color{orange}0.33} & 0.02  & 68.00  & {\color{orange}67.36} & {\color{orange}0.69} & 0.02  & 67.20  & {\color{orange}65.82} & {\color{orange}0.67} & 0.25  & -1.00  & 67.20  & {\color{orange}65.74} & {\color{orange}0.67} & 8.00  & -0.80  & \textbf{76.20 } & \textbf{{\color{orange}75.69}} & \textbf{{\color{orange}0.77}} & 2.00  & -0.10  \\
+          & Australian & 84.48  & {\color{orange}83.76} & {\color{orange}0.85} & 0.03  & 86.55  & {\color{orange}85.42} & {\color{orange}0.87} & 0.03  & 84.48  & {\color{orange}83.61} & {\color{orange}0.85} & 0.03  & 0.00  & \textbf{87.24 } & {\color{orange}86.58} & {\color{orange}0.88} & 0.03  & -0.30  & \textbf{87.24 } & \textbf{{\color{orange}87.82}} & \textbf{{\color{orange}0.89}} & 0.03  & -0.90  \\
+          & Votes & 85.11  & {\color{orange}84.63} & {\color{orange}0.86} & 0.02  & \textbf{95.74}  & {\color{orange}95.28} & {\color{orange}0.96} & 1.00  & 94.04  & {\color{orange}94.15} & {\color{orange}0.95} & 0.02  & -0.90  & 91.49  & {\color{orange}91.37} & {\color{orange}0.93} & 0.02  & -0.10  & 95.32  & \textbf{{\color{orange}95.76}} & \textbf{{\color{orange}0.97}} & 0.50  & 0.00  \\
+          & Diabetes & 67.91  & {\color{orange}66.41} & {\color{orange}0.69} & 0.02  & 81.72  & {\color{orange}80.57} & \textbf{{\color{orange}0.82}} & 1.00  & 67.91  & {\color{orange}66.38} & {\color{orange}0.69} & 0.02  & 0.00  & 72.76  & {\color{orange}71.45} & {\color{orange}0.73} & 8.00  & -0.80  & \textbf{81.72}  & \textbf{{\color{orange}80.83}} & \textbf{{\color{orange}0.82}} & 2.00  & -0.50  \\
+          & Fertility & \textbf{94.00 } & {\color{orange}93.27} & {\color{orange}0.94} & 0.02  & \textbf{94.00 } & {\color{orange}93.31} & {\color{orange}0.94} & 0.02  & \textbf{94.00 } & {\color{orange}93.25} & {\color{orange}0.94} & 0.02  & 0.00  & \textbf{94.00 } & {\color{orange}93.30} & {\color{orange}0.94} & 0.02  & 0.00  & \textbf{94.00 } & \textbf{{\color{orange}94.66}} & \textbf{{\color{orange}0.95}} & 0.02  & -1.00  \\
+          & Sonar & 69.44  & {\color{orange}68.55} & {\color{orange}0.71} & 0.13  & 74.07  & {\color{orange}73.62} & {\color{orange}0.76} & 0.06  & 72.22  & {\color{orange}70.89} & {\color{orange}0.73} & 0.02  & -1.00  & 74.07  & {\color{orange}73.58} & {\color{orange}0.76} & 0.03  & -0.30  & \textbf{76.85 } & \textbf{{\color{orange}75.74}} & \textbf{{\color{orange}0.78}} & 0.50  & 0.40  \\
+          & Ecoil & 86.61  & {\color{orange}85.38} & {\color{orange}0.87} & 0.25  & \textbf{94.49 } & {\color{orange}94.23} & {\color{orange}0.87} & 0.13  & \textbf{94.49 } & {\color{orange}94.18} & {\color{orange}0.85} & 0.06  & 0.90  & \textbf{94.49 } & {\color{orange}94.21} & {\color{orange}0.86} & 0.25  & -0.10  & \textbf{94.49 } & \textbf{{\color{orange}94.77}} & \textbf{{\color{orange}0.91}} & 0.02  & -1.00  \\
+          & Plrx  & 67.07  & {\color{orange}66.42} & {\color{orange}0.69} & 0.02  & 67.07  & {\color{orange}66.35} & {\color{orange}0.69} & 0.02  & 67.07  & {\color{orange}66.28} & {\color{orange}0.69} & 0.02  & 0.00  & 67.07  & {\color{orange}66.32} & {\color{orange}0.69} & 0.02  & -1.00  & \textbf{70.73 } & \textbf{{\color{orange}70.59}} & \textbf{{\color{orange}0.73}} & 2.00  & 0.40  \\
+\cmidrule{2-25}          & \textbf{Ave. } & 74.94  & {\color{orange}70.42} & {\color{orange}0.73} &       & 82.50  & {\color{orange}76.38} & {\color{orange}0.79} &       & 79.63  & {\color{orange}74.26} & {\color{orange}0.77} &       &       & 81.33  & {\color{orange}75.41} & {\color{orange}0.78} &       &       & \textbf{84.08 } & \textbf{{\color{orange}80.68}} & \textbf{{\color{orange}0.83}} &       & \\
+    \midrule
+    \multirow{18}[4]{*}{$\eta$ = 0.5} & Monk1 & 62.73  & {\color{orange}62.35} & {\color{orange}0.65} & 0.13  & 67.59  & {\color{orange}68.22} & {\color{orange}0.70} & 0.06  & 65.28  & {\color{orange}65.15} & {\color{orange}0.68} & 0.03  & 0.20  & 66.44  & {\color{orange}66.30} & {\color{orange}0.69} & 4.00  & -0.40  & \textbf{68.29 } & \textbf{{\color{orange}72.55}}
+     & \textbf{{\color{orange}0.75}} & 1.00  & 0.70  \\
+          & Monk2 & 67.13  & {\color{orange}65.42} & \textbf{{\color{orange}0.68}} & 0.02  & 67.13  & {\color{orange}65.38} & \textbf{{\color{orange}0.68}} & 0.02  & 67.13  & {\color{orange}65.26} & \textbf{{\color{orange}0.68}} & 0.02  & -0.90  & 67.13  & {\color{orange}65.32} & \textbf{{\color{orange}0.68}} & 0.02  & -0.40  & \textbf{67.59 } & \textbf{{\color{orange}67.92}} & {\color{orange}0.67} & 0.50  & 0.90  \\
+          & Monk3 & 81.02  & {\color{orange}79.18} & {\color{orange}0.81} & 0.06  & 84.03  & {\color{orange}83.45} & {\color{orange}0.85} & 0.13  & 84.26  & {\color{orange}83.32} & {\color{orange}0.85} & 0.02  & 1.00  & 86.34  & {\color{orange}85.67} & {\color{orange}0.87} & 0.25  & -0.40  & \textbf{88.89 } & \textbf{{\color{orange}89.21}} & \textbf{{\color{orange}0.91}} & 0.50  & -0.30  \\
+          & Pima-Indian & 76.42  & {\color{orange}71.27} & {\color{orange}0.74} & 0.02  & 77.36  & {\color{orange}72.41} & {\color{orange}0.75} & 0.02  & 78.30  & {\color{orange}73.19} & {\color{orange}0.76} & 0.25  & -1.00  & 76.42  & {\color{orange}71.35} & {\color{orange}0.74} & 0.02  & -0.30  & \textbf{79.25 } & \textbf{{\color{orange}76.75}} & \textbf{{\color{orange}0.79}} & 4.00  & 0.30  \\
+          & WDBC  & 86.67  & {\color{orange}85.23} & {\color{orange}0.87} & 0.06  & 85.00  & {\color{orange}84.17} & {\color{orange}0.86} & 0.06  & 86.67  & {\color{orange}85.31} & {\color{orange}0.87} & 0.06  & 0.00  & 86.67  & {\color{orange}85.29} & {\color{orange}0.87} & 0.06  & 0.00  & \textbf{87.50 } & \textbf{{\color{orange}87.66}} & \textbf{{\color{orange}0.89}} & 0.06  & 0.20  \\
+          & Echo  & \textbf{94.04 } & \textbf{{\color{orange}92.45}} & \textbf{{\color{orange}0.93}} & 2.00  & 93.38  & {\color{orange}91.62} & {\color{orange}0.92} & 8.00  & \textbf{94.04 } & {\color{orange}92.38} & \textbf{{\color{orange}0.93}} & 2.00  & 0.00  & \textbf{94.04 } & {\color{orange}92.42} & \textbf{{\color{orange}0.93}} & 2.00  & 0.00  & 92.72  & {\color{orange}90.87} & {\color{orange}0.91} & 2.00  & 1.00  \\
+          & Ionosphere & 67.09  & {\color{orange}65.78} & {\color{orange}0.68} & 0.02  & \textbf{79.91 } & \textbf{{\color{orange}78.55}} & \textbf{{\color{orange}0.80}} & 2.00  & 67.95  & {\color{orange}66.42} & {\color{orange}0.69} & 0.06  & -1.00  & 71.15  & {\color{orange}70.63} & {\color{orange}0.73} & 8.00  & -0.70  & 78.42  & {\color{orange}75.63} & {\color{orange}0.78} & 8.00  & 0.20  \\
+          & Heberman & 79.29  & {\color{orange}78.63} & {\color{orange}0.80} & 0.02  & \textbf{98.82 } & {\color{orange}91.37} & {\color{orange}0.89} & 0.06  & 95.86  & {\color{orange}95.24} & {\color{orange}0.86} & 0.02  & 0.10  & 95.86  & {\color{orange}90.31} & {\color{orange}0.85} & 0.02  & 0.10  & \textbf{98.82 } & \textbf{{\color{orange}91.55}} & \textbf{{\color{orange}0.92}} & 0.50  & -0.20  \\
+          & Statlog & 70.59  & {\color{orange}70.32} & {\color{orange}0.73} & 0.02  & 88.24  & {\color{orange}87.51} & {\color{orange}0.88} & 0.03  & 76.47  & {\color{orange}75.28} & {\color{orange}0.78} & 4.00  & -1.00  & 90.20  & {\color{orange}89.46} & {\color{orange}0.91} & 0.25  & -0.20  & \textbf{92.16 } & \textbf{{\color{orange}91.74}} & \textbf{{\color{orange}0.93}} & 0.13  & -0.50  \\
+          & Germans & 32.80  & {\color{orange}30.55} & {\color{orange}0.33} & 0.02  & 68.00  & {\color{orange}67.36} & {\color{orange}0.69} & 0.02  & 67.20  & {\color{orange}65.82} & {\color{orange}0.67} & 0.06  & -1.00  & 67.20  & {\color{orange}65.74} & {\color{orange}0.67} & 2.00  & -0.80  & \textbf{77.40 } & \textbf{{\color{orange}75.92}} & \textbf{{\color{orange}0.77}} & 8.00  & -0.60  \\
+          & Australian & 84.48  & {\color{orange}83.76} & {\color{orange}0.85} & 0.03  & 86.55  & {\color{orange}85.42} & {\color{orange}0.87} & 0.03  & 84.48  & {\color{orange}83.61} & {\color{orange}0.85} & 0.03  & 0.00  & \textbf{87.24 } & {\color{orange}86.58} & {\color{orange}0.88} & 0.03  & -0.30  & \textbf{87.24 } & \textbf{{\color{orange}87.82}} & \textbf{{\color{orange}0.89}} & 0.03  & -0.90  \\
+          & Votes & 85.11  & {\color{orange}84.63} & {\color{orange}0.86} & 0.02  & \textbf{95.74 } & {\color{orange}95.28} & {\color{orange}0.87} & 1.00  & 94.04  & {\color{orange}94.15} & {\color{orange}0.83} & 0.02  & -0.90  & 91.49  & {\color{orange}91.37} & {\color{orange}0.89} & 0.02  & -0.10  & 94.89  & \textbf{{\color{orange}95.42}} & \textbf{{\color{orange}0.90}} & 0.25  & -0.50  \\
+          & Diabetes & 67.91  & {\color{orange}66.41} & {\color{orange}0.69} & 0.02  & \textbf{81.72}  & {\color{orange}80.57} & {\color{orange}0.82} & 1.00  & 72.76  & {\color{orange}71.45} & {\color{orange}0.73} & 0.25  & -1.00  & 72.76  & {\color{orange}71.45} & {\color{orange}0.73} & 8.00  & -0.80  & \textbf{81.72}  & \textbf{{\color{orange}80.95}} & \textbf{{\color{orange}0.82}} & 0.25  & -0.60  \\
+          & Fertility & \textbf{94.00 } & {\color{orange}93.27} & {\color{orange}0.94} & 0.02  & \textbf{94.00 } & {\color{orange}93.31} & {\color{orange}0.94} & 0.02  & \textbf{94.00 } & {\color{orange}93.25} & {\color{orange}0.94} & 0.02  & 0.00  & \textbf{94.00 } & {\color{orange}93.30} & {\color{orange}0.94} & 0.02  & 0.00  & \textbf{94.00 } & \textbf{{\color{orange}94.82}} & \textbf{{\color{orange}0.95}} & 0.02  & -1.00  \\
+          & Sonar & 69.44  & {\color{orange}68.55} & {\color{orange}0.71} & 0.13  & 74.07  & {\color{orange}73.62} & {\color{orange}0.76} & 0.06  & 71.30  & {\color{orange}70.67} & {\color{orange}0.73} & 0.06  & 0.10  & 74.07  & {\color{orange}73.58} & {\color{orange}0.76} & 0.03  & -0.30  & \textbf{76.85 } & \textbf{{\color{orange}75.91}} & \textbf{{\color{orange}0.78}} & 0.50  & 0.40  \\
+          & Ecoil & 86.61  & {\color{orange}85.38} & {\color{orange}0.87} & 0.25  & \textbf{94.49 } & {\color{orange}94.23} & {\color{orange}0.85} & 0.13  & \textbf{94.49 } & {\color{orange}94.18} & {\color{orange}0.81} & 0.06  & 0.90  & \textbf{94.49 } & {\color{orange}94.21} & {\color{orange}0.80} & 0.25  & -0.10  & \textbf{94.49 } & \textbf{{\color{orange}94.93}} & \textbf{{\color{orange}0.88}} & 0.02  & -1.00  \\
+          & Plrx  & 67.07  & {\color{orange}66.42} & {\color{orange}0.69} & 0.02  & 67.07  & {\color{orange}66.35} & {\color{orange}0.69} & 0.02  & \textbf{68.29 } & {\color{orange}67.55} & {\color{orange}0.69} & 0.02  & -1.00  & 67.07  & {\color{orange}66.32} & {\color{orange}0.69} & 0.02  & -1.00  & \textbf{68.29 } & \textbf{{\color{orange}69.78}} & \textbf{{\color{orange}0.73}} & 8.00  & -0.20  \\
+\cmidrule{2-25}          & \textbf{Ave. } & 74.85  & {\color{orange}71.36} & {\color{orange}0.74} &       & 82.50  & {\color{orange}77.25} & {\color{orange}0.80} &       & 82.54  & {\color{orange}75.42} & {\color{orange}0.78} &       &       & 80.15  & {\color{orange}76.38} & {\color{orange}0.79} &       &       & \textbf{84.03 } & \textbf{{\color{orange}81.55}} & \textbf{{\color{orange}0.84}} &       &  \\
+    \midrule
+    \multirow{18}[3]{*}{$\eta$ = 0.25} & Monk1 & 62.73  & {\color{orange}62.35} & {\color{orange}0.65} & 0.13  & 67.59  & {\color{orange}68.22} & {\color{orange}0.70} & 0.06  & 65.28  & {\color{orange}65.15} & {\color{orange}0.68} & 0.03  & 0.20  & 66.44  & {\color{orange}66.30} & {\color{orange}0.69} & 4.00  & -0.40  & \textbf{68.29 } & \textbf{{\color{orange}72.55}} & \textbf{{\color{orange}0.75}} & 1.00  & 0.70  \\
+          & Monk2 & 67.13  & {\color{orange}65.42} & {\color{orange}0.68} & 0.02  & 67.13  & {\color{orange}65.38} & {\color{orange}0.68} & 0.02  & 67.13  & {\color{orange}65.26} & {\color{orange}0.68} & 0.02  & -0.90  & 67.13  & {\color{orange}65.32} & {\color{orange}0.68} & 0.02  & -0.40  & \textbf{68.29 } & \textbf{{\color{orange}66.87}} & \textbf{{\color{orange}0.69}} & 1.00  & 0.10  \\
+          & Monk3 & 81.02  & {\color{orange}79.18} & {\color{orange}0.81} & 0.06  & 84.03  & {\color{orange}83.45} & {\color{orange}0.85} & 0.13  & 84.26  & {\color{orange}83.32} & {\color{orange}0.85} & 0.02  & 1.00  & 86.34  & {\color{orange}85.67} & {\color{orange}0.87} & 0.25  & -0.40  & \textbf{88.89 } & \textbf{{\color{orange}89.21}} & \textbf{{\color{orange}0.91}} & 0.50  & -0.30  \\
+          & Pima-Indian & 76.42  & {\color{orange}71.27} & {\color{orange}0.74} & 0.02  & 77.36  & {\color{orange}72.41} & {\color{orange}0.75} & 0.02  & 78.30  & {\color{orange}73.19} & {\color{orange}0.76} & 0.25  & -1.00  & 76.42  & {\color{orange}71.35} & {\color{orange}0.74} & 0.02  & -0.30  & \textbf{79.25 } & \textbf{{\color{orange}76.42}} & \textbf{{\color{orange}0.79}} & 8.00  & 0.10  \\
+          & WDBC  & 86.67  & {\color{orange}85.23} & {\color{orange}0.87} & 0.06  & 85.00  & {\color{orange}84.17} & {\color{orange}0.86} & 0.06  & 86.67  & {\color{orange}85.31} & {\color{orange}0.87} & 0.06  & 0.00  & 86.67  & {\color{orange}85.29} & {\color{orange}0.87} & 0.06  & 0.00  & \textbf{87.50 } & \textbf{{\color{orange}87.66}} & \textbf{{\color{orange}0.89}} & 0.06  & 0.20  \\
+          & Echo  & \textbf{94.04 } & \textbf{{\color{orange}92.45}} & \textbf{{\color{orange}0.89}} & 2.00  & 93.38  & {\color{orange}91.62} & {\color{orange}0.92} & 8.00  & \textbf{94.04 } & {\color{orange}92.38} & {\color{orange}0.83} & 2.00  & 0.00  & \textbf{94.04 } & {\color{orange}92.42} & {\color{orange}0.81} & 2.00  & 0.00  & 92.72  & {\color{orange}90.87} & {\color{orange}0.81} & 8.00  & -0.30  \\
+          & Ionosphere & 67.09  & {\color{orange}65.78} & {\color{orange}0.68} & 0.02  & \textbf{79.91 } & \textbf{{\color{orange}78.55}} & \textbf{{\color{orange}0.80}} & 2.00  & 67.95  & {\color{orange}66.42} & {\color{orange}0.69} & 0.06  & -1.00  & 71.15  & {\color{orange}70.63} & {\color{orange}0.73} & 8.00  & -0.70  & 79.06  & {\color{orange}75.63} & {\color{orange}0.78} & 2.00  & 0.40  \\
+          & Heberman & 79.29  & {\color{orange}78.63} & {\color{orange}0.80} & 0.02  & \textbf{98.82 } & {\color{orange}98.37} & {\color{orange}0.89} & 0.06  & 95.86  & {\color{orange}95.24} & {\color{orange}0.86} & 0.02  & 0.10  & 95.86  & {\color{orange}95.31} & {\color{orange}0.86} & 0.02  & 0.10  & \textbf{98.82 } & \textbf{{\color{orange}98.55}} & \textbf{{\color{orange}0.90}} & 0.50  & -0.20  \\
+          & Statlog & 70.59  & {\color{orange}70.32} & {\color{orange}0.73} & 0.02  & 88.24  & {\color{orange}87.51} & {\color{orange}0.88} & 0.03  & 76.47  & {\color{orange}75.28} & {\color{orange}0.78} & 4.00  & -1.00  & 90.20  & {\color{orange}89.46} & {\color{orange}0.91} & 0.25  & -0.20  & \textbf{92.16 } & \textbf{{\color{orange}91.74}} & \textbf{{\color{orange}0.93}} & 0.25  & -0.50  \\
+          & Germans & 32.80  & {\color{orange}30.55} & {\color{orange}0.33} & 0.02  & 68.00  & {\color{orange}67.36} & {\color{orange}0.69} & 0.02  & 67.20  & {\color{orange}65.82} & {\color{orange}0.67} & 0.06  & -1.00  & 67.20  & {\color{orange}65.74} & {\color{orange}0.67} & 2.00  & -0.80  & \textbf{76.80 } & \textbf{{\color{orange}75.92}} & \textbf{{\color{orange}0.77}} & 4.00  & 0.40  \\
+          & Australian & 84.48  & {\color{orange}83.76} & {\color{orange}0.85} & 0.03  & 86.55  & {\color{orange}85.42} & {\color{orange}0.87} & 0.03  & 84.48  & {\color{orange}83.61} & {\color{orange}0.85} & 0.03  & 0.00  & \textbf{87.24 } & {\color{orange}86.58} & {\color{orange}0.88} & 0.03  & -0.30  & \textbf{87.24 } & \textbf{{\color{orange}87.82}} & \textbf{{\color{orange}0.89}} & 0.03  & -0.90  \\
+          & Votes & 85.11  & {\color{orange}84.63} & {\color{orange}0.86} & 0.02  & 95.74  & {\color{orange}95.28} & {\color{orange}0.96} & 1.00  & 94.04  & {\color{orange}94.15} & {\color{orange}0.95} & 0.02  & -0.90  & 91.49  & {\color{orange}91.37} & {\color{orange}0.93} & 0.02  & -0.10  & \textbf{96.17 } & \textbf{{\color{orange}95.42}} & \textbf{{\color{orange}0.97}} & 1.00  & 0.70  \\
+          & Diabetes & 67.91  & {\color{orange}66.41} & {\color{orange}0.69} & 0.02  & 81.72  & {\color{orange}80.57} & {\color{orange}0.82} & 1.00  & 72.76  & {\color{orange}71.45} & {\color{orange}0.73} & 0.25  & -1.00  & 72.76  & {\color{orange}71.45} & {\color{orange}0.73} & 8.00  & -0.80  & \textbf{82.09}  & \textbf{{\color{orange}80.95}} & \textbf{{\color{orange}0.82}} & 0.25  & -0.60  \\
+          & Fertility & \textbf{94.00 } & {\color{orange}93.27} & {\color{orange}0.94} & 0.02  & \textbf{94.00 } & {\color{orange}93.31} & {\color{orange}0.94} & 0.02  & \textbf{94.00 } & {\color{orange}93.25} & {\color{orange}0.94} & 0.02  & 0.00  & \textbf{94.00 } & {\color{orange}93.30} & {\color{orange}0.94} & 0.02  & 0.00  & \textbf{94.00 } & \textbf{{\color{orange}94.82}} & \textbf{{\color{orange}0.95}} & 0.02  & -1.00  \\
+          & Sonar & 69.44  & {\color{orange}68.55} & {\color{orange}0.71} & 0.13  & 74.07  & {\color{orange}73.62} & {\color{orange}0.76} & 0.06  & 71.30  & {\color{orange}70.67} & {\color{orange}0.73} & 0.06  & 0.10  & 74.07  & {\color{orange}73.58} & {\color{orange}0.76} & 0.03  & -0.30  & \textbf{76.85 } & \textbf{{\color{orange}75.91}} & \textbf{{\color{orange}0.78}} & 0.50  & 0.40  \\
+          & Ecoil & 86.61  & {\color{orange}85.38} & {\color{orange}0.87} & 0.25  & \textbf{94.49 } & {\color{orange}94.23} & {\color{orange}0.95} & 0.13  & \textbf{94.49 } & {\color{orange}94.18} & {\color{orange}0.95} & 0.06  & 0.90  & \textbf{94.49 } & {\color{orange}94.21} & {\color{orange}0.95} & 0.25  & -0.10  & \textbf{94.49 } & \textbf{{\color{orange}94.93}} & \textbf{{\color{orange}0.96}} & 0.02  & -1.00  \\
+          & Plrx  & 67.07  & {\color{orange}66.42} & {\color{orange}0.69} & 0.02  & 67.07  & {\color{orange}66.35} & {\color{orange}0.69} & 0.02  & 68.29  & {\color{orange}67.55} & {\color{orange}0.69} & 0.02  & -1.00  & 67.07  & {\color{orange}66.32} & {\color{orange}0.69} & 0.02  & -1.00  & \textbf{69.51 } & \textbf{{\color{orange}69.78}} & \textbf{{\color{orange}0.73}} & 8.00  & -0.10  \\
+\cmidrule{2-25}          & \textbf{Ave. } & 74.85  & {\color{orange}71.36} & {\color{orange}0.74} &       & 82.54  & {\color{orange}77.63} & {\color{orange}0.80} &       & 80.15  & {\color{orange}75.87} & {\color{orange}0.78} &       &       & 81.33  & {\color{orange}76.82} & {\color{orange}0.79} &       &       & \textbf{84.24 } & \textbf{{\color{orange}81.83}} & \textbf{{\color{orange}0.84}} &       &  \\
+\midrule
+    \end{tabular}}}
+    \label{table1}
+\end{table*}
+
+\begin{table*}
+\footnotesize
+  \centering
+  \caption{Comparison of the accuracy of the SVM, PinSVM, UPSVM, LDM, and DBUPLDM on the UCI datasets}  \label{uci2}
+     \setlength{\tabcolsep}{2mm}{
+    \resizebox{\textwidth}{!}{
+            \begin{tabular}{ccccccccccccccc}
+    \toprule
+    \multicolumn{2}{c}{\multirow{2}[4]{*}{Dataset}} & \multicolumn{2}{c}{SVM} & \multicolumn{2}{c}{LDM} & \multicolumn{3}{c}{PinSVM} & \multicolumn{3}{c}{UPSVM} & \multicolumn{3}{c}{\textbf{DBUPLDM}} \\
+\cmidrule{3-15}    \multicolumn{2}{c}{} & Accuracy & C     & Accuracy & C     & Accuracy & C     & $\tau$   & Accuracy & C     & $\tau$   & Accuracy & C     & $\tau$ \\
+    \midrule
+    \multicolumn{1}{c}{\multirow{18}[4]{*}{$\eta$ = 0.125}} & \multicolumn{1}{c}{Monk1} & 62.73  & 0.13  & 67.59  & 0.06  & 65.28  & 0.03  & 0.20  & 66.44  & 4.00  & -0.40  & \textbf{68.29 } & 1.00  & 0.70  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Monk2} & 67.13  & 0.02  & 67.13  & 0.02  & 67.13  & 0.02  & -0.90  & 67.13  & 0.02  & -0.40  & \textbf{67.82 } & 8.00  & -0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Monk3} & 81.02  & 0.06  & 84.03  & 0.13  & 84.26  & 0.02  & 1.00  & 86.34  & 0.25  & -0.40  & \textbf{88.89 } & 0.50  & -0.30  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Pima-Indian} & 76.42  & 0.02  & 77.36  & 0.02  & 78.30  & 0.25  & -1.00  & 76.42  & 0.02  & -0.30  & \textbf{79.25 } & 8.00  & 0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{WDBC} & 86.67  & 0.06  & 85.00  & 0.06  & 86.67  & 0.06  & 0.00  & 86.67  & 0.06  & 0.00  & \textbf{87.50 } & 0.06  & 0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Echo} & \textbf{94.04 } & 2.00  & 93.38  & 8.00  & \textbf{94.04 } & 2.00  & 0.00  & \textbf{94.04 } & 2.00  & 0.00  & 92.72  & 4.00  & 0.70  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Ionosphere} & 67.09  & 0.02  & \textbf{79.91 } & 2.00  & 67.95  & 0.06  & -1.00  & 71.15  & 8.00  & -0.70  & 78.85  & 2.00  & 0.40  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Heberman} & 79.29  & 0.02  & \textbf{98.82 } & 0.06  & 95.86  & 0.02  & 0.10  & 95.86  & 0.02  & 0.10  & \textbf{98.82 } & 0.50  & -0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Statlog} & 70.59  & 0.02  & 88.24  & 0.03  & 76.47  & 4.00  & -1.00  & 90.20  & 0.25  & -0.20  & \textbf{92.16 } & 0.25  & -0.50  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Germans} & 32.80  & 0.02  & 68.00  & 0.02  & 67.20  & 0.06  & -1.00  & 67.20  & 2.00  & -0.80  & \textbf{76.40 } & 8.00  & -0.50  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Australian} & 84.48  & 0.03  & 86.55  & 0.03  & 84.48  & 0.03  & 0.00  & \textbf{87.24 } & 0.03  & -0.30  & \textbf{87.24 } & 0.03  & -0.90  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Votes} & 85.11  & 0.02  & \textbf{95.74 } & 1.00  & 94.04  & 0.02  & -0.90  & 91.49  & 0.02  & -0.10  & 95.32  & 8.00  & 0.30  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Diabetes} & 67.91  & 0.02  & 81.72  & 1.00  & 72.76  & 0.25  & -1.00  & 72.76  & 8.00  & -0.80  & \textbf{82.09 } & 0.25  & -0.60  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Fertility} & 94.00  & 0.02  & 94.00  & 0.02  & 94.00  & 0.02  & 0.00  & 94.00  & 0.02  & 0.00  & \textbf{96.00 } & 2.00  & 0.60  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Sonar} & 69.44  & 0.13  & 74.07  & 0.06  & 71.30  & 0.06  & 0.10  & 74.07  & 0.03  & -0.30  & \textbf{76.85 } & 0.50  & 0.40  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Ecoil} & 86.61  & 0.25  & \textbf{94.49 } & 0.13  & \textbf{94.49 } & 0.06  & 0.90  & \textbf{94.49 } & 0.25  & -0.10  & \textbf{94.49 } & 0.02  & -1.00  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Plrx} & 67.07  & 0.02  & 67.07  & 0.02  & 68.29  & 0.02  & -1.00  & 67.07  & 0.02  & -1.00  & \textbf{69.51 } & 8.00  & 0.00  \\
+\cmidrule{2-15}    \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textbf{Ave. }} & 74.85  &       & 82.54  &       & 80.15  &       &       & 81.33  &       &       & \textbf{84.25 } &       &  \\
+    \midrule
+    \multicolumn{1}{c}{\multirow{18}[4]{*}{$\eta$ = 0.0625}} & \multicolumn{1}{c}{Monk1} & 62.73  & 0.13  & 67.59  & 0.06  & 65.28  & 0.03  & 0.20  & 66.44  & 4.00  & -0.40  & \textbf{68.29 } & 1.00  & 0.70  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Monk2} & 67.13  & 0.02  & 67.13  & 0.02  & 67.13  & 0.02  & -0.90  & 67.13  & 0.02  & -0.40  & \textbf{67.59 } & 0.25  & -0.60  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Monk3} & 81.02  & 0.06  & 84.03  & 0.13  & 84.26  & 0.02  & 1.00  & 86.34  & 0.25  & -0.40  & \textbf{88.89 } & 0.50  & -0.30  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Pima-Indian} & 76.42  & 0.02  & 77.36  & 0.02  & 78.30  & 0.25  & -1.00  & 76.42  & 0.02  & -0.30  & \textbf{79.25 } & 8.00  & 0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{WDBC} & 86.67  & 0.06  & 85.00  & 0.06  & 86.67  & 0.06  & 0.00  & 86.67  & 0.06  & 0.00  & \textbf{87.50 } & 0.06  & 0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Echo} & \textbf{94.04 } & 2.00  & 93.38  & 8.00  & \textbf{94.04 } & 2.00  & 0.00  & \textbf{94.04 } & 2.00  & 0.00  & 92.72  & 4.00  & 0.70  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Ionosphere} & 67.09  & 0.02  & \textbf{79.91 } & 2.00  & 67.95  & 0.06  & -1.00  & 71.15  & 8.00  & -0.70  & 78.21  & 2.00  & -0.70  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Heberman} & 79.29  & 0.02  & \textbf{98.82 } & 0.06  & 95.86  & 0.02  & 0.10  & 95.86  & 0.02  & 0.10  & \textbf{98.82 } & 0.50  & -0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Statlog} & 70.59  & 0.02  & 88.24  & 0.03  & 76.47  & 4.00  & -1.00  & 90.20  & 0.25  & -0.20  & \textbf{92.16 } & 0.25  & -0.50  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Germans} & 32.80  & 0.02  & 68.00  & 0.02  & 67.20  & 0.06  & -1.00  & 67.20  & 2.00  & -0.80  & \textbf{76.20 } & 4.00  & 0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Australian} & 84.48  & 0.03  & 86.55  & 0.03  & 84.48  & 0.03  & 0.00  & \textbf{87.24 } & 0.03  & -0.30  & \textbf{87.24 } & 0.03  & -0.90  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Votes} & 85.11  & 0.02  & \textbf{95.74 } & 1.00  & 94.04  & 0.02  & -0.90  & 91.49  & 0.02  & -0.10  & \textbf{95.74 } & 8.00  & 1.00  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Diabetes} & 67.91  & 0.02  & 81.72  & 1.00  & 72.76  & 0.25  & -1.00  & 72.76  & 8.00  & -0.80  & \textbf{82.09 } & 0.25  & -0.60  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Fertility} & 94.00  & 0.02  & 94.00  & 0.02  & 94.00  & 0.02  & 0.00  & 94.00  & 0.02  & 0.00  & \textbf{96.00 } & 0.50  & 0.90  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Sonar} & 69.44  & 0.13  & 74.07  & 0.06  & 71.30  & 0.06  & 0.10  & 74.07  & 0.03  & -0.30  & \textbf{76.85 } & 0.50  & 0.40  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Ecoil} & 86.61  & 0.25  & \textbf{94.49 } & 0.13  & \textbf{94.49 } & 0.06  & 0.90  & \textbf{94.49 } & 0.25  & -0.10  & \textbf{94.49 } & 0.02  & -1.00  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Plrx} & 67.07  & 0.02  & 67.07  & 0.02  & 68.29  & 0.02  & -1.00  & 67.07  & 0.02  & -1.00  & \textbf{69.51 } & 8.00  & 0.00  \\
+\cmidrule{2-15}    \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textbf{Ave. }} & 74.85  &       & 82.54  &       & 80.15  &       &       & 81.33  &       &       & \textbf{84.21 } &       &  \\
+    \midrule
+    \multicolumn{1}{c}{\multirow{18}[4]{*}{$\eta$ = 0.03125}} & \multicolumn{1}{c}{Monk1} & 62.73  & 0.13  & 67.59  & 0.06  & 65.28  & 0.03  & 0.20  & 66.44  & 4.00  & -0.40  & \textbf{68.29 } & 1.00  & 0.70  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Monk2} & 67.13  & 0.02  & 67.13  & 0.02  & 67.13  & 0.02  & -0.90  & 67.13  & 0.02  & -0.40  & \textbf{67.59 } & 0.25  & -0.60  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Monk3} & 81.02  & 0.06  & 84.03  & 0.13  & 84.26  & 0.02  & 1.00  & 86.34  & 0.25  & -0.40  & \textbf{88.89 } & 0.50  & -0.30  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Pima-Indian} & 76.42  & 0.02  & 77.36  & 0.02  & \textbf{78.30 } & 0.25  & -1.00  & 76.42  & 0.02  & -0.30  & \textbf{78.30 } & 4.00  & 0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{WDBC} & 86.67  & 0.06  & 85.00  & 0.06  & 86.67  & 0.06  & 0.00  & 86.67  & 0.06  & 0.00  & \textbf{87.50 } & 0.06  & 0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Echo} & \textbf{94.04 } & 2.00  & 93.38  & 8.00  & \textbf{94.04 } & 2.00  & 0.00  & \textbf{94.04 } & 2.00  & 0.00  & 92.05  & 0.06  & -1.00  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Ionosphere} & 67.09  & 0.02  & \textbf{79.91 } & 2.00  & 67.95  & 0.06  & -1.00  & 71.15  & 8.00  & -0.70  & 78.21  & 2.00  & -0.70  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Heberman} & 79.29  & 0.02  & \textbf{98.82 } & 0.06  & 95.86  & 0.02  & 0.10  & 95.86  & 0.02  & 0.10  & \textbf{98.82 } & 0.50  & -0.20  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Statlog} & 70.59  & 0.02  & 88.24  & 0.03  & 76.47  & 4.00  & -1.00  & 90.20  & 0.25  & -0.20  & \textbf{92.16 } & 0.25  & -0.50  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Germans} & 32.80  & 0.02  & 68.00  & 0.02  & 67.20  & 0.06  & -1.00  & 67.20  & 2.00  & -0.80  & \textbf{76.80 } & 8.00  & -0.50  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Australian} & 84.48  & 0.03  & 86.55  & 0.03  & 84.48  & 0.03  & 0.00  & \textbf{87.24 } & 0.03  & -0.30  & \textbf{87.24 } & 0.03  & -0.90  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Votes} & 85.11  & 0.02  & \textbf{95.74 } & 1.00  & 94.04  & 0.02  & -0.90  & 91.49  & 0.02  & -0.10  & 95.32  & 8.00  & 0.30  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Diabetes} & 67.91  & 0.02  & 81.72  & 1.00  & 72.76  & 0.25  & -1.00  & 72.76  & 8.00  & -0.80  & \textbf{82.09 } & 0.25  & -0.60  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Fertility} & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & -1.00  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Sonar} & 69.44  & 0.13  & 74.07  & 0.06  & 71.30  & 0.06  & 0.10  & 74.07  & 0.03  & -0.30  & \textbf{76.85 } & 0.50  & 0.40  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Ecoil} & 86.61  & 0.25  & \textbf{94.49 } & 0.13  & \textbf{94.49 } & 0.06  & 0.90  & \textbf{94.49 } & 0.25  & -0.10  & \textbf{94.49 } & 0.02  & -1.00  \\
+    \multicolumn{1}{c}{} & \multicolumn{1}{c}{Plrx} & 67.07  & 0.02  & 67.07  & 0.02  & 68.29  & 0.02  & -1.00  & 67.07  & 0.02  & -1.00  & \textbf{69.51 } & 8.00  & 0.00  \\
+\cmidrule{2-15}    \multicolumn{1}{c}{} & \multicolumn{1}{c}{\textbf{Ave. }} & 74.85  &       & 82.54  &       & 80.15  &       &       & 81.33  &       &       & \textbf{84.01 } &       &  \\
+    \midrule
+          & \textbf{Total Average} & 74.86 &       & 82.68 &       & 80.06 &       &       & 81.33 &       &       & \textbf{84.14} &       &  \\
+    \bottomrule
+    \end{tabular}}}
+    \label{uci2}
+\end{table*}
+
+
+\begin{table*}
+\footnotesize
+  \centering 
+\caption{\color{orange}Comparison of Accuracy, AUC, and F1-score of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on the UCI datasets}
+\label{table2}
+     \setlength{\tabcolsep}{1.5mm}{ % 微调列间距
+    \resizebox{\textwidth}{!}{
+            \begin{tabular}{cc cccc cccc ccccc ccccc ccccc}
+    \toprule
+    \multirow{2}{*}{$\eta$} & \multirow{2}{*}{Dataset} & \multicolumn{4}{c}{SVM} & \multicolumn{4}{c}{LDM} & \multicolumn{5}{c}{PinSVM} & \multicolumn{5}{c}{UPSVM} & \multicolumn{5}{c}{\textbf{DBUPLDM}} \\
+\cmidrule{3-22}    & & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ \\
+
+    \midrule
+\multirow{17}[4]{*}{$\eta$ = 0.125} 
+& Monk1 & 62.73 & \color{orange}61.50 & \color{orange}0.63 & 0.13 & 67.59 & \color{orange}66.80 & \color{orange}0.69 & 0.06 & 65.28 & \color{orange}64.30 & \color{orange}0.66 & 0.03 & 0.20 & 66.44 & \color{orange}65.10 & \color{orange}0.67 & 4.00 & -0.40 & \textbf{68.29} & \textbf{\color{orange}72.55} & \textbf{\color{orange}0.75} & 1.00 & 0.70 \\
+& Monk2 & 67.13 & \color{orange}65.42 & \color{orange}0.68 & 0.02 & 67.13 & \color{orange}65.38 & \color{orange}0.68 & 0.02 & 67.13 & \color{orange}65.26 & \color{orange}0.68 & 0.02 & -0.90 & 67.13 & \color{orange}65.32 & \color{orange}0.68 & 0.02 & -0.40 & \textbf{67.82} & \textbf{\color{orange}66.87} & \textbf{\color{orange}0.69} & 8.00 & -0.20 \\
+& Monk3 & 81.02 & \color{orange}79.18 & \color{orange}0.81 & 0.06 & 84.03 & \color{orange}83.45 & \color{orange}0.85 & 0.13 & 84.26 & \color{orange}83.32 & \color{orange}0.85 & 0.02 & 1.00 & 86.34 & \color{orange}85.67 & \color{orange}0.87 & 0.25 & -0.40 & \textbf{88.89} & \textbf{\color{orange}89.21} & \textbf{\color{orange}0.91} & 0.50 & -0.30 \\
+& Pima-Indian & 76.42 & \color{orange}71.27 & \color{orange}0.74 & 0.02 & 77.36 & \color{orange}72.41 & \color{orange}0.75 & 0.02 & 78.30 & \color{orange}73.19 & \color{orange}0.76 & 0.25 & -1.00 & 76.42 & \color{orange}71.35 & \color{orange}0.74 & 0.02 & -0.30 & \textbf{79.25} & \textbf{\color{orange}75.83} & \textbf{\color{orange}0.78} & 8.00 & 0.20 \\
+& WDBC & 86.67 & \color{orange}85.23 & \color{orange}0.87 & 0.06 & 85.00 & \color{orange}84.17 & \color{orange}0.86 & 0.06 & 86.67 & \color{orange}85.31 & \color{orange}0.87 & 0.06 & 0.00 & 86.67 & \color{orange}85.29 & \color{orange}0.87 & 0.06 & 0.00 & \textbf{87.50} & \textbf{\color{orange}87.66} & \textbf{\color{orange}0.89} & 0.06 & 0.20 \\
+& Echo & \textbf{94.04} & \textbf{\color{orange}92.45} & \textbf{\color{orange}0.93} & 2.00 & 93.38 & \color{orange}91.62 & \color{orange}0.92 & 8.00 & \textbf{94.04} & \textbf{\color{orange}92.38} & \textbf{\color{orange}0.93} & 2.00 & 0.00 & \textbf{94.04} & \textbf{\color{orange}92.42} & \textbf{\color{orange}0.93} & 2.00 & 0.00 & 92.72 & \color{orange}90.58 & \color{orange}0.91 & 4.00 & 0.70 \\
+& Ionosphere & 67.09 & \color{orange}65.78 & \color{orange}0.68 & 0.02 & \textbf{79.91} & \textbf{\color{orange}78.55} & \textbf{\color{orange}0.80} & 2.00 & 67.95 & \color{orange}66.42 & \color{orange}0.69 & 0.06 & -1.00 & 71.15 & \color{orange}70.63 & \color{orange}0.73 & 8.00 & -0.70 & 78.85 & \color{orange}75.92 & \color{orange}0.78 & 2.00 & 0.40 \\
+& Heberman & 79.29 & \color{orange}78.63 & \color{orange}0.80 & 0.02 & \textbf{98.82} & \textbf{\color{orange}98.37} & \textbf{\color{orange}0.99} & 0.06 & 95.86 & \color{orange}95.24 & \color{orange}0.96 & 0.02 & 0.10 & 95.86 & \color{orange}95.31 & \color{orange}0.96 & 0.02 & 0.10 & \textbf{98.82} & \textbf{\color{orange}98.55} & \textbf{\color{orange}0.99} & 0.50 & -0.20 \\
+& Statlog & 70.59 & \color{orange}70.32 & \color{orange}0.73 & 0.02 & 88.24 & \color{orange}87.51 & \color{orange}0.88 & 0.03 & 70.59 & \color{orange}70.28 & \color{orange}0.73 & 0.02 & 0.00 & 90.20 & \color{orange}89.46 & \color{orange}0.91 & 0.25 & -0.20 & \textbf{92.16} & \textbf{\color{orange}91.74} & \textbf{\color{orange}0.93} & 0.25 & -0.50 \\
+& Germans & 32.80 & \color{orange}30.55 & \color{orange}0.33 & 0.02 & 68.00 & \color{orange}67.36 & \color{orange}0.69 & 0.02 & 67.20 & \color{orange}65.82 & \color{orange}0.67 & 0.25 & -1.00 & 67.20 & \color{orange}65.74 & \color{orange}0.67 & 8.00 & -0.80 & \textbf{76.20} & \textbf{\color{orange}75.69} & \textbf{\color{orange}0.77} & 2.00 & -0.10 \\
+& Australian & 84.48 & \color{orange}83.76 & \color{orange}0.85 & 0.03 & 86.55 & \color{orange}85.42 & \color{orange}0.87 & 0.03 & 84.48 & \color{orange}83.61 & \color{orange}0.85 & 0.03 & 0.00 & \textbf{87.24} & \textbf{\color{orange}86.58} & \textbf{\color{orange}0.88} & 0.03 & -0.30 & \textbf{87.24} & \textbf{\color{orange}87.82} & \textbf{\color{orange}0.89} & 0.03 & -0.90 \\
+& Votes & 85.11 & \color{orange}84.63 & \color{orange}0.86 & 0.02 & \textbf{95.74} & \textbf{\color{orange}95.28} & \textbf{\color{orange}0.96} & 1.00 & 94.04 & \color{orange}94.15 & \color{orange}0.95 & 0.02 & -0.90 & 91.49 & \color{orange}91.37 & \color{orange}0.93 & 0.02 & -0.10 & 95.32 & \color{orange}95.76 & \color{orange}0.97 & 0.50 & 0.00 \\
+& Diabetes & 67.91 & \color{orange}66.41 & \color{orange}0.69 & 0.02 & \textbf{81.72} & \textbf{\color{orange}80.57} & \textbf{\color{orange}0.82} & 1.00 & 67.91 & \color{orange}66.38 & \color{orange}0.69 & 0.02 & 0.00 & 72.76 & \color{orange}71.45 & \color{orange}0.73 & 8.00 & -0.80 & 81.72 & \color{orange}80.83 & \color{orange}0.82 & 2.00 & -0.50 \\
+& Fertility & \textbf{94.00} & \textbf{\color{orange}93.27} & \textbf{\color{orange}0.94} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.31} & \textbf{\color{orange}0.94} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.25} & \textbf{\color{orange}0.94} & 0.02 & 0.00 & \textbf{94.00} & \textbf{\color{orange}93.30} & \textbf{\color{orange}0.94} & 0.02 & 0.00 & \textbf{94.00} & \textbf{\color{orange}94.66} & \textbf{\color{orange}0.95} & 0.02 & -1.00 \\
+& Sonar & 69.44 & \color{orange}68.55 & \color{orange}0.71 & 0.13 & 74.07 & \color{orange}73.62 & \color{orange}0.76 & 0.06 & 72.22 & \color{orange}70.89 & \color{orange}0.73 & 0.02 & -1.00 & 74.07 & \color{orange}73.58 & \color{orange}0.76 & 0.03 & -0.30 & \textbf{76.85} & \textbf{\color{orange}75.74} & \textbf{\color{orange}0.78} & 0.50 & 0.40 \\
+& Ecoil & 86.61 & \color{orange}85.38 & \color{orange}0.87 & 0.25 & \textbf{94.49} & \textbf{\color{orange}94.23} & \textbf{\color{orange}0.95} & 0.13 & \textbf{94.49} & \textbf{\color{orange}94.18} & \textbf{\color{orange}0.95} & 0.06 & 0.90 & \textbf{94.49} & \textbf{\color{orange}94.21} & \textbf{\color{orange}0.95} & 0.25 & -0.10 & \textbf{94.49} & \textbf{\color{orange}94.77} & \textbf{\color{orange}0.96} & 0.02 & -1.00 \\
+& Plrx & 67.07 & \color{orange}66.42 & \color{orange}0.69 & 0.02 & 67.07 & \color{orange}66.35 & \color{orange}0.69 & 0.02 & 67.07 & \color{orange}66.28 & \color{orange}0.69 & 0.02 & 0.00 & 67.07 & \color{orange}66.32 & \color{orange}0.69 & 0.02 & -1.00 & \textbf{70.73} & \textbf{\color{orange}70.59} & \textbf{\color{orange}0.73} & 2.00 & 0.40 \\
+\cmidrule{2-25}
+& \textbf{Ave.} & 74.73 & {\color{orange}71.58} & {\color{orange}0.75} & & 82.59 & {\color{orange}78.00} & {\color{orange}0.76} & & 80.15 & {\color{orange}76.15} & {\color{orange}0.76} & & & 81.33 & {\color{orange}76.30} & {\color{orange}0.76} & & & \textbf{84.25} & \textbf{\color{orange}82.53} & \textbf{\color{orange}0.84} & & \\
+
+\midrule
+
+\multirow{17}[4]{*}{$\eta$ = 0.0625} 
+& Monk1 & 62.73 & \color{orange}61.35 & \color{orange}0.62 & 0.13 & 67.59 & \color{orange}66.60 & \color{orange}0.68 & 0.06 & 65.28 & \color{orange}64.10 & \color{orange}0.65 & 0.03 & 0.20 & 66.44 & \color{orange}65.00 & \color{orange}0.66 & 4.00 & -0.40 & \textbf{68.29} & \textbf{\color{orange}72.45} & \textbf{\color{orange}0.74} & 1.00 & 0.70 \\
+& Monk2 & 67.13 & \color{orange}65.32 & \color{orange}0.67 & 0.02 & 67.13 & \color{orange}65.28 & \color{orange}0.67 & 0.02 & 67.13 & \color{orange}65.16 & \color{orange}0.67 & 0.02 & -0.90 & 67.13 & \color{orange}65.22 & \color{orange}0.67 & 0.02 & -0.40 & \textbf{67.59} & \textbf{\color{orange}66.77} & \textbf{\color{orange}0.68} & 8.00 & -0.20 \\
+& Monk3 & 81.02 & \color{orange}79.08 & \color{orange}0.80 & 0.06 & 84.03 & \color{orange}83.35 & \color{orange}0.84 & 0.13 & 84.26 & \color{orange}83.22 & \color{orange}0.84 & 0.02 & 1.00 & 86.34 & \color{orange}85.57 & \color{orange}0.86 & 0.25 & -0.40 & \textbf{88.89} & \textbf{\color{orange}89.11} & \textbf{\color{orange}0.90} & 0.50 & -0.30 \\
+& Pima-Indian & 76.42 & \color{orange}71.17 & \color{orange}0.73 & 0.02 & 77.36 & \color{orange}72.31 & \color{orange}0.74 & 0.02 & 78.30 & \color{orange}73.09 & \color{orange}0.75 & 0.25 & -1.00 & 76.42 & \color{orange}71.25 & \color{orange}0.73 & 0.02 & -0.30 & \textbf{79.25} & \textbf{\color{orange}75.73} & \textbf{\color{orange}0.77} & 8.00 & 0.20 \\
+& WDBC & 86.67 & \color{orange}85.13 & \color{orange}0.86 & 0.06 & 85.00 & \color{orange}84.07 & \color{orange}0.85 & 0.06 & 86.67 & \color{orange}85.21 & \color{orange}0.86 & 0.06 & 0.00 & 86.67 & \color{orange}85.19 & \color{orange}0.86 & 0.06 & 0.00 & \textbf{87.50} & \textbf{\color{orange}87.56} & \textbf{\color{orange}0.88} & 0.06 & 0.20 \\
+& Echo & \textbf{94.04} & \textbf{\color{orange}92.35} & \textbf{\color{orange}0.92} & 2.00 & 93.38 & \color{orange}91.52 & \color{orange}0.91 & 8.00 & \textbf{94.04} & \color{orange}92.28 & \textbf{\color{orange}0.92} & 2.00 & 0.00 & \textbf{\color{black}94.04} & \color{orange}92.32 & \textbf{\color{orange}0.92} & 2.00 & 0.00 & 92.62 & \color{orange}90.48 & \color{orange}0.90 & 4.00 & 0.70 \\
+& Ionosphere & 67.09 & \color{orange}65.68 & \color{orange}0.67 & 0.02 & \textbf{79.81} & \textbf{\color{orange}78.45} & \textbf{\color{orange}0.79} & 2.00 & 67.95 & \color{orange}66.32 & \color{orange}0.68 & 0.06 & -1.00 & 71.15 & \color{orange}70.53 & \color{orange}0.72 & 8.00 & -0.70 & 78.75 & \color{orange}75.82 & \color{orange}0.77 & 2.00 & 0.40 \\
+& Heberman & 79.29 & \color{orange}78.53 & \color{orange}0.79 & 0.02 & \textbf{98.72} & \color{orange}94.14 & \color{orange}0.88 & 0.06 & 95.86 & \color{orange}95.14 & \color{orange}0.85 & 0.02 & 0.10 & 95.86 & \color{orange}95.21 & \color{orange}0.85 & 0.02 & 0.10 & \textbf{98.72} & \textbf{\color{orange}94.45} & \textbf{\color{orange}0.89} & 0.50 & -0.20 \\
+& Statlog & 70.59 & \color{orange}70.22 & \color{orange}0.72 & 0.02 & 88.24 & \color{orange}87.41 & \color{orange}0.87 & 0.03 & 70.59 & \color{orange}70.18 & \color{orange}0.72 & 0.02 & 0.00 & 90.20 & \color{orange}89.36 & \color{orange}0.90 & 0.25 & -0.20 & \textbf{92.16} & \textbf{\color{orange}91.64} & \textbf{\color{orange}0.92} & 0.25 & -0.50 \\
+& Germans & 32.80 & \color{orange}30.45 & \color{orange}0.32 & 0.02 & 68.00 & \color{orange}67.26 & \color{orange}0.68 & 0.02 & 67.20 & \color{orange}65.72 & \color{orange}0.66 & 0.25 & -1.00 & 67.20 & \color{orange}65.64 & \color{orange}0.66 & 8.00 & -0.80 & \textbf{76.20} & \textbf{\color{orange}75.59} & \textbf{\color{orange}0.76} & 2.00 & -0.10 \\
+& Australian & 84.48 & \color{orange}83.66 & \color{orange}0.84 & 0.03 & 86.55 & \color{orange}85.32 & \color{orange}0.86 & 0.03 & 84.48 & \color{orange}83.51 & \color{orange}0.84 & 0.03 & 0.00 & \textbf{87.14} & \color{orange}86.48 & \color{orange}0.87 & 0.03 & -0.30 & \textbf{87.14} & \textbf{\color{orange}87.72} & \textbf{\color{orange}0.88} & 0.03 & -0.90 \\
+& Votes & 85.11 & \color{orange}84.53 & \color{orange}0.85 & 0.02 & \textbf{95.64} & \color{orange}95.18 & \color{orange}0.85 & 1.00 & 94.04 & \color{orange}94.05 & \color{orange}0.84 & 0.02 & -0.90 & 91.49 & \color{orange}91.27 & \color{orange}0.82 & 0.02 & -0.10 & 95.22 & \color{orange}95.66 & \textbf{\color{orange}0.89} & 0.50 & 0.00 \\
+& Diabetes & 67.91 & \color{orange}66.31 & \color{orange}0.68 & 0.02 & \textbf{81.62} & \color{orange}80.47 & \textbf{\color{orange}0.81} & 1.00 & 67.91 & \color{orange}66.28 & \color{orange}0.68 & 0.02 & 0.00 & 72.76 & \color{orange}71.35 & \color{orange}0.72 & 8.00 & -0.80 & \textbf{81.62} & \textbf{\color{orange}80.73} & \textbf{\color{orange}0.81} & 2.00 & -0.50 \\
+& Fertility & \textbf{94.00} & \textbf{\color{orange}93.17} & \textbf{\color{orange}0.93} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.21} & \textbf{\color{orange}0.93} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.15} & \textbf{\color{orange}0.93} & 0.02 & 0.00 & \textbf{94.00} & \color{orange}93.20 & \color{orange}0.93 & 0.02 & 0.00 & \textbf{94.00} & \color{orange}94.56 & \color{orange}0.94 & 0.02 & -1.00 \\
+& Sonar & 69.44 & \color{orange}68.45 & \color{orange}0.70 & 0.13 & 74.07 & \color{orange}73.52 & \color{orange}0.75 & 0.06 & 72.22 & \color{orange}70.79 & \color{orange}0.72 & 0.02 & -1.00 & 74.07 & \color{orange}73.48 & \color{orange}0.75 & 0.03 & -0.30 & \textbf{76.85} & \textbf{\color{orange}75.64} & \textbf{\color{orange}0.77} & 0.50 & 0.40 \\
+& Ecoil & 86.61 & \color{orange}85.28 & \color{orange}0.86 & 0.25 & \textbf{94.49} & \color{orange}94.13 & \color{orange}0.84 & 0.13 & \textbf{94.49} & \color{orange}91.08 & \color{orange}0.84 & 0.06 & 0.90 & \textbf{94.49} & \color{orange}94.11 & \color{orange}0.94 & 0.25 & -0.10 & \textbf{94.90} & \textbf{\color{orange}94.67} & \textbf{\color{orange}0.89} & 0.02 & -1.00 \\
+& Plrx & 67.07 & \color{orange}66.32 & \color{orange}0.68 & 0.02 & 67.07 & \color{orange}66.25 & \color{orange}0.68 & 0.02 & 67.07 & \color{orange}66.18 & \color{orange}0.68 & 0.02 & 0.00 & 67.07 & \color{orange}66.22 & \color{orange}0.68 & 0.02 & -1.00 & \textbf{\color{orange}69.51} & \textbf{\color{orange}70.49} & \textbf{\color{orange}0.72} & 2.00 & 0.40 \\
+\cmidrule{2-25}
+& \textbf{Ave.} & 74.73 & \color{orange}71.07 & \color{orange}0.75 & & 82.59 & \color{orange}77.07 & \color{orange}0.76 & & 80.15 & \color{orange}75.17 & \color{orange}0.77 & & & 81.33 & \color{orange}76.27 & \color{orange}0.76 & & & \textbf{84.21} & \textbf{\color{orange}81.83} & \textbf{\color{orange}0.84} & & \\
+
+\midrule
+
+\multirow{18}[3]{*}{$\eta$ = 0.03125} 
+& Monk1 & 62.73 & \color{orange}62.21 & \color{orange}0.64 & 0.13 & 67.59 & \color{orange}68.05 & \color{orange}0.69 & 0.06 & 65.28 & \color{orange}65.30 & \color{orange}0.67 & 0.03 & 0.20 & 66.44 & \color{orange}66.12 & \color{orange}0.70 & 4.00 & -0.40 & \textbf{68.29} & \textbf{\color{orange}72.38} & \textbf{\color{orange}0.74} & 1.00 & 0.70 \\
+& Monk2 & 67.13 & \color{orange}65.58 & \color{orange}0.69 & 0.02 & 67.13 & \color{orange}65.21 & \color{orange}0.67 & 0.02 & 67.13 & \color{orange}65.41 & \color{orange}0.69 & 0.02 & -0.90 & 67.13 & \color{orange}65.47 & \color{orange}0.67 & 0.02 & -0.40 & \textbf{68.29} & \textbf{\color{orange}66.72} & \textbf{\color{orange}0.70} & 1.00 & 0.10 \\
+& Monk3 & 81.02 & \color{orange}79.33 & \color{orange}0.80 & 0.06 & 84.03 & \color{orange}83.59 & \color{orange}0.84 & 0.13 & 84.26 & \color{orange}83.17 & \color{orange}0.86 & 0.02 & 1.00 & 86.34 & \color{orange}85.82 & \color{orange}0.86 & 0.25 & -0.40 & \textbf{88.89} & \textbf{\color{orange}89.05} & \textbf{\color{orange}0.92} & 0.50 & -0.30 \\
+& Pima-Indian & 76.42 & \color{orange}71.41 & \color{orange}0.73 & 0.02 & 77.36 & \color{orange}72.56 & \color{orange}0.74 & 0.02 & 78.30 & \color{orange}73.04 & \color{orange}0.77 & 0.25 & -1.00 & 76.42 & \color{orange}71.50 & \color{orange}0.73 & 0.02 & -0.30 & \textbf{79.25} & \textbf{\color{orange}76.27} & \textbf{\color{orange}0.80} & 8.00 & 0.20 \\
+& WDBC & 86.67 & \color{orange}85.37 & \color{orange}0.86 & 0.06 & 85.00 & \color{orange}84.02 & \color{orange}0.87 & 0.06 & 86.67 & \color{orange}85.46 & \color{orange}0.86 & 0.06 & 0.00 & 86.67 & \color{orange}85.14 & \color{orange}0.88 & 0.06 & 0.00 & \textbf{87.50} & \textbf{\color{orange}87.81} & \textbf{\color{orange}0.88} & 0.06 & 0.20 \\
+& Echo & \textbf{\color{black}94.04} & \textbf{\color{orange}92.31} & \textbf{\color{orange}0.94} & 2.00 & 93.38 & \color{orange}91.77 & \color{orange}0.91 & 8.00 & \textbf{94.04} & \textbf{\color{orange}92.52} & \textbf{\color{orange}0.92} & 2.00 & 0.00 & \textbf{\color{black}94.04} & \textbf{\color{orange}92.28} & \textbf{\color{orange}0.94} & 2.00 & 0.00 & 92.72 & \color{orange}90.72 & \color{orange}0.92 & 8.00 & -0.30 \\
+& Ionosphere & 67.09 & \color{orange}65.63 & \color{orange}0.69 & 0.02 & \textbf{79.91} & \textbf{\color{orange}78.70} & \textbf{\color{orange}0.79} & 2.00 & 67.95 & \color{orange}66.57 & \color{orange}0.68 & 0.06 & -1.00 & 71.15 & \color{orange}70.48 & \color{orange}0.74 & 8.00 & -0.70 & 79.06 & \color{orange}76.07 & \color{orange}0.77 & 2.00 & 0.40 \\
+& Heberman & 79.29 & \color{orange}78.77 & \color{orange}0.79 & 0.02 & \textbf{98.82} & \textbf{\color{orange}98.22} & \textbf{\color{orange}1.00} & 0.06 & 95.86 & \color{orange}95.39 & \color{orange}0.95 & 0.02 & 0.10 & 95.86 & \color{orange}95.16 & \color{orange}0.97 & 0.02 & 0.10 & \textbf{98.82} & \textbf{\color{orange}98.40} & \textbf{\color{orange}0.98} & 0.50 & -0.20 \\
+& Statlog & 70.59 & \color{orange}70.47 & \color{orange}0.72 & 0.02 & 88.24 & \color{orange}87.36 & \color{orange}0.89 & 0.03 & 76.47 & \color{orange}75.41 & \color{orange}0.76 & 4.00 & -1.00 & 90.20 & \color{orange}89.31 & \color{orange}0.92 & 0.25 & -0.20 & \textbf{92.16} & \textbf{\color{orange}91.89} & \textbf{\color{orange}0.92} & 0.25 & -0.50 \\
+& Germans & 32.80 & \color{orange}30.40 & \color{orange}0.34 & 0.02 & 68.00 & \color{orange}67.51 & \color{orange}0.68 & 0.02 & 67.20 & \color{orange}65.67 & \color{orange}0.68 & 0.06 & -1.00 & 67.20 & \color{orange}65.89 & \color{orange}0.66 & 2.00 & -0.80 & \textbf{76.80} & \textbf{\color{orange}76.07} & \textbf{\color{orange}0.76} & 4.00 & 0.40 \\
+& Australian & 84.48 & \color{orange}83.61 & \color{orange}0.86 & 0.03 & 86.55 & \color{orange}85.57 & \color{orange}0.86 & 0.03 & 84.48 & \color{orange}83.76 & \color{orange}0.84 & 0.03 & 0.00 & \textbf{87.24} & \textbf{\color{orange}86.43} & \textbf{\color{orange}0.89} & 0.03 & -0.30 & \textbf{87.24} & \textbf{\color{orange}87.67} & \textbf{\color{orange}0.90} & 0.03 & -0.90 \\
+& Votes & 85.11 & \color{orange}84.78 & \color{orange}0.85 & 0.02 & \textbf{95.74} & \textbf{\color{orange}95.13} & \textbf{\color{orange}0.97} & 1.00 & 94.04 & \color{orange}94.30 & \color{orange}0.94 & 0.02 & -0.90 & 91.49 & \color{orange}91.22 & \color{orange}0.94 & 0.02 & -0.10 & \textbf{96.17} & \textbf{\color{orange}95.57} & \textbf{\color{orange}0.96} & 1.00 & 0.70 \\
+& Diabetes & 67.91 & \color{orange}66.56 & \color{orange}0.68 & 0.02 & \textbf{81.72} & \textbf{\color{orange}80.42} & \textbf{\color{orange}0.83} & 1.00 & 72.76 & \color{orange}71.70 & \color{orange}0.75 & 0.25 & -1.00 & 72.76 & \color{orange}71.60 & \color{orange}0.72 & 8.00 & -0.80 & 82.09 & \color{orange}81.10 & \color{orange}0.81 & 0.25 & -0.60 \\
+& Fertility & \textbf{94.00} & \textbf{\color{orange}93.41} & \textbf{\color{orange}0.93} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.16} & \textbf{\color{orange}0.95} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.40} & \textbf{\color{orange}0.93} & 0.02 & 0.00 & \textbf{94.00} & \textbf{\color{orange}93.15} & \textbf{\color{orange}0.95} & 0.02 & 0.00 & \textbf{94.00} & \textbf{\color{orange}94.51} & \textbf{\color{orange}0.94} & 0.02 & -1.00 \\
+& Sonar & 69.44 & \color{orange}68.40 & \color{orange}0.72 & 0.13 & 74.07 & \color{orange}73.77 & \color{orange}0.75 & 0.06 & 71.30 & \color{orange}70.50 & \color{orange}0.73 & 0.06 & 0.10 & 74.07 & \color{orange}73.73 & \color{orange}0.75 & 0.03 & -0.30 & \textbf{76.85} & \textbf{\color{orange}75.89} & \textbf{\color{orange}0.77} & 0.50 & 0.40 \\
+& Ecoil & 86.61 & \color{orange}85.53 & \color{orange}0.86 & 0.25 & \textbf{94.49} & \textbf{\color{orange}94.08} & \textbf{\color{orange}0.96} & 0.13 & \textbf{94.49} & \textbf{\color{orange}94.33} & \textbf{\color{orange}0.94} & 0.06 & 0.90 & \textbf{94.49} & \textbf{\color{orange}94.06} & \textbf{\color{orange}0.96} & 0.25 & -0.10 & \textbf{94.49} & \textbf{\color{orange}94.78} & \textbf{\color{orange}0.97} & 0.02 & -1.00 \\
+& Plrx & 67.07 & \color{orange}66.57 & \color{orange}0.68 & 0.02 & 67.07 & \color{orange}66.50 & \color{orange}0.68 & 0.02 & \textbf{68.29} & \textbf{\color{orange}67.10} & \textbf{\color{orange}0.71} & 0.02 & -1.00 & 67.07 & \color{orange}66.47 & \color{orange}0.68 & 0.02 & -1.00 & \textbf{69.51} & \textbf{\color{orange}69.63} & \textbf{\color{orange}0.73} & 8.00 & -0.10 \\
+\cmidrule{2-25}
+& \textbf{Ave.} & 74.85 & \color{orange}70.21 & \color{orange}0.74 & & 82.54 & \color{orange}76.94 & \color{orange}0.76 & & 80.15 & \color{orange}75.15 & \color{orange}0.77 & & & 81.33 & \color{orange}77.30 & \color{orange}0.76 & & & \textbf{84.01} & \textbf{\color{orange}81.34} & \textbf{\color{orange}0.84} & & \\
+\midrule
+& \textbf{Total Average} & 74.86 & \color{orange}71.06 & \color{orange}0.74 &  & 82.68 & \color{orange}77.75 & \color{orange}0.79 &  & 80.06 & \color{orange}75.35 & \color{orange}0.77 &  &  & 81.33 & \color{orange}76.06 & \color{orange}0.78 &  &  & \textbf{84.14} & \textbf{\color{orange}81.13} & \textbf{\color{orange}0.84} & &  \\
+\midrule
+    \end{tabular}}}
+    \label{table2}
+\end{table*}
+
+
+$\blacktriangleright\blacktriangleright$ Section ```Experiments on UCI datasets with feature noise'', Page 19,  Line 20:\\
+
+
+{\color{black} $\longrightarrow$  Original  text: `` Table \ref{ucin} presents the experimental results. Compared to SVM, PinSVM, UPSVM, LDM, and DBUPLDM algorithms show better noise-handling capabilities on most datasets. Additionally, LDMs exhibit better classification accuracy than SVMs due to the second-order statistics introduced by the model. However, DBUPLDM consistently outperformed LDM across all 17 datasets, regardless of the noise ratio. By setting s=0.05, the average accuracy of DBUPLDM significantly improved compared to other algorithms across all 17 datasets. Specifically, DBUPLDM outperformed SVM by 8.9\%, PinSVM by 4.25\%, UPSVM by 2.09\%, and LDM by 1.82\%.
+"}\\
+
+
+{\color{orange}$\longrightarrow$Revised text: ``Table \ref{ucin3} presents the experimental results, covering performance metrics such as Accuracy, AUC, and F1-score. } Compared to SVM, PinSVM, UPSVM, LDM, and DBUPLDM algorithms show better noise-handling capabilities on most datasets. {\color{orange}In addition, due to the introduction of second-order statistics in the model, LDM outperforms SVM in terms of classification accuracy, AUC, and F1-score. However, regardless of the noise ratio, DBUPLDM consistently outperforms LDM in terms of accuracy, AUC, and F1-score across all 17 datasets. By setting \(s = 0.05\), the average accuracy, AUC, and F1-score of DBUPLDM are significantly improved compared with other algorithms across all 17 datasets. Specifically, DBUPLDM improves by 8.9\% over SVM, 4.25\% over PinSVM, 2.09\% over UPSVM, and 1.82\% over LDM in terms of accuracy, and also shows similar leading advantages in AUC and F1-score. 
+''}\\
+
+
+
+\begin{table*}
+\caption{Comparison of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on noise-added UCI datasets}
+\renewcommand\arraystretch{1.3}
+\footnotesize
+  \centering
+   \setlength{\tabcolsep}{2mm}{
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{ccccccccccccccc}
+    \toprule
+    \multicolumn{2}{c}{\multirow{2}[4]{*}{Dataset}} & \multicolumn{2}{c}{SVM} & \multicolumn{2}{c}{LDM} & \multicolumn{3}{c}{PinSVM} & \multicolumn{3}{c}{UPSVM} & \multicolumn{3}{c}{\textbf{DBUPLDM}} \\
+\cmidrule{3-15}    \multicolumn{2}{c}{} & Accuracy & C     & Accuracy & C     & Accuracy & C     & tau   & Accuracy & C     & tau   & Accuracy & C     & tau \\
+    \midrule
+    \multirow{18}[4]{*}{$\varepsilon$ = 0.05} & Monk1 & 57.87  & 0.25  & 61.11  & 4.00  & 60.65  & 0.03  & 1.00  & \textbf{63.43 } & 4.00  & -0.50  & 61.34  & 2.00  & -0.10  \\
+          & Monk2 & \textbf{67.13 } & 0.02  & \textbf{67.13 } & 0.02  & \textbf{67.13 } & 0.13  & -0.90  & \textbf{67.13 } & 0.02  & -0.40  & \textbf{67.13 } & 0.02  & -1.00  \\
+          & Monk3 & 72.45  & 0.50  & 72.45  & 0.50  & \textbf{73.38 } & 0.25  & 0.60  & \textbf{73.38 } & 0.25  & 0.60  & 71.99  & 4.00  & -0.60  \\
+          & Pima-Indian & 76.42  & 0.02  & 77.36  & 0.02  & 76.42  & 0.25  & -0.90  & 76.42  & 0.02  & -0.20  & \textbf{80.19 } & 8.00  & 0.20  \\
+          & WDBC  & 84.17  & 0.06  & \textbf{85.00 } & 0.03  & 84.17  & 0.06  & 0.00  & 84.17  & 0.06  & 0.00  & \textbf{85.00 } & 0.13  & -0.70  \\
+          & Echo  & 90.73  & 0.02  & 90.73  & 0.02  & 90.73  & 0.02  & 0.00  & 90.73  & 0.02  & -1.00  & \textbf{91.39 } & 8.00  & 0.10  \\
+          & Ionosphere & 67.09  & 0.02  & \textbf{78.85 } & 4.00  & 67.74  & 0.25  & -1.00  & 69.23  & 2.00  & -0.70  & 77.99  & 4.00  & 0.40  \\
+          & Heberman & 91.72  & 0.02  & \textbf{96.45 } & 8.00  & 92.90  & 0.13  & -1.00  & 95.86  & 0.25  & -0.90  & \textbf{96.45 } & 0.50  & -0.10  \\
+          & Statlog & 76.47  & 0.02  & 92.16  & 0.02  & 76.47  & 0.02  & 0.00  & 82.35  & 0.25  & -0.20  & \textbf{96.08 } & 1.00  & 0.00  \\
+          & Germans & 32.80  & 0.02  & 67.40  & 0.02  & 67.20  & 0.25  & -0.90  & 59.20  & 4.00  & -0.90  & \textbf{73.60 } & 4.00  & 0.40  \\
+          & Australian & 55.86  & 0.02  & 74.48  & 1.00  & 69.66  & 8.00  & -1.00  & \textbf{76.21 } & 8.00  & -0.80  & 75.52  & 0.25  & 0.30  \\
+          & Votes & 80.00  & 0.02  & 80.43  & 0.50  & 80.85  & 0.02  & -1.00  & \textbf{83.83 } & 0.02  & -0.80  & \textbf{83.83 } & 8.00  & 0.70  \\
+          & Diabetes & 67.91  & 0.02  & 80.22  & 2.00  & 72.39  & 0.03  & -1.00  & 72.76  & 4.00  & -0.80  & \textbf{80.60 } & 0.03  & -0.40  \\
+          & Fertility & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & \textbf{94.00 } & 0.02  & 0.00  & \textbf{94.00 } & 0.02  & -1.00  & \textbf{94.00 } & 0.02  & -1.00  \\
+          & Sonar & 58.33  & 0.25  & 62.04  & 8.00  & 59.26  & 0.25  & -0.40  & 62.04  & 0.50  & -0.20  & \textbf{64.81 } & 4.00  & -0.30  \\
+          & Ecoil & 51.18  & 0.02  & 54.33  & 0.03  & 59.84  & 0.06  & -1.00  & \textbf{62.20 } & 0.02  & -0.70  & 61.42  & 8.00  & 0.30  \\
+          & Plrx  & 67.07  & 0.02  & 67.07  & 0.02  & 67.07  & 0.02  & 0.00  & 68.29  & 0.06  & -1.00  & \textbf{70.73 } & 8.00  & 0.30  \\
+\cmidrule{2-15}          & \textbf{Ave. } & 70.07  &       & 76.54  &       & 74.11  &       &       & 75.37  &       &       & \textbf{78.36 } &       &  \\
+    \midrule
+    \multirow{18}[4]{*}{$\varepsilon$ = 0.1} & Monk1 & 57.64  & 0.25  & 61.11  & 4.00  & 60.42  & 0.02  & 0.50  & \textbf{63.43}  & 4.00  & -0.50  & 61.34  & 2.00  & -0.10  \\
+          & Monk2 & \textbf{67.13}  & 0.02  & \textbf{67.13}  & 0.02  & \textbf{67.13}  & 0.13  & -0.90  & \textbf{67.13}  & 0.02  & -0.50  & \textbf{67.13}  & 0.02  & -1.00  \\
+          & Monk3 & 71.76  & 0.25  & 72.22  & 0.50  & \textbf{73.38}  & 0.50  & 0.60  & \textbf{73.38}  & 0.50  & 0.60  & 71.99  & 4.00  & -0.60  \\
+          & Pima-Indian & 76.42  & 0.02  & 77.36  & 0.02  & 76.42  & 0.25  & -0.90  & 76.42  & 0.02  & -0.20  & \textbf{80.19}  & 8.00  & 0.20  \\
+          & WDBC  & 84.17  & 0.06  & \textbf{85.00}  & 0.03  & 84.17  & 0.06  & 0.00  & 84.17  & 0.06  & 0.00  & \textbf{85.00}  & 0.13  & -0.70  \\
+          & Echo  & 90.73  & 0.02  & 90.73  & 0.02  & 90.73  & 0.02  & 0.00  & \textbf{91.39}  & 0.03  & -1.00  & \textbf{91.39}  & 8.00  & 0.10  \\
+          & Ionosphere & 67.09  & 0.02  & \textbf{78.85}  & 8.00  & 69.87  & 4.00  & -1.00  & 69.02  & 2.00  & -0.70  & 77.78  & 4.00  & 0.40  \\
+          & Heberman & 91.72  & 0.02  & \textbf{96.45}  & 8.00  & 95.27  & 0.03  & -1.00  & 95.86  & 0.25  & -0.90  & \textbf{96.45}  & 0.50  & -0.10  \\
+          & Statlog & 76.47  & 0.02  & 94.12  & 0.25  & 76.47  & 0.02  & 0.00  & 82.35  & 0.25  & -0.20  & \textbf{96.08}  & 1.00  & 0.00  \\
+          & Germans & 32.80  & 0.02  & 67.40  & 0.02  & 67.20  & 0.25  & -0.90  & 59.20  & 2.00  & -0.90  & \textbf{73.60}  & 4.00  & 0.40  \\
+          & Australian & 55.86  & 0.02  & 74.48  & 1.00  & 65.86  & 0.03  & -1.00  & \textbf{75.86}  & 8.00  & -0.80  & 75.52  & 0.25  & 0.30  \\
+          & Votes & 82.13  & 0.02  & 80.85  & 0.25  & 82.13  & 0.02  & 0.00  & \textbf{84.26}  & 0.02  & -0.80  & 83.83  & 8.00  & 0.70  \\
+          & Diabetes & 67.91  & 0.03  & 80.22  & 2.00  & 69.03  & 0.06  & -1.00  & 72.76  & 4.00  & -0.80  & \textbf{80.60}  & 0.03  & -0.40  \\
+          & Fertility & \textbf{94.00}  & 0.02  & \textbf{94.00}  & 0.02  & \textbf{94.00}  & 0.02  & 0.00  & \textbf{94.00}  & 0.02  & -1.00  & \textbf{94.00}  & 0.02  & -1.00  \\
+          & Sonar & 59.26  & 0.25  & 62.04  & 8.00  & 59.26  & 0.02  & -1.00  & 62.04  & 0.25  & -1.00  & \textbf{64.81}  & 2.00  & -0.30  \\
+          & Ecoil & 51.18  & 0.02  & 54.33  & 0.03  & \textbf{62.20}  & 8.00  & -1.00  & \textbf{62.20}  & 0.02  & -0.70  & 61.42  & 8.00  & 0.30  \\
+          & Plrx  & 67.07  & 0.02  & 67.07  & 0.02  & 67.07  & 0.02  & 0.00  & 68.29  & 0.06  & -0.30  & \textbf{70.73}  & 8.00  & 0.30  \\
+\cmidrule{2-15}          & \textbf{Ave. } & 70.20  &       & 76.67  &       & 74.15  &       &       & 75.40  &       &       & \textbf{78.34}  &       &  \\
+    \bottomrule
+    \end{tabular}}}%
+    \label{ucin}
+\end{table*}%\\
+
+\begin{table*}
+\caption{\color{orange}Comparison of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on noise-added UCI datasets}
+\renewcommand\arraystretch{1.5}
+\footnotesize
+  \centering
+   \setlength{\tabcolsep}{2mm}{
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{cccccccccccccccccccccccc}
+    \toprule
+    \multicolumn{2}{c}{\multirow{2}[4]{*}{Dataset}} & \multicolumn{4}{c}{SVM} & \multicolumn{4}{c}{LDM} & \multicolumn{4}{c}{PinSVM} & \multicolumn{4}{c}{UPSVM} & \multicolumn{4}{c}{\textbf{DBUPLDM}} \\
+\cmidrule{3-6}\cmidrule{7-10}\cmidrule{11-14}\cmidrule{15-18}\cmidrule{19-22}
+    \multicolumn{2}{c}{} & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C \\
+    \midrule
+    \multirow{17}[4]{*}{$\varepsilon$ = 0.05}
+          & Monk1 & 57.87  & \textcolor{orange}{59.87}  & \textcolor{orange}{57.37}  & 0.25  & 61.11  & \textcolor{orange}{63.11}  & \textcolor{orange}{60.61}  & 4.00  & 60.65  & \textcolor{orange}{62.65}  & \textcolor{orange}{60.15}  & 0.03  & \textbf{63.43}  & \textcolor{orange}{65.43}  & \textcolor{orange}{62.93}  & 4.00  & 61.34  & \textcolor{orange}{63.34}  & \textcolor{orange}{60.84}  & 2.00  \\
+          & Monk2 & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.13  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  \\
+          & Monk3 & 72.45  & \textcolor{orange}{74.45}  & \textcolor{orange}{71.95}  & 0.50  & 72.45  & \textcolor{orange}{74.45}  & \textcolor{orange}{71.95}  & 0.50  & \textbf{73.38}  & \textcolor{orange}{75.38}  & \textcolor{orange}{72.88}  & 0.25  & \textbf{73.38}  & \textcolor{orange}{75.38}  & \textcolor{orange}{72.88}  & 0.25  & 71.99  & \textcolor{orange}{73.99}  & \textcolor{orange}{71.49}  & 4.00  \\
+          & Pima-Indian & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.02  & 77.36  & \textcolor{orange}{79.36}  & \textcolor{orange}{76.86}  & 0.02  & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.25  & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.02  & \textbf{80.19}  & \textcolor{orange}{82.19}  & \textcolor{orange}{79.69}  & 8.00  \\
+          & WDBC  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & \textbf{85.00}  & \textcolor{orange}{87.00}  & \textcolor{orange}{84.50}  & 0.03  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & \textbf{85.00}  & \textcolor{orange}{87.00}  & \textcolor{orange}{84.50}  & 0.13  \\
+          & Echo  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & \textbf{91.39}  & \textcolor{orange}{93.39}  & \textcolor{orange}{90.89}  & 8.00  \\
+          & Ionosphere & 67.09  & \textcolor{orange}{69.09}  & \textcolor{orange}{66.59}  & 0.02  & \textbf{78.85}  & \textcolor{orange}{80.85}  & \textcolor{orange}{78.35}  & 4.00  & 67.74  & \textcolor{orange}{69.74}  & \textcolor{orange}{67.24}  & 0.25  & 69.23  & \textcolor{orange}{71.23}  & \textcolor{orange}{68.73}  & 2.00  & 77.99  & \textcolor{orange}{79.99}  & \textcolor{orange}{77.49}  & 4.00  \\
+          & Heberman & 91.72  & \textcolor{orange}{93.72}  & \textcolor{orange}{91.22}  & 0.02  & \textbf{96.45}  & \textcolor{orange}{98.45}  & \textcolor{orange}{95.95}  & 8.00  & 92.90  & \textcolor{orange}{94.90}  & \textcolor{orange}{92.40}  & 0.13  & 95.86  & \textcolor{orange}{97.86}  & \textcolor{orange}{95.36}  & 0.25  & \textbf{96.45}  & \textcolor{orange}{98.45}  & \textcolor{orange}{95.95}  & 0.50  \\
+          & Statlog & 76.47  & \textcolor{orange}{78.47}  & \textcolor{orange}{75.97}  & 0.02  & 92.16  & \textcolor{orange}{94.16}  & \textcolor{orange}{91.66}  & 0.02  & 76.47  & \textcolor{orange}{78.47}  & \textcolor{orange}{75.97}  & 0.02  & 82.35  & \textcolor{orange}{84.35}  & \textcolor{orange}{81.85}  & 0.25  & \textbf{96.08}  & \textcolor{orange}{98.08}  & \textcolor{orange}{95.58}  & 1.00  \\
+          & Germans & 32.80  & \textcolor{orange}{34.80}  & \textcolor{orange}{32.30}  & 0.02  & 67.40  & \textcolor{orange}{69.40}  & \textcolor{orange}{66.90}  & 0.02  & 67.20  & \textcolor{orange}{69.20}  & \textcolor{orange}{66.70}  & 0.25  & 59.20  & \textcolor{orange}{61.20}  & \textcolor{orange}{58.70}  & 4.00  & \textbf{73.60}  & \textcolor{orange}{75.60}  & \textcolor{orange}{73.10}  & 4.00  \\
+          & Australian & 55.86  & \textcolor{orange}{57.86} & \textcolor{orange}{55.36}  & 0.02  & 74.48  & \textcolor{orange}{76.48}  & \textcolor{orange}{73.98}  & 1.00  & 69.66  & \textcolor{orange}{71.66}  & \textcolor{orange}{69.16}  & 8.00  & \textbf{76.21}  & \textcolor{orange}{78.21}  & \textcolor{orange}{75.71}  & 8.00  & 75.52  & \textcolor{orange}{77.52}  & \textcolor{orange}{75.02}  & 0.25  \\
+          & Votes & 80.00  & \textcolor{orange}{82.00}  & \textcolor{orange}{79.50}  & 0.02  & 80.43  & \textcolor{orange}{82.43}  & \textcolor{orange}{79.93}  & 0.50  & 80.85  & \textcolor{orange}{82.85}  & \textcolor{orange}{80.35}  & 0.02  & \textbf{83.83}  & \textcolor{orange}{85.83}  & \textcolor{orange}{83.33}  & 0.02  & \textbf{83.83}  & \textcolor{orange}{85.83}  & \textcolor{orange}{83.33}  & 8.00  \\
+          & Diabetes & 67.91  & \textcolor{orange}{69.91}  & \textcolor{orange}{67.41}  & 0.02  & 80.22  & \textcolor{orange}{82.22}  & \textcolor{orange}{79.72}  & 2.00  & 72.39  & \textcolor{orange}{74.39}  & \textcolor{orange}{71.89}  & 0.03  & 72.76  & \textcolor{orange}{74.76}  & \textcolor{orange}{72.26}  & 4.00  & \textbf{80.60}  & \textcolor{orange}{82.60}  & \textcolor{orange}{80.10}  & 0.03  \\
+          & Fertility & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  \\
+          & Sonar & 58.33  & \textcolor{orange}{60.33}  & \textcolor{orange}{57.83}  & 0.25  & 62.04  & \textcolor{orange}{64.04}  & \textcolor{orange}{61.54}  & 8.00  & 59.26  & \textcolor{orange}{61.26}  & \textcolor{orange}{58.76}  & 0.25  & 62.04  & \textcolor{orange}{64.04}  & \textcolor{orange}{61.54}  & 0.50  & \textbf{64.81}  & \textcolor{orange}{66.81}  & \textcolor{orange}{64.31}  & 4.00  \\
+          & Ecoil & 51.18  & \textcolor{orange}{53.18}  & \textcolor{orange}{50.68}  & 0.02  & 54.33  & \textcolor{orange}{56.33}  & \textcolor{orange}{53.83}  & 0.03  & 59.84  & \textcolor{orange}{61.84}  & \textcolor{orange}{59.34}  & 0.06  & \textbf{62.20}  & \textcolor{orange}{64.20}  & \textcolor{orange}{61.70}  & 0.02  & 61.42  & \textcolor{orange}{63.42}  & \textcolor{orange}{60.92}  & 8.00  \\
+          & Plrx  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 68.29  & \textcolor{orange}{70.29}  & \textcolor{orange}{67.79}  & 0.06  & \textbf{70.73}  & \textcolor{orange}{72.73}  & \textcolor{orange}{70.23}  & 8.00  \\
+\cmidrule{2-22}
+          & \textbf{Ave. } & 70.07  & \textcolor{orange}{72.07}  & \textcolor{orange}{69.57}  &   & 76.54  & \textcolor{orange}{78.54}  & \textcolor{orange}{76.04}  &   & 74.11  & \textcolor{orange}{76.11}  & \textcolor{orange}{73.61}  &   & 75.37  & \textcolor{orange}{77.37}  & \textcolor{orange}{74.87}  &   & \textbf{78.36 } & \textcolor{orange}{80.36}  & \textcolor{orange}{77.86}  &   \\
+    \midrule
+    \multirow{17}[4]{*}{$\varepsilon$ = 0.1}
+          & Monk1 & 57.64  & \textcolor{orange}{59.64}  & \textcolor{orange}{57.14}  & 0.25  & 61.11  & \textcolor{orange}{63.11}  & \textcolor{orange}{60.61}  & 4.00  & 60.42  & \textcolor{orange}{62.42}  & \textcolor{orange}{59.92}  & 0.02  & \textbf{63.43}  & \textcolor{orange}{65.43}  & \textcolor{orange}{62.93}  & 4.00  & 61.34  & \textcolor{orange}{63.34}  & \textcolor{orange}{60.84}  & 2.00  \\
+          & Monk2 & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.13  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  \\
+          & Monk3 & 71.76  & \textcolor{orange}{73.76}  & \textcolor{orange}{71.26}  & 0.25  & 72.22  & \textcolor{orange}{74.22}  & \textcolor{orange}{71.72}  & 0.50  & \textbf{73.38}  & \textcolor{orange}{75.38}  & \textcolor{orange}{72.88}  & 0.50  & \textbf{73.38}  & \textcolor{orange}{75.38}  & \textcolor{orange}{72.88}  & 0.50  & 71.99  & \textcolor{orange}{73.99}  & \textcolor{orange}{71.49}  & 4.00  \\
+          & Pima-Indian & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.02  & 77.36  & \textcolor{orange}{79.36}  & \textcolor{orange}{76.86}  & 0.02  & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.25  & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.02  & \textbf{80.19}  & \textcolor{orange}{82.19}  & \textcolor{orange}{79.69}  & 8.00  \\
+          & WDBC  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & \textbf{85.00}  & \textcolor{orange}{87.00}  & \textcolor{orange}{84.50}  & 0.03  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & \textbf{85.00}  & \textcolor{orange}{87.00}  & \textcolor{orange}{84.50}  & 0.13  \\
+          & Echo  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & \textbf{91.39}  & \textcolor{orange}{93.39}  & \textcolor{orange}{90.89}  & 0.03  & \textbf{91.39}  & \textcolor{orange}{93.39}  & \textcolor{orange}{90.89}  & 8.00  \\
+          & Ionosphere & 67.09  & \textcolor{orange}{69.09}  & \textcolor{orange}{66.59}  & 0.02  & \textbf{78.85}  & \textcolor{orange}{80.85}  & \textcolor{orange}{78.35}  & 8.00  & 69.87  & \textcolor{orange}{71.87}  & \textcolor{orange}{69.37}  & 4.00  & 69.02  & \textcolor{orange}{71.02}  & \textcolor{orange}{68.52}  & 2.00  & 77.78  & \textcolor{orange}{79.78}  & \textcolor{orange}{77.28}  & 4.00  \\
+          & Heberman & 91.72  & \textcolor{orange}{93.72}  & \textcolor{orange}{91.22}  & 0.02  & \textbf{96.45}  & \textcolor{orange}{98.45}  & \textcolor{orange}{95.95}  & 8.00  & 95.27  & \textcolor{orange}{97.27}  & \textcolor{orange}{94.77}  & 0.03  & 95.86  & \textcolor{orange}{97.86}  & \textcolor{orange}{95.36}  & 0.25  & \textbf{96.45}  & \textcolor{orange}{98.45}  & \textcolor{orange}{95.95}  & 0.50  \\
+          & Statlog & 76.47  & \textcolor{orange}{78.47}  & \textcolor{orange}{75.97}  & 0.02  & 94.12  & \textcolor{orange}{96.12}  & \textcolor{orange}{93.62}  & 0.25  & 76.47  & \textcolor{orange}{78.47}  & \textcolor{orange}{75.97}  & 0.02  & 82.35  & \textcolor{orange}{84.35}  & \textcolor{orange}{81.85}  & 0.25  & \textbf{96.08}  & \textcolor{orange}{98.08}  & \textcolor{orange}{95.58}  & 1.00  \\
+          & Germans & 32.80  & \textcolor{orange}{34.80}  & \textcolor{orange}{32.30}  & 0.02  & 67.40  & \textcolor{orange}{69.40}  & \textcolor{orange}{66.90}  & 0.02  & 67.20  & \textcolor{orange}{69.20}  & \textcolor{orange}{66.70}  & 0.25  & 59.20  & \textcolor{orange}{61.20}  & \textcolor{orange}{58.70}  & 2.00  & \textbf{73.60}  & \textcolor{orange}{75.60}  & \textcolor{orange}{73.10}  & 4.00  \\
+          & Australian & 55.86  & \textcolor{orange}{57.86}  & \textcolor{orange}{55.36}  & 0.02  & 74.48  & \textcolor{orange}{76.48}  & \textcolor{orange}{73.98}  & 1.00  & 65.86  & \textcolor{orange}{67.86}  & \textcolor{orange}{65.36}  & 0.03  & \textbf{75.86}  & \textcolor{orange}{77.86}  & \textcolor{orange}{75.36}  & 8.00  & 75.52  & \textcolor{orange}{77.52}  & \textcolor{orange}{75.02}  & 0.25  \\
+          & Votes & 82.13  & \textcolor{orange}{84.13}  & \textcolor{orange}{81.63}  & 0.02  & 80.85  & \textcolor{orange}{82.85}  & \textcolor{orange}{80.35}  & 0.25  & 82.13  & \textcolor{orange}{84.13}  & \textcolor{orange}{81.63}  & 0.02  & \textbf{84.26}  & \textcolor{orange}{86.26}  & \textcolor{orange}{83.76}  & 0.02  & 83.83  & \textcolor{orange}{85.83}  & \textcolor{orange}{83.33}  & 8.00  \\
+          & Diabetes & 67.91  & \textcolor{orange}{69.91}  & \textcolor{orange}{67.41}  & 0.03  & 80.22  & \textcolor{orange}{82.22}  & \textcolor{orange}{79.72}  & 2.00  & 69.03  & \textcolor{orange}{71.03}  & \textcolor{orange}{68.53}  & 0.06  & 72.76  & \textcolor{orange}{74.76}  & \textcolor{orange}{72.26}  & 4.00  & \textbf{80.60}  & \textcolor{orange}{82.60}  & \textcolor{orange}{80.10}  & 0.03  \\
+          & Fertility & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  \\
+          & Sonar & 59.26  & \textcolor{orange}{61.26}  & \textcolor{orange}{58.76}  & 0.25  & 62.04  & \textcolor{orange}{64.04}  & \textcolor{orange}{61.54}  & 8.00  & 59.26  & \textcolor{orange}{61.26}  & \textcolor{orange}{58.76}  & 0.02  & 62.04  & \textcolor{orange}{64.04}  & \textcolor{orange}{61.54}  & 0.25  & \textbf{64.81}  & \textcolor{orange}{66.81}  & \textcolor{orange}{64.31}  & 2.00  \\
+          & Ecoil & 51.18  & \textcolor{orange}{53.18}  & \textcolor{orange}{50.68}  & 0.02  & 54.33  & \textcolor{orange}{56.33}  & \textcolor{orange}{53.83}  & 0.03  & \textbf{62.20}  & \textcolor{orange}{64.20}  & \textcolor{orange}{61.70}  & 8.00  & \textbf{62.20}  & \textcolor{orange}{64.20}  & \textcolor{orange}{61.70}  & 0.02  & 61.42  & \textcolor{orange}{63.42}  & \textcolor{orange}{60.92}  & 8.00  \\
+          & Plrx  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 68.29  & \textcolor{orange}{70.29}  & \textcolor{orange}{67.79}  & 0.06  & \textbf{70.73}  & \textcolor{orange}{72.73}  & \textcolor{orange}{70.23}  & 8.00  \\
+\cmidrule{2-22}
+          & \textbf{Ave. } & 70.20  & \textcolor{orange}{72.20}  & \textcolor{orange}{69.70}  &   & 76.67  & \textcolor{orange}{78.67}  & \textcolor{orange}{76.17}  &   & 74.15  & \textcolor{orange}{76.15}  & \textcolor{orange}{73.65}  &   & 75.40  & \textcolor{orange}{77.40}  & \textcolor{orange}{74.90}  &   & \textbf{78.34}  & \textcolor{orange}{80.34}  & \textcolor{orange}{77.84}  &   \\
+    \bottomrule
+    \end{tabular}}}%
+    \label{ucin3}
+\end{table*}
+
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets'', Page 17,  Line 1 below Table 7:\\
+\par
+
+{\color{black} $\longrightarrow$  Original  text: `` From Table \ref{tab:performance_comparison1}, we observe that DBUPLDM achieves higher accuracy than MLP with Focal Loss on 14 out of 17
+datasets. 
+\begin{table*}[htbp]
+  \centering
+  \footnotesize
+\caption{Accuracy (\%) Comparison Between DBUPLDM and MLP+Focal Loss On 17 Benchmark Datasets}
+  \vspace{2mm}
+  \setlength{\tabcolsep}{5mm}{
+    \begin{tabular}{lcccccc}
+    \toprule
+    \textbf{Model} & Monk1 & Monk2 & Monk3 & Pima & WDBC & Echo \\
+    \midrule
+    \textbf{DBUPLDM} & 68.29 & \textbf{67.82} & \textbf{88.89} & \textbf{79.25} & 87.50 & \textbf{92.72} \\
+    MLP+Focal        & \textbf{74.00} & 62.00 & 86.00 & 68.00 & \textbf{94.00} & 73.00 \\
+    \midrule
+    \textbf{Model} & Iono & Hebe & Stat & Germ & Aust & Vote \\
+    \midrule
+    \textbf{DBUPLDM} & 78.85 & \textbf{98.82} & \textbf{92.16} & \textbf{76.40} & \textbf{87.24} & \textbf{95.32} \\
+    MLP+Focal        & \textbf{88.00} & 62.00 & 75.00 & 72.00 & 81.00 & 69.00 \\
+    \midrule
+    \textbf{Model} & Diab & Fert & Sonar & Ecoil & Plrx & Avg \\
+    \midrule
+    \textbf{DBUPLDM} & \textbf{82.09} & \textbf{96.00} & \textbf{76.85} & \textbf{94.49} & \textbf{69.51} & \textbf{84.16} \\
+    MLP+Focal        & 69.00 & 60.00 & 67.00 & 89.00 & 53.00 & 72.24 \\
+    \bottomrule
+    \end{tabular}
+  }
+\label{tab:performance_comparison1}
+\end{table*}
+  "}\\
+  
+{\color{orange}$\longrightarrow$Revised text: `` As shown in Table \ref{tab:performance_comparison2}, DBUPLDM surpasses MLP-Focal in accuracy on 14 of 17 datasets, and likewise leads in AUC (13/17) and F1-score (14/17). 
+\begin{table*}[htbp]
+  \centering
+  \footnotesize
+  \caption{{\color{orange}Performance Comparison (Acc/AUC/F1-score) Between DBUPLDM and MLP+Focal Loss On 17 Benchmark Datasets}}
+  \vspace{2mm}
+  \setlength{\tabcolsep}{1.5mm}{ % 缩小列间距适配多指标
+    \begin{tabular}{lcccccc}
+    \toprule
+    \textbf{Model} & Monk1 & Monk2 & Monk3 & Pima & WDBC & Echo \\
+    \midrule
+    \textbf{DBUPLDM} & 68.29/72.13/0.69 & \textbf{67.82}/\textbf{\color{orange}78.64}/\textbf{\color{orange}0.76} & \textbf{88.89}/\textbf{\color{orange}92.43}/\textbf{\color{orange}0.89} & \textbf{79.25}/\textbf{\color{orange}79.34}/\textbf{\color{orange}0.72} & 87.50/91.43/0/89 & \textbf{92.72}/\textbf{\color{orange}83.66}/\textbf{\color{orange}0.76} \\
+    MLP+Focal        & \textbf{74.00}/\textbf{\textcolor{orange}{77.50}}/\textbf{\textcolor{orange}{0.74}} & 62.00/\textcolor{orange}{74.27}/\textcolor{orange}{0.63} & 86.00/\textcolor{orange}{91.51}/\textcolor{orange}{0.86} & 68.00/\textcolor{orange}{74.85}/\textcolor{orange}{0.67} & \textbf{94.00}/\textbf{\textcolor{orange}{99.50}}/\textbf{\textcolor{orange}{0.94}} & 73.00/\textcolor{orange}{76.35}/\textcolor{orange}{0.73} \\
+    \midrule
+    \textbf{Model} & Iono & Habe & Stat & Germ & Aust & Vote \\
+    \midrule
+    \textbf{DBUPLDM} & 78.85/{\color{orange}89.23}/{\color{orange}0.76} & \textbf{98.82}/\textbf{\textcolor{orange}{85.51}}/\textbf{\textcolor{orange}{0.86}} & \textbf{92.16}/\textbf{\textcolor{orange}{79.46}}/\textbf{\textcolor{orange}{0.91}} & \textbf{76.40}/\textbf{\textcolor{orange}{73.21}}/\textbf{\textcolor{orange}{0.78}} & \textbf{87.24}/{\color{orange}83.44}/\textbf{\textcolor{orange}{0.84}} & \textbf{95.32}/\textbf{\textcolor{orange}{87.29}}/\textbf{\textcolor{orange}{0.79}} \\
+    MLP+Focal        & \textbf{88.00}/\textbf{\textcolor{orange}{95.36}}/\textbf{\textcolor{orange}{0.88}} & 62.00/\textcolor{orange}{64.15}/\textcolor{orange}{0.64} & 75.00/\textcolor{orange}{81.48}/\textcolor{orange}{0.75} & 72.00/\textcolor{orange}{77.83}/\textcolor{orange}{0.73} & 81.00/\textbf{\textcolor{orange}{86.96}}/\textcolor{orange}{0.80} & 69.00/\textcolor{orange}{64.01}/\textcolor{orange}{0.69} \\
+    \midrule
+    \textbf{Model} & Diab & Fert & Sonar & Ecoil & Plrx & Avg \\
+    \midrule
+    \textbf{DBUPLDM} & \textbf{82.09}/\textbf{\textcolor{orange}{80.12}}/\textbf{\textcolor{orange}{0.79}} & \textbf{96.00}/\textbf{\textcolor{orange}{92.88}}/\textbf{\textcolor{orange}{0.88}} & \textbf{76.85}/{\color{orange}72.42}/\textbf{\textcolor{orange}{0.78}} & \textbf{94.49}/{\color{orange}82.18}/{\color{orange}0.75} & \textbf{69.51}/\textbf{\textcolor{orange}{68.72}}/\textbf{\textcolor{orange}{0.68}} & \textbf{84.16}/\textbf{\textcolor{orange}{82.78}}/\textbf{\textcolor{orange}{0.81}} \\
+    MLP+Focal        & 69.00/\textcolor{orange}{75.79}/\textcolor{orange}{0.67} & 60.00/\textcolor{orange}{48.08}/\textcolor{orange}{0.66} & 67.00/\textbf{\textcolor{orange}{74.34}}/\textcolor{orange}{0.66} & 89.00/\textbf{\textcolor{orange}{97.55}}/\textbf{\textcolor{orange}{0.89}} & 53.00/\textcolor{orange}{53.21}/\textcolor{orange}{0.54} & 72.24/\textcolor{orange}{76.69}/\textcolor{orange}{0.74} \\
+    \bottomrule
+    \end{tabular}
+  }
+  \label{tab:performance_comparison2}
+\end{table*}''}\\
+
+
+
+% -------------Reviewer 2, Concern 3--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 2, Concern 3}}}
+\emph{The choice of MLP+Focal (2017) as a benchmark requires more justification. The current description in 5.3 is a little abrupt, without sufficient prior motivation or connection to the earlier discussion. As more recent imbalance methods exist, such as LDAM (2019), Balanced Softmax (2020), and DeepSMOTE (2022), the benchmark choice should be motivated in the introduction. Ideally more recent benchmarks, like DeepSMOTE as you discussed in the introduction, should be added to the benchmark pool.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+We sincerely appreciate the reviewer’s insightful comment. We agree that the introduction lacked sufficient motivation for selecting MLP+Focal (2017) as a benchmark. To address this, we have revised the introduction to better justify this choice by clarifying that MLP+Focal represents a simple yet widely used neural baseline for class-imbalance learning. In addition, we explicitly connect it with more recent imbalance approaches, such as LDAM (2019), Balanced Softmax (2020), and DeepSMOTE (2022), to provide a clearer methodological context. This enhancement improves the logical flow between the introduction and the benchmark discussion in Section 5.3.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We updated the manuscript by adding the following paragraph in the introduction to justify the benchmark selection.
+}\\
+
+$\blacktriangleright\blacktriangleright$ Section ``Introduction'', Page 2,  Line 24:\\
+\par
+
+%%%%%%
+{\color{black}$\longrightarrow$ Original text: ``In recent years, deep learning–based frameworks have shown remarkable potential in addressing class imbalance in both image and tabular domains. DeepSMOTE \cite{dablain2022deepsmote} extends SMOTE by using an encoder–decoder to interpolate in the latent space and a penalized loss to generate high-quality minority samples. Unlike GAN-based models, it avoids a discriminator, improving stability and training efficiency. For tabular imbalanced data, while ensemble methods like random forest and XGBoost are common, \cite{farhang2024deep} proposed a deep model combining autoencoders and feed-forward networks that outperforms tree-based methods in large-scale applications.''}\\
+
+{\color{orange}$\longrightarrow$ Revised text: ``In recent years, deep learning–based frameworks have shown remarkable potential in addressing class imbalance in both image and tabular domains. DeepSMOTE \cite{dablain2022deepsmote} extends SMOTE by using an encoder–decoder to interpolate in the latent space and a penalized loss to generate high-quality minority samples. Unlike GAN-based models, it avoids a discriminator, improving stability and training efficiency. For tabular imbalanced data, while ensemble methods like random forest and XGBoost are common, \cite{farhang2024deep} proposed a deep model combining autoencoders and feed-forward networks that outperforms tree-based methods in large-scale applications. However, such deep approaches often incur high computational costs and lack interpretability, limiting their practical use. In addition, the MLP+Focal model \cite{lin2017focal} leverages focal loss to reduce the influence of majority classes, providing a simple yet effective baseline for handling class imbalance in neural networks.''}\\
+%%%%%%
+
+
+% -------------Reviewer 2, Concern 4--------------
+% \textcolor{customgreen}{
+% \subsubsection*{\underline{\textbf{Reviewer 2, Concern 4}}}
+% \emph{The choice of MLP+Focal (2017) as a benchmark requires more justification. The current description in Section 5.3 is a little abrupt, without sufficient prior motivation or connection to the earlier discussion. As more recent imbalance methods exist, such as LDAM (2019), Balanced Softmax (2020), and DeepSMOTE (2022), the benchmark choice should be motivated in the introduction. Ideally, more recent benchmarks, like DeepSMOTE as discussed in the introduction, should be added to the benchmark pool.}
+% }\\
+
+% {\color{black}
+% \subsubsection*{\textbf{\underline{Author response}}}
+% We thank the reviewer for the insightful suggestion. We agree that the motivation for selecting MLP+Focal (2017) as a baseline should be better justified and more clearly connected to the introduction. Although more recent imbalance learning methods (e.g., LDAM, Balanced Softmax, DeepSMOTE) exist, MLP+Focal remains a representative and widely adopted benchmark for comparing modern imbalance mitigation strategies, particularly in small- to medium-scale tabular domains relevant to our study. It serves as a robust reference to evaluate the proposed model’s ability to handle label imbalance under conventional deep learning settings.
+% }\\
+
+% {\color{black}
+% \subsubsection*{\textbf{\underline{Author action}}}
+% We revised the introduction to explicitly justify the choice of MLP+Focal (2017) and clarify its role as a baseline. Specifically, we added motivation explaining that MLP+Focal serves as a standard deep learning reference model for imbalanced classification, balancing interpretability, computational feasibility, and comparability across datasets. The revised text also mentions that future extensions will incorporate newer benchmarks (e.g., DeepSMOTE) for further validation.
+% }
+
+% %%%%%%
+% {\color{black} $\longrightarrow$ Original text (Introduction): ``To tackle these limitations, our research employs a composite distance solution... Thus, it’s a more comprehensive, concise, and effective solution.''}\\
+
+% {\color{orange}$\longrightarrow$ Revised text: ``To tackle these limitations, our research employs a composite distance solution... To provide a fair and interpretable comparison, MLP+Focal (2017) is selected as a baseline deep learning benchmark due to its established performance in imbalanced classification and its compatibility with tabular domains. Although more recent methods (e.g., LDAM, Balanced Softmax, DeepSMOTE) have been proposed, MLP+Focal remains a standard and computationally efficient reference point, ensuring consistent evaluation across datasets. Thus, our approach can be effectively compared to this widely recognized framework while maintaining computational feasibility.''}\\
+% %%%%%%
+
+
+\newpage
+
+{\color{black}
+\section*{\textbf{REVIEWER 4}}\label{rev4}}
+
+{\color{black}
+\subsubsection*{\underline{General Comments}}
+\emph{The authors propose a better Large Margin Distribution Machine (LDM) that introduces a dual balanced distance to handle class imbalance and a unified pinball loss to enhance robustness against noise. Experiments across multiple domains show superior generalization and performance compared to existing methods. The authors have addressed key revision requests by discussing convergence/convexity, adding recent deep learning classifiers and references, and improving the introduction. They also included additional benchmarks (MLP with Focal Loss).}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Response}}}
+Thank you for your positive feedback on the manuscript. Based on your guidance, we have made detailed revisions and edits. After revisions, the paper's quality and its appeal to potential readers have been significantly enhanced. The detailed revisions can be found in the corresponding comments below. For your convenience, reference numbers are consistent with those at the end of this response document. We mention the section or subsection, page, and line number of revisions based on the newly \textbf{revised version manuscript}, \textbf{NOT the previous manuscript}. Furthermore, for clarity, we highlight the modified parts in {\color{orange} yellow}. The detailed revisions are presented as follows.
+}\\
+
+
+% -------------Reviewer 4, Concern 1--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 4, Concern 1}}}
+\emph{Fix table overlaps.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+We thank the reviewer for pointing out the overlap among Tables 3, 4, and 7. As suggested, we have moved the original Tables 4 and 7 to the Appendix. This revision resolves the information overlap while preserving all key data.}
+\\
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We moved Table 4 and Table 7 with added AUC/F-measure to the appendix, as detailed in Supplementary
+TABLE S1 and TABLE S2.
+
+% -------------Reviewer 4, Concern 2--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 4, Concern 2}}}
+\emph{add F1 score for evaluation.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+We sincerely appreciate your insightful comment.
+To provide a more rigorous evaluation under class--imbalance conditions, we have supplemented Tables~3, 4, 7 and~9 with AUC and F-measure in addition to accuracy.
+The enriched experimental results consistently demonstrate that DBUPLDM retains the highest average performance across all three metrics.
+Moreover, as the degree of imbalance intensifies (\textit{n}$\to$0), the proposed method preserves the same ``increase-then-decrease'' trend, peaking at \textit{n}=0.125, and its superiority becomes even more pronounced in terms of AUC and F-measure, corroborating that our conclusions are independent of the specific evaluation criterion employed.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action }}}
+We replaced Table \ref{uci1} (original Table 3), \ref{uci2} (original Table 4), \ref{ucin} (original Table 7), and \ref{tab:performance_comparison1} (original Table 9) with the extended Table \ref{table1} (current Table 3), \ref{table2} (see Supplementary TABLE S1), \ref{ucin3} (see Supplementary TABLE S2), and  \ref{tab:performance_comparison2} (current Table 7), respectively, and updated the corresponding experimental description to report Accuracy, AUC and F1-score together. The specific modifications are as follows: \\
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets'', Page 13,  Line 3 below Figure 3:\\
+\par
+{\color{black} $\longrightarrow$  Original  text: ``Table \ref{uci1} and \ref{uci2} demonstrate that DBUPLDM has the best overall performance on all 17 datasets. DBUPLDM consistently maintains the highest average accuracy across all datasets regardless of the adjustment parameter $\eta$. Specifically, the accuracy of DBUPLDM tends to increase and then decrease as $\eta$ decreases, with the best performance found at $\eta = 0.125$. Compared to SVM and some improved versions of SVM (i.e., PinSVM and UPSVM), LDM's accuracy is higher because it takes into account the marginal distribution theory and adds a second-order statistic to the model. However, due to its use of hinge loss function, LDM is not suitable for imbalanced classification tasks, resulting in lower accuracy than that of DBUPLDM. Interestingly, algorithms with pinball loss functions (PinSVM, UPSVM, and DBUPLDM) exhibit better performance when $\tau$ takes negative values."}\\
+\par
+
+
+{\color{orange}$\longrightarrow$Revised text: `` Tables \ref{table1} and \ref{table2} demonstrate that DBUPLDM achieves the best overall performance in terms of Accuracy, AUC, and F1-score across all 17 datasets. Regardless of the adjustment of parameter \(\eta\), DBUPLDM consistently maintains the highest average levels in these three metrics. Specifically, as \(\eta\) decreases, the Accuracy, AUC, and F1-score of DBUPLDM tend to first increase and then decrease, with the optimal performance observed at \(\eta = 0.125\). Compared with SVM and some of its improved versions (i.e., PinSVM and UPSVM), LDM has a higher accuracy because it takes into account the marginal distribution theory and adds a second-order statistic to the model. However, due to its use of the hinge loss function, LDM is not suitable for imbalanced classification tasks, resulting in its Accuracy, AUC, and F1-score being lower than those of DBUPLDM. Interestingly, algorithms with pinball loss functions (PinSVM, UPSVM, and DBUPLDM) perform better in terms of Accuracy, AUC, and F1-score when \(\tau\) takes negative values."}\\
+
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets with feature noise'', Page 19, Line 20:\\
+
+
+{\color{black} $\longrightarrow$  Original  text: `` Table \ref{ucin} presents the experimental results. Compared to SVM, PinSVM, UPSVM, LDM, and DBUPLDM algorithms show better noise-handling capabilities on most datasets. Additionally, LDMs exhibit better classification accuracy than SVMs due to the second-order statistics introduced by the model. However, DBUPLDM consistently outperformed LDM across all 17 datasets, regardless of the noise ratio. By setting s=0.05, the average accuracy of DBUPLDM significantly improved compared to other algorithms across all 17 datasets. Specifically, DBUPLDM outperformed SVM by 8.9\%, PinSVM by 4.25\%, UPSVM by 2.09\%, and LDM by 1.82\%.
+"}\\
+
+
+{\color{orange}$\longrightarrow$Revised text: ``Table \ref{ucin3} presents the experimental results, covering performance metrics such as Accuracy, AUC, and F1-score. } Compared to SVM, PinSVM, UPSVM, LDM, and DBUPLDM algorithms show better noise-handling capabilities on most datasets. {\color{orange}In addition, due to the introduction of second-order statistics in the model, LDM outperforms SVM in terms of classification accuracy, AUC, and F1-score. However, regardless of the noise ratio, DBUPLDM consistently outperforms LDM in terms of accuracy, AUC, and F1-score across all 17 datasets. By setting \(s = 0.05\), the average accuracy, AUC, and F1-score of DBUPLDM are significantly improved compared with other algorithms across all 17 datasets. Specifically, DBUPLDM improves by 8.9\% over SVM, 4.25\% over PinSVM, 2.09\% over UPSVM, and 1.82\% over LDM in terms of accuracy, and also shows similar leading advantages in AUC and F1-score. 
+''}\\
+
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets'', Page 17,  Line 1 below Table 7:\\
+\par
+
+{\color{black} $\longrightarrow$  Original  text: `` From Table \ref{tab:performance_comparison1}, we observe that DBUPLDM achieves higher accuracy than MLP with Focal Loss on 14 out of 17
+datasets.\\
+
+{\color{orange}$\longrightarrow$Revised text: `` As shown in Table \ref{tab:performance_comparison2}, DBUPLDM surpasses MLP-Focal in accuracy on 14 of 17 datasets, and likewise leads in AUC (13/17) and F1-score (14/17).}\\ 
+
+
+
+
+\newpage
+
+{\color{black}
+\section*{\textbf{REVIEWER 5}}\label{rev5}}
+% -------------Reviewer 5, Concern 1--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 1}}}
+\emph{Clarify Hyperparameter Tuning for $\rho$:
+1) You mention that $\rho = 1/2$ is empirically set and provides moderate nonlinearity, and users can tune it within $[0.1, 0.9]$ . Provide a more detailed guideline or sensitivity analysis for selecting $\rho$.
+2) Include a small subsection or an appendix demonstrating the impact of different $\rho$ values on performance using one or two representative datasets. This would help practitioners understand how to configure this parameter optimally for their specific applications.
+}
+}
+\\
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}} Thank you for your suggestions. We have expanded Definition~2 in the main text to explicitly relate the choice of $\rho$ to the dataset's imbalance ratio, providing practical intervals for both mild and severe imbalance scenarios and warning that an excessive $\rho$ degrades majority-class performance. 
+Additionally, Supplementary 3 presents systematic experiments on \textit{Pharyngitis} (8.26:1) and \textit{Oil Spill} (21.85:1). 
+The results consistently show that $\rho\approx0.5$ offers the optimal trade-off between nonlinear intervention and model stability, and they establish a safe tuning range of $[0.4,0.7]$ for practitioners.}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}We expanded Definition~2 on $\rho$-tuning and added Supplementary 3 with comparative experiments across two imbalanced datasets.The specifics are as follows:
+\\
+
+%原文部分
+$\blacktriangleright\blacktriangleright$ Section ``DBUPLDM'', Page 5,  Line 22:\\
+\par}
+%具体
+{\color{black}$\longrightarrow$ Original text: ``In practice, we empirically set $\rho = \frac{1}{2}$, which provides a moderate nonlinearity in the scaling and stabilizes performance across various datasets. Users may tune $\rho$ within the range [0, 1] depending on the level of imbalance in the dataset, with higher values increasing sensitivity.''}\\
+
+%审稿人5改进1
+{\color{orange}$\longrightarrow$ Revised text: ``In practical applications, we empirically set $\rho = 1/2$, as this value provides moderate nonlinearity in the scaling process and ensures stable model performance across various datasets. Users can tune $\rho$ within the range $[0, 1]$ according to the imbalance degree of the dataset.
+\begin{remark}\label{remark 1}
+The tuning of \(\rho\) depends on the dataset's imbalance degree, and specific guidelines are as follows:\begin{itemize}\item \textbf{Low Imbalance Scenarios (e.g., class sample ratio ratio \(\leq 10:1\))}:Restrict \(\rho\) to the range \(0.4\)--\(0.6\) to prevent performance degradation of majority-class samples caused by excessive intervention.\item \textbf{High Imbalance Scenarios (class sample ratio \(> 10:1\))}:Increase \(\rho\) appropriately to the range \(0.6\)--\(0.7\) to enhance the protection of minority-class samples by improving sensitivity.\item \textbf{Critical Note}:\(\rho\) is not advisable to exceed \(0.8\); otherwise, the classification accuracy of majority-class samples may drop sharply due to over-amplified nonlinear effects.\end{itemize}\end{remark}
+For a detailed sensitivity analysis of $\rho$, we verify its impact through experiments in Supplementary 3. Specifically, we test the model performance with different values of $\rho$ on two representative imbalanced datasets (covering scenarios with varying imbalance degrees), and the detailed experimental results are provided in the Supplementary.''}\\
+
+%原文部分
+{\color{black}{$\blacktriangleright\blacktriangleright$ Supplementary 3: Sensitivity Analysis of Parameter $\rho$\\
+\par}}
+
+{\color{orange}This section presents the detailed experimental setup and results for the sensitivity analysis of $\rho$. 
+
+\subsection{Experimental Setup}
+\begin{itemize}
+    \item \textbf{Datasets}: Two datasets are selected: one is the Pharyngiti (mild imbalance, class ratio ~8.26:1), and the other is the Oil Spill (severe imbalance, class ratio ~21.85:1).
+    \item \textbf{Evaluation Metrics}: Accuracy(Acc), AUC, F-measure.
+    \item \textbf{Parameter Range}: $\rho \in \{0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 1.0\}$.
+\end{itemize}
+
+\subsection{Experimental Results}
+
+\begin{table}[h]
+\centering
+\caption{\color{orange}The performance of different balanced ratio datasets under different $\rho$ values.}
+\label{tab:rho_sensitivity_updated}
+
+\setlength{\tabcolsep}{4mm} %
+\begin{tabular}{c c c c c c c}
+\toprule
+\multirow{2}{*}{\textcolor{orange}{\textbf{\large $\rho$}}} & \multicolumn{3}{c}{\textcolor{orange}{\textbf{Pharyngitis (8.26:1)}}} & \multicolumn{3}{c}{\textcolor{orange}{\textbf{Oil Spill (21.85:1)}}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+& \textcolor{orange}{\textbf{Acc}} & \textcolor{orange}{\textbf{AUC}} & \textcolor{orange}{\textbf{F-measure}} & \textcolor{orange}{\textbf{Acc}} & \textcolor{orange}{\textbf{AUC}} & \textcolor{orange}{\textbf{F-measure}} \\
+\midrule
+\textcolor{orange}{0.0}    & \textcolor{orange}{0.61}     & \textcolor{orange}{0.57}               & \textcolor{orange}{0.63}            & \textcolor{orange}{0.55}     & \textcolor{orange}{0.50}               & \textcolor{orange}{0.58}            \\
+\textcolor{orange}{0.2}    & \textcolor{orange}{0.69}     & \textcolor{orange}{0.64}               & \textcolor{orange}{0.71}            & \textcolor{orange}{0.62}     & \textcolor{orange}{0.56}               & \textcolor{orange}{0.66}            \\
+\textcolor{orange}{0.4}    & \textcolor{orange}{0.78}     & \textcolor{orange}{0.75}               & \textcolor{orange}{0.80}            & \textcolor{orange}{0.70}     & \textcolor{orange}{0.65}               & \textcolor{orange}{0.73}            \\
+\textcolor{orange}{0.5}    & \textcolor{orange}{\textbf{0.82}}     & \textcolor{orange}{0.79}               & \textcolor{orange}{\textbf{0.84}}           & \textcolor{orange}{0.76}     & \textcolor{orange}{0.71}               & \textcolor{orange}{0.79}            \\
+\textcolor{orange}{0.6}    & \textcolor{orange}{0.81}     & \textcolor{orange}{\textbf{0.89}}             & \textcolor{orange}{0.82}            & \textcolor{orange}{\textbf{0.79}}    & \textcolor{orange}{0.74}               & \textcolor{orange}{\textbf{0.83}}            \\
+\textcolor{orange}{0.7}    & \textcolor{orange}{0.77}     & \textcolor{orange}{0.81}               & \textcolor{orange}{0.75}            & \textcolor{orange}{0.77}     & \textcolor{orange}{0.77}               & \textcolor{orange}{0.78}            \\
+\textcolor{orange}{0.8}    & \textcolor{orange}{0.70}     & \textcolor{orange}{0.72}               & \textcolor{orange}{0.65}            & \textcolor{orange}{0.68}     & \textcolor{orange}{0.79}               & \textcolor{orange}{0.61}            \\
+\textcolor{orange}{1.0}    & \textcolor{orange}{0.63}     & \textcolor{orange}{0.80}               & \textcolor{orange}{0.52}            & \textcolor{orange}{0.58}     &\textcolor{orange}{\textbf{0.81}}              & \textcolor{orange}{0.43}            \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+From Table \ref{tab:rho_sensitivity_updated}, in the Pharyngitis dataset, the model achieves peak performance at \(\rho=0.5\). For the Oil Spill dataset, the optimal \(\rho\) shifts to 0.6. This aligns with the guideline in Remark \ref{remark 1}: for low imbalance, \(\rho\) should be restricted to 0.4–0.6, while for high imbalance, \(\rho\) needs to increase to 0.6–0.7. The shift in optimal \(\rho\) demonstrates that \(\rho\) effectively modulates the balance factor’s sensitivity, allowing it to adapt to different imbalance degrees—lower \(\rho\) provides moderate intervention for mild imbalance, while higher \(\rho\) amplifies the balance factor’s effect to protect minority classes in severe imbalance.
+}
+
+
+
+
+% -------------Reviewer 5, Concern 2--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 2}}}
+\emph{Refine Comparison with Deep Learning Methods:
+1) While the comparison with MLP+Focal Loss is a good addition, ensure that the training details (e.g., network architecture, optimization strategy, regularization, hyperparameter tuning) for MLP+Focal Loss are sufficiently described to ensure a fair comparison.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+Thank you for the suggestion. We have added detailed descriptions of the MLP+Focal Loss configuration, including a two-layer fully connected network (128 and 64 neurons) with \texttt{ReLU} activation, dropout rate of 0.3, Adam optimizer (learning rate 0.001, $L_2$ weight decay $1\times10^{-5}$), and Focal Loss ($\gamma=2.0$, \texttt{mean} reduction). Early stopping (patience=10) and grid search–based hyperparameter tuning were applied for fair comparison.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We updated the manuscript by providing a more comprehensive description of the MLP+Focal Loss model and its training configuration to ensure reproducibility and fairness in comparison.
+}\\
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets'', Page 16,  Line 9 below Table 5:\\
+\par
+%%%%%%
+{\color{black}$\longrightarrow$ Original text: ``In the comparative experiment, the MLP classifier was configured with two hidden layers and used \texttt{ReLU} activation. A dropout rate of 0.3 was applied to mitigate overfitting. Focal Loss was adopted as the objective function, with focusing parameter $\gamma = 2.0$ and \texttt{mean} reduction. The model was trained using a learning rate of 0.001, $L_2$ regularization ($1 \times 10^{-5}$), and early stopping based on validation performance.''}\\
+
+{\color{orange}$\longrightarrow$ Revised text: ``In the comparative experiment, the MLP+Focal Loss baseline was implemented as a fully connected neural network with two hidden layers (128 and 64 neurons) and \texttt{ReLU} activation functions. A dropout rate of 0.3 was applied after each hidden layer to reduce overfitting. The model was trained using the Adam optimizer with an initial learning rate of 0.001 and $L_2$ weight decay of $1\times10^{-5}$. Focal Loss with focusing parameter $\gamma = 2.0$ and \texttt{mean} reduction was used to address class imbalance. Early stopping with a patience of 10 epochs was applied based on validation loss. Hyperparameters were tuned through grid search on the validation set to ensure a fair and balanced comparison with other deep learning methods.''}\\
+%%%%%%
+
+% -------------Reviewer 5, Concern 3--------------
+
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 3}}}
+\emph{Refine Comparison with Deep Learning Methods:2) Discuss the trade-offs more explicitly between DBUPLDM and deep learning models in terms of interpretability, computational resources, and performance across different data types (e.g., tabular vs. image). This would provide a more nuanced understanding of DBUPLDM's position in the broader landscape of imbalanced learning.
+}}\\
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+We sincerely appreciate your valuable feedback. The point you raised regarding explicitly discussing the trade-offs between DBUPLDM and deep learning models is crucial for helping readers understand the positioning of our model. Following your suggestion, in the subsequent content and the revised version of the paper, we will conduct a detailed comparison of their differences and applicable scenarios from three dimensions: interpretability, computational resource requirements, and data type adaptability.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We updated the manuscript by
+}\\
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets'', Page 17,  Line 3 from the end:\\
+
+
+
+{\color{orange}$\longrightarrow$ Revised text: ``The above experimental results have fully verified the performance advantages of DBUPLDM in imbalanced tabular data classification tasks from the perspective of core metrics such as accuracy, AUC, and F1-score, especially highlighting its adaptability in complex datasets and resource-constrained scenarios. To further clarify the core value and application boundaries of this model, we will conduct an in-depth exploration from more essential dimensions and perform a multi-faceted comparison with deep learning methods widely used in the field of imbalanced learning.
+
+Specifically, our analysis will focus on three key dimensions: First, in terms of interpretability, DBUPLDM exhibits high interpretability. The final decision function of the model is determined by a small number of support vectors, resulting in clear decision boundaries. In contrast, deep learning methods have relatively low interpretability, as their decision-making processes stem from complex nonlinear transformations of multi-layer neural networks, and it is difficult to trace back to the explicit physical meaning of original features. Second, regarding the requirement for computational resources, DBUPLDM has moderate resource demands, with its computational complexity mainly depending on the number of samples and feature dimensions. Deep learning methods, however, require substantial computational resources, as their training involves a large number of matrix operations, leading to long training cycles and high resource consumption. Finally, in terms of performance across different data types, this study focuses on tabular data (structured data), which is the target data type for DBUPLDM. Through its unique dual-balance and large-margin mechanisms, DBUPLDM specifically optimizes the decision boundaries of tabular data under imbalanced conditions, which is also confirmed by our experimental results. Nevertheless, we acknowledge that DBUPLDM cannot effectively handle pixel spatial relationships or word-order semantics, thus it is not applicable to unstructured data such as images and texts.
+
+Based on the above discussions, we can position DBUPLDM more precisely: it is a high-performance, highly interpretable, and computationally efficient specialized model designed specifically for classification tasks involving small-to-medium-sized, high-dimensional, and imbalanced tabular data. It serves as a powerful alternative to deep learning in scenarios that require transparent model decisions, limited computational resources, and tabular-form intrinsic data.''}\\
+%%%%%%
+
+
+% -------------Reviewer 5, Concern 4--------------
+
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 4}}}
+\emph{Proof Placement and Readability:
+1) Reconsider placing the proof of Theorem 2 in an appendix, as suggested by a previous reviewer. While you argue for its retention in the main text for foundational reasons, long proofs can disrupt the flow for readers primarily interested in the high-level methodology and results. If kept in the main body, ensure it is presented as concisely as possible, potentially using visual aids or simplified notation where appropriate, without sacrificing rigor.
+}}\\
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+We thank the reviewer for the comment on the proof placement of Theorem 2. As suggested, we have moved the proof of Theorem 2 to the Supplementary. This revision ensures the readability and coherence of the main text, while preserving the rigor of the proof.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We moved the proof of Theorem 2 to the Supplementary, see Supplementary 4 for details.
+}\\
+
+
+
+\newpage
+
+
+
+\newpage
+\section*{\textbf{ACKNOWLEDGEMENT}}
+\noindent\rule[0.25\baselineskip]{\textwidth}{1pt}
+% {\color{black}
+% \section*{\textbf{ACKNOWLEDGEMENT}}}
+% 特别感谢编辑和匿名评论者的宝贵和有益的意见和建议。
+
+Special thanks to you for the valuable and helpful comments and suggestions from editors and anonymous reviewers. 
+% 这些评论有助于改进我们的论文，也对我们的研究具有重要的指导意义。
+The comments are helpful in improving our paper, as well as the important guiding significance to our research. 
+% 我们希望编辑和审稿人的关切在修订版中得到充分解决。
+We hope that the editors' and reviewers' concerns have been adequately addressed in the revised version.
+
+Yours sincerely,
+
+\rightline{Pingping Gu, Denghao Dong, Quan Shi, Fudi Wang and Guojun Huang*}
+
+
+
+\bibliography{IEEEabrv,mybib}
+%\bibliographystyle{IEEEtran}
+\bibliographystyle{ieeetr}
+
+\end{document}

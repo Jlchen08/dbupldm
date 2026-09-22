@@ -1,0 +1,541 @@
+% !BIB program = bibtex
+
+
+%\documentclass[journal,12pn, twocolumn]{IEEEtran}
+\documentclass[journal,12pn, onecolumn]{IEEEtran}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{mathrsfs}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{caption}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{cite}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{bbding}
+\usepackage{array}
+\usepackage{mathrsfs}
+%\usepackage{amssymb,amsmath,amsthm}
+\usepackage{amsfonts}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{diagbox}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{threeparttable}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{subfigure}
+\usepackage{xcolor}
+\definecolor{customgreen}{RGB}{0, 128, 0} %
+\usepackage{bm}
+\usepackage{tabularx}
+
+
+\usepackage{epstopdf}
+\usepackage{url}
+
+\hyphenation{op-tical net-works semi-conduc-tor}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{Definition}{Definition}
+\newtheorem{example}{Example}
+\renewcommand*{\proofname}{\noindent\bf Proof}
+\renewcommand\labelenumi{(\alph{enumi})}
+\DeclareMathOperator*{\argmax}{\arg\max}
+\DeclareMathOperator*{\argmin}{\arg\min}
+\usepackage[colorlinks,linkcolor=orange,anchorcolor=orange,citecolor=orange,]{hyperref}
+\hypersetup{hypertex=true,
+            colorlinks=true,
+            linkcolor=cyan,
+            anchorcolor=orange,
+            citecolor=green}
+\renewcommand{\baselinestretch}{0.96}
+\newenvironment{breakablealgorithm}
+  {% \begin{breakablealgorithm}
+   \begin{center}
+     \refstepcounter{algorithm}% New algorithm
+     \hrule height.8pt depth0pt \kern2pt% \@fs@pre for \@fs@ruled
+     \renewcommand{\caption}[2][\relax]{% Make a new \caption
+       {\raggedright\textbf{Solution~\thealgorithm} ##2\par}%
+       \ifx\relax##1\relax % #1 is \relax
+         \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
+       \else % #1 is not \relax
+         \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
+       \fi
+       \kern2pt\hrule\kern2pt
+     }
+  }{% \end{breakablealgorithm}
+     \kern2pt\hrule\relax% \@fs@post for \@fs@ruled
+   \end{center}
+  }
+
+\newtheorem{remark}{Remark}
+
+\allowdisplaybreaks[4]
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\begin{document}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% -------- Reply to Editors and Reviewers -------
+\title{Responses to the Review Comments of BDR-D-25-00303R3}
+% \ \\
+% \normalsize Title: \emph{A $K$-means Triangular Synthesis Large Margin Classifier with Unified Pinball Loss for Imbalanced Data}}
+% \author[ads]{Danlin Shao}\ead{dlshao1104@163.com}
+% \author[ads]{Yixi Dai}\ead{YixiDai2001@163.com}
+% \author[ads]{Junjie Li}\ead{JunJieLi45@163.com}
+% \author[ads]{Shenglin Li}\ead{lishenglin@swu.edu.cn}
+% \author[ads]{Rui Chen}\ead{rchencr@163.com}
+% \author{Danlin Shao, Yixi Dai, Junjie Li, Shenglin Li, Rui Chen*}
+\maketitle
+
+\textbf{Original Manuscript ID: }BDR-D-25-00303R3 \\
+
+
+\textbf{Original Article Title: }``Dual Balanced Large Marginal Machine for Imbalanced Data Classification" \\
+
+\textbf{To: }Big Data Research Editor\\
+
+\textbf{Re: }Response to reviewers\\
+
+\section*{}
+{
+Dear Editor, \\
+
+Thank you for allowing a resubmission of our manuscript, and we particularly appreciate the Editor-in-Chief for granting us the opportunity to conduct a round of revisions to address the reviewers’ comments.\\
+
+We are uploading (a) our point-by-point response to the comments (below) (response to reviewers, under “Author’s Response Files”), (b) an updated manuscript with orange highlighting indicating changes, and (c) an Supplementary file submitted in accordance with the reviewers’ requirements.\\
+
+Best wishes,\\
+
+Pingping Gu, Denghao Dong, Quan Shi, Fudi Wang and Guojun Huang*}\\
+
+
+
+
+
+
+\textbf{The response letter is structured as follows:}\\
+
+\begin{itemize}
+    \item [$\bullet$]Response for \nameref{edi}: Page 2.\\
+    \item [$\bullet$]Response for \nameref{rev4}: Page 3.\\
+    \item [$\bullet$]Response for \nameref{rev5}: Page 4-6.\\
+    \item [$\bullet$]Response for \nameref{rev6}: Page 7.\\
+\end{itemize}
+
+\newpage
+
+% % --------------- Editor ----------------------
+
+% \section*{\textbf{Section \#1-a: Entire editorial decision letter}}\label{sec:1a}
+% Re: \textbf{INS-D-24-1205}
+
+% ~
+
+% Dear Dr. Zhang,
+
+% ~
+
+% We have received the decision on your paper entitled ``A Novel Cost-Sensitive Three-Way Intuitionistic Fuzzy Large Margin Classifier".
+
+% ~
+
+% The Editor's and the reviewers' comments are as follows:
+
+
+% ~
+
+% The Introduction may be improved to give a reader the context of this study.
+
+% For example,
+
+% (a) in addition to listing a number references, it might be useful to identify a few most relevant studies,
+
+% and (b) the most recent results on the wide sense of three-way decision may be briefly commented.
+
+% ----------
+
+% ~
+
+% Reviewer \#1: This paper introduces three-way decisions into the large margin distribution machine. Generally, the method is interesting, and the results are good. I have a number of comments.
+
+% 1. Three-way decision (3WD) has been found widespread application across diverse fields $\rightarrow$ Three-way decision (3WD) has been widely applied in diverse fields
+
+% 2. costs; iii) the disregard of sample $\rightarrow$ costs; and iii) the disregard of sample
+
+% 3. kaggle $\rightarrow$ Kaggle
+
+% 4. See Section 2.1 $\rightarrow$ see Section 2.1
+
+% 5. The framework of 3WD is shown in Fig. 1. $\rightarrow$ Fig. 1. illustrates the framework of 3WD.
+
+% 6. It is better to present the experimental parameter settings in a table. The reason of respective settings should be explained as well.
+
+% 7. What is the potential real-life applications of the proposed method?
+
+% 8. "transfusion\_new" $\rightarrow$ ``transfusion\_new''. The double quotation marks are incorrect.
+
+% 9. ``breast\_w" is not presented in Table 2.
+
+% 10. The values in tables (e.g., Table 5) should be aligned to the right.
+
+% ~
+
+% Reviewer \#2: I have carefully reviewed the manuscript. The paper proposes an innovative model, the CS3W-IFLMC model, to address uncertainty and noise issues effectively. I think this work is interesting and meaningful, but there are still some parts that require further revision and improvement.
+
+% 1. Please explain how the category centers of the samples are determined in the proposed Intuitionistic fuzzy strategy, which helps readers better understand the construction process of the model.
+
+% 2. Could you please clarify the criteria for using bold font in the table? It should be used to highlight the optimal experimental results. However, I noticed that the number ``89.90" in bold does not represent an optimal result in the experimental findings of the ``kr-vs-kp" dataset in Table 4.
+
+% 3. The description of the experimental results in section 4.2 should be more detailed to highlight the superiority of the proposed IFLMC model.
+
+% 4. Please clarify the meaning of the bold symbol ``X" in Equation 26.
+
+% 5. Some other issues to be corrected.
+
+% 5.1 In the title of Figure 4, ``CMC-0-2" should be corrected to ``cmc-0-2".
+
+% 5.2 A period is missing at the end of the title in Figure 1.
+
+% 5.3 There is a missing space before the fifth sentence of the second paragraph in section 4.3.2.
+
+% 5.4 In section 2.3, ``The 3WD model provide a feasible way..." should be ``The 3WD model provides a feasible way...".
+
+% 5.5 In section 3, ``CS3W-UFLMC" should be ``CS3W-IFLMC".
+
+% ~
+
+% Reviewer \#3: This paper combines the probability output of LDM with the cost-sensitive three-way decision method to achieve delayed decision-making in LDM. Additionally, an innovative dual-center intuitionistic fuzzy method is proposed and introduced, thereby establishing a universal model, CS3W-IFLMC. The paper demonstrates the effectiveness of the methods used both theoretically and experimentally. This study contains solid and original contributions., especially for three-way decision and LDM. I only have a few minor comments as follows.
+
+% 1. To more convincingly demonstrate the superiority of the fuzzy strategy proposed in this paper compared to other strategies, it is necessary to contrast it with existing fuzzy strategies. This comparison will provide a clearer picture of the advantages and disadvantages of each approach, highlighting the unique benefits of the strategy proposed in this paper.
+
+% 2. In the main text, the full name should be used the first time an acronym is introduced. (e.g., introduction, IF set theory)
+
+% 3. A link to the code repository should be included at the end of the article to facilitate readers' access and reproducibility of the model.
+
+% 4. The format of the chart titles should be consistent throughout the entire manuscript. Table 1 follows the convention of title capitalization, while other tables use sentence capitalization.
+
+% 5. Please verify if there are any errors in the formulas. For example, whether ``n" in Formula 5 should be ``m".
+
+% 6. The language should be improved further.
+
+
+% ~
+
+% \textcolor{red}{Note: Please double check the author names provided in the manuscript source file so that authorship related changes are made in the revision stage. If your manuscript is accepted, any authorship change will involve approval from co-authors and respective editor handling the submission and this may cause a significant delay in publishing your manuscript.}
+
+% ~
+
+% In view of these comments the Editor-in-Chief, Professor Witold Pedrycz, has decided that the paper can be reconsidered for publication after major revisions.
+
+% ~
+
+% When you log-in to your Main Menu, you will see a menu item called 'Submission Needing Revision'. You will find your submission record there. Also, the reviewer(s) may have uploaded a file with detailed comments on your manuscript. Click on "View Reviewer Attachments" to access any detailed comments from the reviewer(s) that may have been included.
+
+% ~
+
+% When submitting your revised manuscript, please ensure that you upload the source files (e.g. Word or. TeX with other files in a.zip file which the system will automatically unzip). Uploading a PDF file at this stage will create delays should your manuscript be finally accepted for publication. If your revised submission does not include the source files, we will contact you to request them.
+
+% ~
+
+% Please note that this journal offers a new, free service called AudioSlides: brief, webcast-style presentations that are shown next to published articles on ScienceDirect (see also \textcolor{orange}{http://www.elsevier.com/audioslides}). If your paper is accepted for publication, you will automatically receive an invitation to create an AudioSlides presentation.
+
+% ~
+
+% The revised version of your submission is due by \textbf{20 Mar 2024}.
+
+% ~
+
+% Information Sciences features the Interactive Plot Viewer, see: \textcolor{orange}{http://www.elsevier.com/interactiveplots}. Interactive Plots provide easy access to the data behind plots. To include one with your article, please prepare a .csv file with your plot data and test it online at \textcolor{orange}{http://authortools.elsevier.com/interactiveplots/verification} before submission as supplementary material.
+
+% ~
+
+% Research Elements (optional)
+% This journal encourages you to share research objects - including your raw data, methods, protocols, software, hardware and more – which support your original research article in a Research Elements journal. Research Elements are open access, multidisciplinary, peer-reviewed journals which make the objects associated with your research more discoverable, trustworthy and promote replicability and reproducibility. As open access journals, there may be an Article Publishing Charge if your paper is accepted for publication. Find out more about the Research Elements journals at \textcolor{orange}{https://www.elsevier.com/authors/tools-and-resources/research-elements-journals?dgcid=ec\_em\_research\_elements\_email}.
+
+% ~
+
+% We look forward to receiving the revised version of your paper together with a reply to the reports and a summary of the revisions made.
+
+% ~
+
+% Include interactive data visualizations in your publication and let your readers interact and engage more closely with your research. Follow the instructions here: \textcolor{orange}{https://www.elsevier.com/authors/author-services/data-visualization} to find out about available data visualization options and how to include them with your article.
+
+% ~
+
+% Kind regards,
+
+% ~
+
+% Witold Pedrycz, PhD., DSc
+
+% Editor-in-Chief
+
+% Information Sciences
+
+% ~
+
+% At Elsevier, we want to help all our authors to stay safe when publishing. Please be aware of fraudulent messages requesting money in return for the publication of your paper. If you are publishing open access with Elsevier, bear in mind that we will never request payment before the paper has been accepted. We have prepared some guidelines (\textcolor{orange}{https://www.elsevier.com/connect/authors\\-update/seven-top-tips-on-stopping-apc-scams} ) that you may find helpful, including a short video on Identifying fake acceptance letters (\textcolor{orange}{https://www.youtube.com/watch?v=o5l8thD9XtE} ). Please remember that you can contact Elsevier s Researcher Support team (\textcolor{orange}{https://service.elsevier.com/app/home/supporthub/publishing/}) at any time if you have questions about your manuscript, and you can log into Editorial Manager to check the status of your manuscript (\textcolor{orange}{https://service.elsevier.com/app/answers/detail/a\_id\\/29155/c/10530/supporthub/publishing/kw/status/}).
+
+% \#AU\_INS\#
+
+% ~
+
+% To ensure this email reaches the intended recipient, please do not delete the above code
+
+
+\newpage
+
+
+\section*{\textbf{Editor}}\label{edi}
+
+{\color{black}
+\subsubsection*{\underline{General Comments}}
+\emph{\\
+I have completed my evaluation of your manuscript. The reviewers recommend reconsideration of your manuscript following minor revision and modification. I invite you to resubmit your manuscript after addressing the comments below. Please resubmit your revised manuscript by 03/08/2026.
+When revising your manuscript, please consider all issues mentioned in the reviewers’ comments carefully: please outline every change made in response to their comments and provide suitable rebuttals for any comments not addressed. Please note that your revised submission may need to be re-reviewed.
+}}\\
+
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Response}}}
+We sincerely appreciate the Editor-in-Chief and all reviewers for their constructive feedback and for granting us the opportunity to further refine our manuscript. We have carefully addressed all comments raised in this third round of review. The main revisions are summarized below:}\\
+
+{\color{blue}
+1. Enhanced Comparison with State-of-the-Art Methods.
+
+Following Reviewer \#5’s suggestion, we have incorporated additional recent competitive models for imbalanced data classification into our experimental comparison. Specifically, we added DeepSMOTE (2022), LDAM (2019), and Balanced Softmax (2020) as baseline methods. The experimental results demonstrate that DBUPLDM maintains superior or competitive performance across multiple evaluation metrics, further validating the effectiveness of our approach.\\
+
+2. Discussion on Big Data Relevance and Scalability.
+
+In response to Reviewer \#5’s concern regarding the relevance to "Big Data Research," we have integrated discussions of DBUPLDM’s scalability into the conclusion section. We elaborate on how DBUPLDM’s mathematical foundations naturally extend to large-scale scenarios through distributed optimization frameworks, mini-batch processing for streaming applications, and kernel approximation techniques. These theoretical extensions demonstrate the compatibility of DBUPLDM’s core principles with big data processing paradigms.\\
+
+3. Detailed Experimental Setup and Reproducibility.
+
+To improve reproducibility, we have provided comprehensive specifications for all baseline models, including complete network architectures for MLP+Focal Loss, optimization frameworks, hyperparameter tuning procedures, and regularization strategies. These details are now included in both the main text and supplementary materials.\\
+
+4. Expanded Discussion on Limitations and Future Work.
+
+We have substantially enriched the limitations section by discussing computational complexity, potential failure modes, and scenarios where DBUPLDM may not deliver optimal results. We also provide a more nuanced discussion of the method’s applicability boundaries and directions for future research.\\
+
+5. Terminology Consistency and Clarification.
+
+Following Reviewer \#5’s comment, we have carefully reviewed and clarified the usage of "quantile distance" and "composite distance" throughout the manuscript, ensuring consistent terminology and clear distinction between these concepts.\\
+
+}
+{\color{black}
+To facilitate reviewers in checking our revisions, we have prepared detailed response documents. The concrete revisions and responses to the reviewers are presented in Sections ``\nameref{rev4}’’, ``\nameref{rev5}’’, and ``\nameref{rev6}’’. Note that reference numbers are in accordance with the references at the end of \textbf{this response document}. For clarity, we present the section or subsection, page, and line numbers of the revisions based on \textbf{the newly revised version manuscript}, NOT the previous manuscript. Moreover, we mark the revised contents in the manuscript using {\color{magenta} magenta color} to distinguish them from previous revisions. The detailed revisions are presented as follows.
+}\\
+
+
+\newpage
+
+% ---------------- Reviewer 4 ---------------------
+
+{\color{black}
+\section*{\textbf{REVIEWER 4}}\label{rev4}}
+
+{\color{black}
+\subsubsection*{\underline{General Comments}}
+\emph{Author took care of previous suggestion.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Response}}}
+We sincerely thank the reviewer for acknowledging our previous revisions and for the positive feedback. We have carefully maintained all quality improvements made in the second round of revision and have further enhanced the manuscript based on the current round of feedback from other reviewers.
+}\\
+
+\newpage
+
+% ---------------- Reviewer 5 ---------------------
+
+{\color{black}
+\section*{\textbf{REVIEWER 5}}\label{rev5}}
+
+{\color{black}
+\subsubsection*{\underline{General Comments}}
+\emph{Your research paper, "Dual Balanced Large Marginal Machine for Imbalanced Data Classification," submitted to Big Data Research, is appreciated. The work describes a relevant and complex machine learning problem, and your suggested Dual Balanced Large Marginal Machine presents an exciting original contribution. The paper is coherent and presents interesting experimental results.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Response}}}
+We sincerely appreciate the reviewer's thorough evaluation and constructive suggestions. Your feedback has significantly helped us improve the manuscript's quality and impact. We have carefully addressed all five concerns raised, and the detailed responses are presented below. For clarity, we present the section or subsection, page, and line numbers of the revisions based on \textbf{the newly revised version manuscript}. Moreover, we mark the revised contents in the manuscript using {\color{magenta} magenta color} to distinguish them from previous revisions (which were marked in orange and blue).
+}\\
+
+% -------------Reviewer 5, Concern 1--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 1}}}
+\emph{Improved Comparison to State-of-the-Art: While comparing to LDM variants and MLP+Focal Loss is a good start, please incorporate additional recent, competitive models for classifying imbalanced tabular datasets into your experiments. Accordingly to a previous reviewer, for a more balanced comparison, it may make sense to assess DeepSMOTE, LDAM, and Balanced Softmax in conjunction with your other benchmarks, given the context of your paper. This will considerably improve your position in the literature regarding the originality and potential of your work and the level of performance you claim to offer.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+Thank you for this valuable suggestion. We have incorporated three additional state-of-the-art methods into our experimental comparison: DeepSMOTE (2022), LDAM (2019), and Balanced Softmax (2020). These methods represent recent advances in handling imbalanced data classification. We added a new comparative experiment section and updated the introduction to discuss these methods. The experimental results demonstrate that DBUPLDM maintains competitive or superior performance across multiple datasets, further validating the effectiveness of our approach.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We have made the following modifications to the manuscript:
+}\\
+
+$\blacktriangleright\blacktriangleright$ Section ``Introduction'', Page 4, Line 27-31:\\
+\par
+
+{\color{black}$\longrightarrow$ Original text: ``{\color{orange}In recent years, deep learning–based frameworks have shown remarkable potential in addressing class imbalance in both image and tabular domains. DeepSMOTE \cite{dablain2022deepsmote} extends SMOTE by using an encoder–decoder to interpolate in the latent space and a penalized loss to generate high-quality minority samples. Unlike GAN-based models, it avoids a discriminator, improving stability and training efficiency. For tabular imbalanced data, while ensemble methods like random forest and XGBoost are common, \cite{farhang2024deep} proposed a deep model combining autoencoders and feed-forward networks that outperforms tree-based methods in large-scale applications. However, such deep approaches often incur high computational costs and lack interpretability, limiting their practical use. In addition, the MLP+Focal model \cite{lin2017focal} leverages focal loss to reduce the influence of majority classes, providing a simple yet effective baseline for handling class imbalance in neural networks.}''}\\
+
+{\color{orange}In recent years, deep learning–based frameworks have shown remarkable potential in addressing class imbalance in both image and tabular domains. DeepSMOTE \cite{dablain2022deepsmote} extends SMOTE by using an encoder–decoder to interpolate in the latent space and a penalized loss to generate high-quality minority samples. Unlike GAN-based models, it avoids a discriminator, improving stability and training efficiency. {\color{magenta}LDAM (Label-Distribution-Aware Margin) \cite{cao2019learning} introduces class-dependent margins in the loss function to encourage larger decision boundaries for minority classes, effectively addressing the long-tailed distribution problem. Balanced Softmax \cite{ren2020balanced} reweights the softmax function based on class frequencies, providing a principled approach to handle class imbalance without modifying the network architecture.} For tabular imbalanced data, while ensemble methods like random forest and XGBoost are common, \cite{farhang2024deep} proposed a deep model combining autoencoders and feed-forward networks that outperforms tree-based methods in large-scale applications. However, such deep approaches often incur high computational costs and lack interpretability, limiting their practical use. In addition, the MLP+Focal model \cite{lin2017focal} leverages focal loss to reduce the influence of majority classes, providing a simple yet effective baseline for handling class imbalance in neural networks.}\\
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets'', Page 19, after Table 7:\\
+\par
+
+{\color{magenta}$\longrightarrow$ Added text: ``Compared with recent deep learning methods (DeepSMOTE, LDAM, Balanced Softmax), DBUPLDM demonstrates competitive performance across all 17 evaluated datasets. While deep learning methods show strong performance on certain datasets (e.g., LDAM on Ionosphere and Australia), DBUPLDM achieves the best average performance across all three metrics (Accuracy: 84.16\%, AUC: 82.78\%, F1: 0.81), demonstrating its robustness and consistency. This stems from the synergistic effect of dual-balanced distance and unified pinball loss, which jointly address both class imbalance and noise sensitivity without requiring extensive architectural engineering or large-scale training data. These results validate the generalization ability and imbalance-awareness of our proposed DBUPLDM model.''}\\
+
+
+% -------------Reviewer 5, Concern 2--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 2}}}
+\emph{Relevance to Big Data: Your paper mentions that DBUPLDM is made for "small-to-medium sized, high-dimensional and imbalanced tabular data". Considering the title of the journal is "Big Data Research", please elaborate on how your method, or the principles behind it, relate to or scale for big data. Discuss circumstances for your model where data is big in volume, velocity, or variety, even when direct experiments on such data may not be possible at the moment. This will help the journal's audience better understand your work.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+We appreciate this insightful comment. We have integrated discussions of DBUPLDM's scalability to large-scale scenarios into the conclusion section. While our experimental validation focuses on small-to-medium sized datasets—which represent significant real-world applications in medical diagnosis, credit scoring, and quality control—we elaborate on how DBUPLDM's mathematical foundations naturally extend to big data processing through distributed optimization frameworks, mini-batch processing for streaming applications, and kernel approximation techniques. These theoretical extensions demonstrate the compatibility of DBUPLDM's core principles with large-scale data processing paradigms, though empirical validation on massive datasets remains a direction for future investigation.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We have integrated the scalability discussion and limitations into the conclusion section of the manuscript:
+}\\
+
+$\blacktriangleright\blacktriangleright$ Section ``Conclusion'', Page 21:\\
+\par
+
+{\color{magenta}$\longrightarrow$ Added text: ``While the current experimental validation focuses on small-to-medium sized tabular datasets, the mathematical foundations of DBUPLDM naturally extend to larger-scale scenarios. The dual formulation lends itself to distributed optimization frameworks such as ADMM, enabling scalability through dataset partitioning across computing nodes. For streaming applications, the dual balanced distance and unified pinball loss admit incremental computation for mini-batch processing. Computational complexity can be further addressed through kernel approximation techniques such as Random Fourier Features, reducing the $O(n^3)$ complexity to $O(n)$ or $O(n^2)$. These theoretical extensions demonstrate that DBUPLDM's core principles are compatible with large-scale data processing paradigms, though empirical validation on massive datasets remains a direction for future investigation.
+
+Despite these promising results, DBUPLDM has inherent limitations that warrant acknowledgment. The quadratic programming formulation results in $O(n^3)$ training complexity, which becomes substantial for datasets exceeding 100,000 samples without approximation techniques. As a kernel-based method, DBUPLDM is designed for tabular data and does not directly accommodate unstructured data such as images or text, where deep learning architectures excel. The method involves multiple hyperparameters requiring careful tuning, and may face challenges in scenarios with extreme imbalance ratios (exceeding 100:1), severe noise levels (above 30\% label corruption), heavily overlapping classes, or significant concept drift in streaming data. While DBUPLDM offers superior interpretability through its support vector-based decision function, this may come at the cost of some performance on very large or highly complex datasets where ensemble methods or deep learning excel.
+
+Future work will focus on developing efficient approximation algorithms, designing automatic hyperparameter tuning strategies, extending the framework to streaming data with concept drift, and exploring hybrid architectures that integrate DBUPLDM with deep feature extraction for unstructured data.''}\\
+
+% -------------Reviewer 5, Concern 3--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 3}}}
+\emph{To improve the reproducibility of your experiments, provide more detailed specifications for all experimental setups, especially for baseline models such as MLP+Focal Loss. This includes entire network architectures, optimization frameworks, hyperparameter tuning, and regularization. This is important for reproducibility and for verifying your results.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+We appreciate this suggestion for improving reproducibility. We have significantly expanded the experimental setup description, providing comprehensive details for all baseline models, particularly MLP+Focal Loss. The updated description includes complete network architectures, layer configurations, activation functions, optimization strategies, learning rates, regularization techniques, and hyperparameter tuning procedures.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We have enhanced the experimental setup description in the manuscript:
+}\\
+
+$\blacktriangleright\blacktriangleright$ Section ``Experiments on UCI datasets'', Page 17, after Table 6:\\
+\par
+
+{\color{magenta}$\longrightarrow$ Added text: ``To ensure reproducibility and fair comparison, we provide detailed specifications for all baseline models, including complete network architectures, optimization frameworks, hyperparameter tuning procedures, and regularization strategies. The MLP+Focal Loss baseline was implemented as a fully connected neural network with two hidden layers (128 and 64 neurons) and ReLU activation functions. A dropout rate of 0.3 was applied after each hidden layer to reduce overfitting. The model was trained using the Adam optimizer with an initial learning rate of 0.001, $\beta_1=0.9$, $\beta_2=0.999$, batch size 32, and $L_2$ weight decay of $1\times10^{-5}$. Focal Loss with focusing parameter $\gamma = 2.0$ and mean reduction was used to address class imbalance. Training proceeds for a maximum of 200 epochs with early stopping (patience=10 epochs based on validation loss) and learning rate decay by factor 0.5 when validation loss plateaus for 5 consecutive epochs. Hyperparameters were tuned through grid search over hidden layer configurations $\{[64,32], [128,64], [256,128]\}$, dropout rates $\{0.2, 0.3, 0.5\}$, and learning rates $\{0.0001, 0.001, 0.01\}$ on the validation set.
+
+Additionally, we compare with three recent deep learning methods representing different paradigms in imbalanced learning: DeepSMOTE employs an encoder-decoder architecture with latent dimension 128, three hidden layers (256-128-64 neurons), ReLU activation, and penalized loss weight 0.1; LDAM adapts ResNet-18 for tabular data with class-dependent margin parameter $\Delta=0.5$ and deferred re-weighting schedule; Balanced Softmax implements frequency-based reweighting with temperature parameter $T=1.0$. All experiments employ 5-fold cross-validation.''}\\
+
+% -------------Reviewer 5, Concern 4--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 4}}}
+\emph{Limitations and Future Work: You state that DBUPLDM does not apply to unstructured data such as images and text. Please expand on other limitations of your model. For example, in what situations does DBUPLDM fail to deliver optimal results? Discuss its theoretical computational complexity and possible failure modes further. It will provide a richer context for future work and more balanced views.}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+Thank you for this insightful comment. We have substantially expanded the limitations section to provide a more balanced and comprehensive view of DBUPLDM. The revised section now discusses computational complexity, potential failure modes, scenarios where DBUPLDM may not deliver optimal results, and the trade-offs between model performance and computational efficiency. The limitations and scalability discussions have been integrated into the conclusion section.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+Please refer to the modifications described in Reviewer 5, Concern 2 above, where we have integrated both scalability considerations and limitations into the conclusion section.
+}\\
+
+
+% -------------Reviewer 5, Concern 5--------------
+\textcolor{customgreen}{
+\subsubsection*{\underline{\textbf{Reviewer 5, Concern 5}}}
+\emph{Consistency in Terminology: Please track and make consistent use of terms in the manuscript. For example, in the context of noise immunity and balancing factors, "quantile distance" and "composite distance" are both mentioned. Are these two separate concepts? Are these two different terms for the same thing, or are they two distinct components of the same thing?}
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author response}}}
+Thank you for pointing out this terminology inconsistency. We have carefully reviewed the manuscript and clarified the distinction between "quantile distance" and "composite distance". These are two distinct but related concepts: quantile distance refers to the distance measure derived from the unified pinball loss (related to quantiles), while composite distance refers to the dual-balanced distance that combines the imbalance ratio and bias factors. We have ensured consistent usage throughout the manuscript and added explicit definitions to avoid confusion.
+}\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Author action}}}
+We have clarified the terminology throughout the manuscript:
+}\\
+
+$\blacktriangleright\blacktriangleright$ Section ``DBUPLDM'', Page 6, after Definition 3:\\
+\par
+
+{\color{magenta}$\longrightarrow$ Added text: ``\begin{remark}
+To clarify the terminology used in this paper, we distinguish between two key distance concepts:
+\begin{itemize}
+    \item \textit{Quantile Distance}: This refers to the distance measure induced by the unified pinball loss function, which is related to the $\tau$-quantile of the residual distribution. Unlike the traditional Euclidean distance used in SVM's hinge loss, quantile distance provides robustness against outliers and noise by focusing on specific quantiles of the error distribution rather than the worst-case error.
+    \item \textit{Composite Distance}: This refers to the dual-balanced distance defined in Definition 3, which combines the imbalance ratio and the bias factor through the balance function $\theta_i$. The composite distance modifies the margin calculation for majority and minority classes separately, ensuring a balanced classification hyperplane.
+\end{itemize}
+These two concepts work synergistically in DBUPLDM: the quantile distance (through UP loss) provides noise immunity, while the composite distance (through dual-balanced mechanism) addresses class imbalance. Together, they form the foundation of DBUPLDM's superior performance on imbalanced and noisy datasets.
+\end{remark}''}\\
+
+\newpage
+
+% ---------------- Reviewer 6 ---------------------
+
+{\color{black}
+\section*{\textbf{REVIEWER 6}}\label{rev6}}
+
+{\color{black}
+\subsubsection*{\underline{General Comments}}
+{\itshape Despite some limitations in scalability and novelty, the paper is technically sound, clearly written, and methodologically consistent. The proposed DBUPLDM shows robust and repeatable improvements over strong classical baselines across multiple imbalance settings, and the authors have responsively addressed reviewer concerns, particularly by adding AUC/F1 metrics, sensitivity analysis, and clearer benchmarking justification.
+
+While the work does not fully exploit large-scale or distributed data settings, it still contributes a meaningful incremental advance in margin distribution learning for imbalanced classification, with solid empirical validation and reasonable theoretical grounding. The revisions substantially improve clarity and rigor, and the remaining issues (scalability discussion, deeper theoretical insight) can be addressed without fundamental changes to the method.
+
+Overall, the manuscript meets the journal's quality threshold and is suitable for publication with minor refinements.}}
+\\
+
+{\color{black}
+\subsubsection*{\textbf{\underline{Response}}}
+We sincerely thank the reviewer for the positive and constructive feedback. We are pleased that the reviewer recognizes the technical soundness, methodological consistency, and empirical validation of our work. We have carefully addressed the remaining concerns regarding scalability and theoretical insights in response to Reviewer \#5's comments. Specifically, we have integrated discussions of scalability to big data scenarios into the conclusion section (including distributed optimization, mini-batch processing, and kernel approximation strategies) and substantially expanded the limitations discussion to provide deeper theoretical insights into computational complexity and potential failure modes. These revisions further strengthen the manuscript's contribution to the field of imbalanced learning and big data research.
+}\\
+
+
+\newpage
+\section*{\textbf{ACKNOWLEDGEMENT}}
+\noindent\rule[0.25\baselineskip]{\textwidth}{1pt}
+% {\color{black}
+% \section*{\textbf{ACKNOWLEDGEMENT}}}
+% 特别感谢编辑和匿名评论者的宝贵和有益的意见和建议。
+
+Special thanks to you for the valuable and helpful comments and suggestions from editors and anonymous reviewers. 
+% 这些评论有助于改进我们的论文，也对我们的研究具有重要的指导意义。
+The comments are helpful in improving our paper, as well as the important guiding significance to our research. 
+% 我们希望编辑和审稿人的关切在修订版中得到充分解决。
+We hope that the editors' and reviewers' concerns have been adequately addressed in the revised version.
+
+Yours sincerely,
+
+\rightline{Pingping Gu, Denghao Dong, Quan Shi, Fudi Wang and Guojun Huang*}
+
+
+
+\bibliography{IEEEabrv,mybib}
+%\bibliographystyle{IEEEtran}
+\bibliographystyle{ieeetr}
+
+\end{document}

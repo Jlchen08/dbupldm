@@ -1,0 +1,227 @@
+\begin{thebibliography}{42}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Abe(2017)}]{abe2017unconstrained}
+\bibinfo{author}{Abe, S.} (\bibinfo{year}{2017}).
+\newblock \bibinfo{title}{Unconstrained large margin distribution machines}.
+\newblock {\it \bibinfo{journal}{Pattern Recognition Letters}\/},  {\it \bibinfo{volume}{98}\/}, \bibinfo{pages}{96--102}.
+%Type = Article
+\bibitem[{Anand et~al.(2021)Anand, Rastogi \& Chandra}]{anand2021improvement}
+\bibinfo{author}{Anand, P.}, \bibinfo{author}{Rastogi, R.}, \& \bibinfo{author}{Chandra, S.} (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{Improvement over pinball loss support vector machine}.
+\newblock {\it \bibinfo{journal}{arXiv preprint arXiv:2106.01109}\/}, .
+%Type = Misc
+\bibitem[{Asuncion \& Newman(2007)}]{asuncion2007uci}
+\bibinfo{author}{Asuncion, A.}, \& \bibinfo{author}{Newman, D.} (\bibinfo{year}{2007}).
+\newblock \bibinfo{title}{Uci machine learning repository}.
+%Type = Inproceedings
+\bibitem[{Cao et~al.(2019)Cao, Wei, Gaidon, Arechiga \& Ma}]{cao2019learning}
+\bibinfo{author}{Cao, K.}, \bibinfo{author}{Wei, C.}, \bibinfo{author}{Gaidon, A.}, \bibinfo{author}{Arechiga, N.}, \& \bibinfo{author}{Ma, T.} (\bibinfo{year}{2019}).
+\newblock \bibinfo{title}{Learning imbalanced datasets with label-distribution-aware margin loss}.
+\newblock In {\it \bibinfo{booktitle}{Advances in Neural Information Processing Systems}\/} (pp. \bibinfo{pages}{1567--1578}).
+\newblock volume~\bibinfo{volume}{32}.
+%Type = Article
+\bibitem[{Chen et~al.(2022)Chen, Fan, Lan, Liu, Cao \& Gao}]{chen2022fuzzy}
+\bibinfo{author}{Chen, B.}, \bibinfo{author}{Fan, Y.}, \bibinfo{author}{Lan, W.}, \bibinfo{author}{Liu, J.}, \bibinfo{author}{Cao, C.}, \& \bibinfo{author}{Gao, Y.} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Fuzzy support vector machine with graph for classifying imbalanced datasets}.
+\newblock {\it \bibinfo{journal}{Neurocomputing}\/},  {\it \bibinfo{volume}{514}\/}, \bibinfo{pages}{296--312}.
+%Type = Article
+\bibitem[{Chen et~al.(2024)Chen, Luo, Yan \& Zhang}]{chen2024novel}
+\bibinfo{author}{Chen, J.}, \bibinfo{author}{Luo, T.}, \bibinfo{author}{Yan, J.}, \& \bibinfo{author}{Zhang, L.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{A novel twin-center intuitionistic fuzzy large margin classifier with unified pinball loss for improving the performance of e-noses system}.
+\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  {\it \bibinfo{volume}{250}\/}, \bibinfo{pages}{123883}.
+%Type = Article
+\bibitem[{Chen et~al.(2025)Chen, Liu \& Chen}]{chen2025ams}
+\bibinfo{author}{Chen, Y.}, \bibinfo{author}{Liu, Z.}, \& \bibinfo{author}{Chen, Z.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Ams: A hyperspectral image classification method based on svm and multi-modal attention network}.
+\newblock {\it \bibinfo{journal}{Knowledge-Based Systems}\/},  {\it \bibinfo{volume}{314}\/}, \bibinfo{pages}{113236}.
+%Type = Article
+\bibitem[{Cheng et~al.(2016)Cheng, Zhang \& Wen}]{cheng2016cost}
+\bibinfo{author}{Cheng, F.}, \bibinfo{author}{Zhang, J.}, \& \bibinfo{author}{Wen, C.} (\bibinfo{year}{2016}).
+\newblock \bibinfo{title}{Cost-sensitive large margin distribution machine for classification of imbalanced data}.
+\newblock {\it \bibinfo{journal}{Pattern Recognition Letters}\/},  {\it \bibinfo{volume}{80}\/}, \bibinfo{pages}{107--112}.
+%Type = Article
+\bibitem[{Christmann \& Steinwart(2007)}]{christmann2007svms}
+\bibinfo{author}{Christmann, A.}, \& \bibinfo{author}{Steinwart, I.} (\bibinfo{year}{2007}).
+\newblock \bibinfo{title}{How svms can estimate quantiles and the median}.
+\newblock {\it \bibinfo{journal}{Advances in neural information processing systems}\/},  {\it \bibinfo{volume}{20}\/}.
+%Type = Article
+\bibitem[{Cortes \& Vapnik(1995)}]{cortes1995support}
+\bibinfo{author}{Cortes, C.}, \& \bibinfo{author}{Vapnik, V.} (\bibinfo{year}{1995}).
+\newblock \bibinfo{title}{Support-vector networks}.
+\newblock {\it \bibinfo{journal}{Machine learning}\/},  {\it \bibinfo{volume}{20}\/}, \bibinfo{pages}{273--297}.
+%Type = Article
+\bibitem[{Dablain et~al.(2022)Dablain, Krawczyk \& Chawla}]{dablain2022deepsmote}
+\bibinfo{author}{Dablain, D.}, \bibinfo{author}{Krawczyk, B.}, \& \bibinfo{author}{Chawla, N.~V.} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Deepsmote: Fusing deep learning and smote for imbalanced data}.
+\newblock {\it \bibinfo{journal}{IEEE transactions on neural networks and learning systems}\/},  {\it \bibinfo{volume}{34}\/}, \bibinfo{pages}{6390--6404}.
+%Type = Article
+\bibitem[{Farhang et~al.(2024)Farhang, Hayes, Murphy, Neddenriep \& Tyris}]{farhang2024deep}
+\bibinfo{author}{Farhang, S.}, \bibinfo{author}{Hayes, W.}, \bibinfo{author}{Murphy, N.}, \bibinfo{author}{Neddenriep, J.}, \& \bibinfo{author}{Tyris, N.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{A deep learning approach for imbalanced tabular data in advertiser prospecting: A case of direct mail prospecting}.
+\newblock {\it \bibinfo{journal}{arXiv preprint arXiv:2410.01157}\/}, .
+%Type = Article
+\bibitem[{Gao \& Zhou(2013)}]{gao2013doubt}
+\bibinfo{author}{Gao, W.}, \& \bibinfo{author}{Zhou, Z.-H.} (\bibinfo{year}{2013}).
+\newblock \bibinfo{title}{On the doubt about margin explanation of boosting}.
+\newblock {\it \bibinfo{journal}{Artificial Intelligence}\/},  {\it \bibinfo{volume}{203}\/}, \bibinfo{pages}{1--18}.
+%Type = Article
+\bibitem[{Gu et~al.(2024)Gu, Li, Shi \& Huang}]{gu2024twin}
+\bibinfo{author}{Gu, P.}, \bibinfo{author}{Li, J.}, \bibinfo{author}{Shi, Q.}, \& \bibinfo{author}{Huang, G.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Twin bounded large margin distribution classifier based on unified pinball loss}.
+\newblock {\it \bibinfo{journal}{IEEE Access}\/}, .
+%Type = Article
+\bibitem[{Huang et~al.(2021)Huang, Liu, Zhang, Mi, Tong, Xiao \& Shuai}]{huang2021railway}
+\bibinfo{author}{Huang, W.}, \bibinfo{author}{Liu, H.}, \bibinfo{author}{Zhang, Y.}, \bibinfo{author}{Mi, R.}, \bibinfo{author}{Tong, C.}, \bibinfo{author}{Xiao, W.}, \& \bibinfo{author}{Shuai, B.} (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{Railway dangerous goods transportation system risk identification: comparisons among svm, pso-svm, ga-svm and gs-svm}.
+\newblock {\it \bibinfo{journal}{Applied Soft Computing}\/},  {\it \bibinfo{volume}{109}\/}, \bibinfo{pages}{107541}.
+%Type = Article
+\bibitem[{Huang et~al.(2013)Huang, Shi \& Suykens}]{huang2013support}
+\bibinfo{author}{Huang, X.}, \bibinfo{author}{Shi, L.}, \& \bibinfo{author}{Suykens, J.~A.} (\bibinfo{year}{2013}).
+\newblock \bibinfo{title}{Support vector machine classifier with pinball loss}.
+\newblock {\it \bibinfo{journal}{IEEE transactions on pattern analysis and machine intelligence}\/},  {\it \bibinfo{volume}{36}\/}, \bibinfo{pages}{984--997}.
+%Type = Article
+\bibitem[{Huang et~al.(2016)Huang, Shi \& Suykens}]{huang2016solution}
+\bibinfo{author}{Huang, X.}, \bibinfo{author}{Shi, L.}, \& \bibinfo{author}{Suykens, J.~A.} (\bibinfo{year}{2016}).
+\newblock \bibinfo{title}{Solution path for pin-svm classifiers with positive and negative $\tau$ values}.
+\newblock {\it \bibinfo{journal}{IEEE transactions on neural networks and learning systems}\/},  {\it \bibinfo{volume}{28}\/}, \bibinfo{pages}{1584--1593}.
+%Type = Article
+\bibitem[{Koenker \& Hallock(2001)}]{koenker2001quantile}
+\bibinfo{author}{Koenker, R.}, \& \bibinfo{author}{Hallock, K.~F.} (\bibinfo{year}{2001}).
+\newblock \bibinfo{title}{Quantile regression}.
+\newblock {\it \bibinfo{journal}{Journal of economic perspectives}\/},  {\it \bibinfo{volume}{15}\/}, \bibinfo{pages}{143--156}.
+%Type = Inproceedings
+\bibitem[{Lin et~al.(2017)Lin, Goyal, Girshick, He \& Doll{\'a}r}]{lin2017focal}
+\bibinfo{author}{Lin, T.-Y.}, \bibinfo{author}{Goyal, P.}, \bibinfo{author}{Girshick, R.}, \bibinfo{author}{He, K.}, \& \bibinfo{author}{Doll{\'a}r, P.} (\bibinfo{year}{2017}).
+\newblock \bibinfo{title}{Focal loss for dense object detection}.
+\newblock In {\it \bibinfo{booktitle}{Proceedings of the IEEE international conference on computer vision}\/} (pp. \bibinfo{pages}{2980--2988}).
+%Type = Article
+\bibitem[{Liu et~al.(2025)Liu, Guo, Yin, Chen \& Huang}]{liu2025novel}
+\bibinfo{author}{Liu, L.}, \bibinfo{author}{Guo, J.}, \bibinfo{author}{Yin, Z.}, \bibinfo{author}{Chen, R.}, \& \bibinfo{author}{Huang, G.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{A novel three-way distance-based fuzzy large margin distribution machine for imbalance classification}.
+\newblock {\it \bibinfo{journal}{Complex \& Intelligent Systems}\/},  {\it \bibinfo{volume}{11}\/}, \bibinfo{pages}{176}.
+%Type = Article
+\bibitem[{Lyaqini et~al.(2024)Lyaqini, Hadri, Ellahyani \& Nachaoui}]{LYAQINI2024107567}
+\bibinfo{author}{Lyaqini, S.}, \bibinfo{author}{Hadri, A.}, \bibinfo{author}{Ellahyani, A.}, \& \bibinfo{author}{Nachaoui, M.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Primal dual algorithm for solving the nonsmooth twin svm}.
+\newblock {\it \bibinfo{journal}{Engineering Applications of Artificial Intelligence}\/},  {\it \bibinfo{volume}{128}\/}, \bibinfo{pages}{107567}. \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0952197623017517}. \DOIprefix\doi{https://doi.org/10.1016/j.engappai.2023.107567}.
+%Type = Article
+\bibitem[{Naveen et~al.(2025)Naveen, Anoop, Siju, Kar \& Venugopal}]{naveen2025effnet}
+\bibinfo{author}{Naveen, K.}, \bibinfo{author}{Anoop, B.}, \bibinfo{author}{Siju, K.}, \bibinfo{author}{Kar, M.~K.}, \& \bibinfo{author}{Venugopal, V.} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{Effnet-svm: A hybrid model for diabetic retinopathy classification using retinal fundus images}.
+\newblock {\it \bibinfo{journal}{IEEE Access}\/}, .
+%Type = Article
+\bibitem[{Pourhosseini et~al.(2023)Pourhosseini, Ebrahimi \& Omid}]{POURHOSSEINI2023106780}
+\bibinfo{author}{Pourhosseini, F.~A.}, \bibinfo{author}{Ebrahimi, K.}, \& \bibinfo{author}{Omid, M.~H.} (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{Prediction of total dissolved solids, based on optimization of new hybrid svm models}.
+\newblock {\it \bibinfo{journal}{Engineering Applications of Artificial Intelligence}\/},  {\it \bibinfo{volume}{126}\/}, \bibinfo{pages}{106780}. \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0952197623009648}. \DOIprefix\doi{https://doi.org/10.1016/j.engappai.2023.106780}.
+%Type = Article
+\bibitem[{Rashad et~al.(2024)Rashad, Alebiary, Aldawsari, El-Sawy \& AbuEl-Atta}]{rashad2024ccnn}
+\bibinfo{author}{Rashad, M.}, \bibinfo{author}{Alebiary, D.~M.}, \bibinfo{author}{Aldawsari, M.}, \bibinfo{author}{El-Sawy, A.~A.}, \& \bibinfo{author}{AbuEl-Atta, A.~H.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{Ccnn-svm: automated model for emotion recognition based on custom convolutional neural networks with svm}.
+\newblock {\it \bibinfo{journal}{Information}\/},  {\it \bibinfo{volume}{15}\/}, \bibinfo{pages}{384}.
+%Type = Inproceedings
+\bibitem[{Ren et~al.(2020)Ren, Yu, Ma, Zhao, Yi \& Li}]{ren2020balanced}
+\bibinfo{author}{Ren, J.}, \bibinfo{author}{Yu, C.}, \bibinfo{author}{Ma, X.}, \bibinfo{author}{Zhao, H.}, \bibinfo{author}{Yi, S.}, \& \bibinfo{author}{Li, H.} (\bibinfo{year}{2020}).
+\newblock \bibinfo{title}{Balanced meta-softmax for long-tailed visual recognition}.
+\newblock In {\it \bibinfo{booktitle}{Advances in Neural Information Processing Systems}\/} (pp. \bibinfo{pages}{4175--4186}).
+\newblock volume~\bibinfo{volume}{33}.
+%Type = Inproceedings
+\bibitem[{Reyzin \& Schapire(2006)}]{reyzin2006boosting}
+\bibinfo{author}{Reyzin, L.}, \& \bibinfo{author}{Schapire, R.~E.} (\bibinfo{year}{2006}).
+\newblock \bibinfo{title}{How boosting the margin can also boost classifier complexity}.
+\newblock In {\it \bibinfo{booktitle}{Proceedings of the 23rd international conference on Machine learning}\/} (pp. \bibinfo{pages}{753--760}).
+%Type = Article
+\bibitem[{Rezvani \& Wang(2021)}]{rezvani2021class}
+\bibinfo{author}{Rezvani, S.}, \& \bibinfo{author}{Wang, X.} (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{Class imbalance learning using fuzzy art and intuitionistic fuzzy twin support vector machines}.
+\newblock {\it \bibinfo{journal}{Information Sciences}\/},  {\it \bibinfo{volume}{578}\/}, \bibinfo{pages}{659--682}.
+%Type = Article
+\bibitem[{Rezvani \& Wang(2022)}]{rezvani2022intuitionistic}
+\bibinfo{author}{Rezvani, S.}, \& \bibinfo{author}{Wang, X.} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Intuitionistic fuzzy twin support vector machines for imbalanced data}.
+\newblock {\it \bibinfo{journal}{Neurocomputing}\/},  {\it \bibinfo{volume}{507}\/}, \bibinfo{pages}{16--25}.
+%Type = Article
+\bibitem[{Sch{\"o}lkopf \& Smola(2002)}]{scholkopf2002learning}
+\bibinfo{author}{Sch{\"o}lkopf, B.}, \& \bibinfo{author}{Smola, A.} (\bibinfo{year}{2002}).
+\newblock \bibinfo{title}{Learning with kernels mit press}.
+\newblock {\it \bibinfo{journal}{Cambridge, MA}\/}, .
+%Type = Article
+\bibitem[{Shao et~al.(2024)Shao, Dai, Li et~al.}]{shao2024kmeans}
+\bibinfo{author}{Shao, D.}, \bibinfo{author}{Dai, Y.}, \bibinfo{author}{Li, J.} et~al. (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{A k-means triangular synthesis large margin classifier with unified pinball loss for imbalanced data}.
+\newblock {\it \bibinfo{journal}{Applied Soft Computing}\/},  {\it \bibinfo{volume}{167}\/}, \bibinfo{pages}{112349}.
+%Type = Article
+\bibitem[{Smola(2002)}]{smola2002support}
+\bibinfo{author}{Smola, A.} (\bibinfo{year}{2002}).
+\newblock \bibinfo{title}{Support vector machines, regularization, optimization, and beyond}.
+\newblock {\it \bibinfo{journal}{Learning with Kernels}\/}, .
+%Type = Article
+\bibitem[{Steinwart \& Christmann(2011)}]{steinwart2011estimating}
+\bibinfo{author}{Steinwart, I.}, \& \bibinfo{author}{Christmann, A.} (\bibinfo{year}{2011}).
+\newblock \bibinfo{title}{Estimating conditional quantiles with the help of the pinball loss}.
+\newblock {\it \bibinfo{journal}{Bernoulli}\/},  {\it \bibinfo{volume}{17}\/}, \bibinfo{pages}{211--225}.
+%Type = Article
+\bibitem[{Tanveer et~al.(2021)Tanveer, Gupta, Shah \& Richhariya}]{tanveer2021sparse}
+\bibinfo{author}{Tanveer, M.}, \bibinfo{author}{Gupta, T.}, \bibinfo{author}{Shah, M.}, \& \bibinfo{author}{Richhariya, B.} (\bibinfo{year}{2021}).
+\newblock \bibinfo{title}{Sparse twin support vector clustering using pinball loss}.
+\newblock {\it \bibinfo{journal}{IEEE Journal of Biomedical and Health Informatics}\/},  {\it \bibinfo{volume}{25}\/}, \bibinfo{pages}{3776--3783}.
+%Type = Inproceedings
+\bibitem[{Tiwari et~al.(2024)Tiwari, Manzoor, Sehgal \& Mishra}]{tiwari2024comprehensive}
+\bibinfo{author}{Tiwari, A.}, \bibinfo{author}{Manzoor, S.}, \bibinfo{author}{Sehgal, J.}, \& \bibinfo{author}{Mishra, A.} (\bibinfo{year}{2024}).
+\newblock \bibinfo{title}{A comprehensive review of face detection technologies}.
+\newblock In {\it \bibinfo{booktitle}{2024 Second International Conference on Advances in Information Technology (ICAIT)}\/} (pp. \bibinfo{pages}{1--6}).
+\newblock \bibinfo{organization}{IEEE} volume~\bibinfo{volume}{1}.
+%Type = Article
+\bibitem[{Wang et~al.(2011)Wang, Sugiyama, Jing, Yang, Zhou \& Feng}]{wang2011refined}
+\bibinfo{author}{Wang, L.}, \bibinfo{author}{Sugiyama, M.}, \bibinfo{author}{Jing, Z.}, \bibinfo{author}{Yang, C.}, \bibinfo{author}{Zhou, Z.-H.}, \& \bibinfo{author}{Feng, J.} (\bibinfo{year}{2011}).
+\newblock \bibinfo{title}{A refined margin analysis for boosting algorithms via equilibrium margin}.
+\newblock {\it \bibinfo{journal}{The Journal of Machine Learning Research}\/},  {\it \bibinfo{volume}{12}\/}, \bibinfo{pages}{1835--1863}.
+%Type = Article
+\bibitem[{Yang et~al.(2022)Yang, Hou, Lu \& Ji}]{yang2022novel}
+\bibinfo{author}{Yang, D.}, \bibinfo{author}{Hou, N.}, \bibinfo{author}{Lu, J.}, \& \bibinfo{author}{Ji, D.} (\bibinfo{year}{2022}).
+\newblock \bibinfo{title}{Novel leakage detection by ensemble 1dcnn-vapso-svm in oil and gas pipeline systems}.
+\newblock {\it \bibinfo{journal}{Applied Soft Computing}\/},  {\it \bibinfo{volume}{115}\/}, \bibinfo{pages}{108212}.
+%Type = Article
+\bibitem[{Yang et~al.(2023)Yang, Fan, Liu \& Zhang}]{yang2023optimal}
+\bibinfo{author}{Yang, J.}, \bibinfo{author}{Fan, S.}, \bibinfo{author}{Liu, L.}, \& \bibinfo{author}{Zhang, L.} (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{Optimal margin distribution matrix machine}.
+\newblock {\it \bibinfo{journal}{Expert Systems with Applications}\/},  (p. \bibinfo{pages}{122497}).
+%Type = Article
+\bibitem[{Yu et~al.(2023)Yu, Ma \& Xie}]{YU2023105751}
+\bibinfo{author}{Yu, G.}, \bibinfo{author}{Ma, J.}, \& \bibinfo{author}{Xie, C.} (\bibinfo{year}{2023}).
+\newblock \bibinfo{title}{Hessian scatter regularized twin support vector machine for semi-supervised classification}.
+\newblock {\it \bibinfo{journal}{Engineering Applications of Artificial Intelligence}\/},  {\it \bibinfo{volume}{119}\/}, \bibinfo{pages}{105751}. \URLprefix \url{https://www.sciencedirect.com/science/article/pii/S0952197622007412}. \DOIprefix\doi{https://doi.org/10.1016/j.engappai.2022.105751}.
+%Type = Article
+\bibitem[{Zhang et~al.(2023{\natexlab{a}})Zhang, Dong, Luo \& Liu}]{10323189}
+\bibinfo{author}{Zhang, L.}, \bibinfo{author}{Dong, D.}, \bibinfo{author}{Luo, L.}, \& \bibinfo{author}{Liu, D.} (\bibinfo{year}{2023}{\natexlab{a}}).
+\newblock \bibinfo{title}{A novel fuzzy large margin distribution machine with unified pinball loss}.
+\newblock {\it \bibinfo{journal}{IEEE Transactions on Fuzzy Systems}\/},  (pp. \bibinfo{pages}{1--13}). \DOIprefix\doi{10.1109/TFUZZ.2023.3333571}.
+%Type = Article
+\bibitem[{Zhang et~al.(2023{\natexlab{b}})Zhang, Jin, Fan \& Liu}]{zhang2023novel}
+\bibinfo{author}{Zhang, L.}, \bibinfo{author}{Jin, Q.}, \bibinfo{author}{Fan, S.}, \& \bibinfo{author}{Liu, D.} (\bibinfo{year}{2023}{\natexlab{b}}).
+\newblock \bibinfo{title}{A novel dual-center based intuitionistic fuzzy twin bounded large margin distribution machines}.
+\newblock {\it \bibinfo{journal}{IEEE Transactions on Fuzzy Systems}\/}, .
+%Type = Inproceedings
+\bibitem[{Zhang \& Zhou(2014)}]{zhang2014large}
+\bibinfo{author}{Zhang, T.}, \& \bibinfo{author}{Zhou, Z.-H.} (\bibinfo{year}{2014}).
+\newblock \bibinfo{title}{Large margin distribution machine}.
+\newblock In {\it \bibinfo{booktitle}{Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining}\/} (pp. \bibinfo{pages}{313--322}).
+%Type = Article
+\bibitem[{Zhu et~al.(2020)Zhu, Song \& Xiao}]{zhu2020support}
+\bibinfo{author}{Zhu, W.}, \bibinfo{author}{Song, Y.}, \& \bibinfo{author}{Xiao, Y.} (\bibinfo{year}{2020}).
+\newblock \bibinfo{title}{Support vector machine classifier with huberized pinball loss}.
+\newblock {\it \bibinfo{journal}{Engineering Applications of Artificial Intelligence}\/},  {\it \bibinfo{volume}{91}\/}, \bibinfo{pages}{103635}.
+
+\end{thebibliography}

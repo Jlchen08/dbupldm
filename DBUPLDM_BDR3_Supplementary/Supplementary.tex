@@ -1,0 +1,345 @@
+% \documentclass{article}
+\documentclass[fleqn,10pt]{wlscirepp}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{etoolbox}
+\usepackage{ragged2e}
+\usepackage{fontsize}
+\usepackage{natbib}
+
+\newtheorem{myPro}{Proof}
+\usepackage{multirow}
+\usepackage{subfigure}
+% \usepackage{amsmath, amsthm, amssymb}
+\usepackage{setspace}
+% \usepackage[margin=1in]{geometry}
+% \usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=blue]{hyperref}
+\newcounter{sTable}
+
+
+
+\newenvironment{sTable}[2][!h]{%
+    \refstepcounter{sTable}%
+    \begin{table}[#1]%
+    \centering
+    \captionsetup{labelformat=empty} % Remove default label format
+    \caption{\textbf{TABLE S\arabic{sTable}.} #2} % Add custom caption with bold "TABLE S1"
+    \label{tab:\arabic{sTable}} % Label for referencing
+}{%
+    \end{table}%
+}
+
+\usepackage{graphicx} % 导入图片处理宏包
+\usepackage{caption}  % 导入标题格式宏包
+\usepackage{cleveref}
+
+
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+
+\title{\LARGE Supplementary Document for \\ \textbf{Dual Balanced Large Marginal Machine for Imbalanced Data Classification}}
+\author[1]{Pingping Gu}
+\author[2]{Denghao Dong}
+\author[1]{Quan Shi}
+\author[2]{Fudi Wang}
+\author[2,*]{Libo Zhang}
+\affil[1]{School of Transportation and Civil Engineering, Nantong University, Nantong, 216002, China}
+\affil[2]{College of Artificial Intelligence, Southwest University, Chongqing, 400715, China}
+
+\affil[*]{lbzhang@swu.edu.cn}
+
+\begin{document}
+
+\begin{spacing}{1.5} 
+ 
+\date{}
+
+\maketitle
+% \vspace{1cm} 
+\large
+\textbf{This PDF file includes:}
+
+ 1. \hyperref[Item 1]{Comparison of Accuracy, AUC, and F1-score of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on the UCI datasets.}
+
+
+2. \hyperref[Item 2]{Comparison of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on noise-added UCI datasets.}
+
+
+3. \hyperref[Item 3]{Sensitivity Analysis of Parameter $\rho$.}
+
+
+4. \hyperref[Item 4]{Proof of Theorem 2.}
+
+\normalsize
+
+\end{spacing}
+
+% ------------Supplemental Item 1-----------------
+\clearpage
+\section{Comparison of Accuracy, AUC, and F1-score of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on the UCI datasets. }\label{Item 1}
+\begin{sTable}
+\footnotesize
+\renewcommand\arraystretch{1.2}
+  \centering 
+\caption{\color{orange}Comparison of Accuracy, AUC, and F1-score of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on the UCI datasets}
+\label{uci2}
+     \setlength{\tabcolsep}{1.5mm}{ % 微调列间距
+    \resizebox{\textwidth}{!}{
+            \begin{tabular}{cc cccc cccc ccccc ccccc ccccc}
+    \toprule
+    \multirow{2}{*}{$\eta$} & \multirow{2}{*}{Dataset} & \multicolumn{4}{c}{SVM} & \multicolumn{4}{c}{LDM} & \multicolumn{5}{c}{PinSVM} & \multicolumn{5}{c}{UPSVM} & \multicolumn{5}{c}{\textbf{DBUPLDM}} \\
+\cmidrule{3-22}    & & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ & Acc & {\color{orange}AUC} & {\color{orange}F1} & C & $\tau$ \\
+
+    \midrule
+\multirow{17}[4]{*}{$\eta$ = 0.125} 
+& Monk1 & 62.73 & \color{orange}61.50 & \color{orange}0.63 & 0.13 & 67.59 & \color{orange}66.80 & \color{orange}0.69 & 0.06 & 65.28 & \color{orange}64.30 & \color{orange}0.66 & 0.03 & 0.20 & 66.44 & \color{orange}65.10 & \color{orange}0.67 & 4.00 & -0.40 & \textbf{68.29} & \textbf{\color{orange}72.55} & \textbf{\color{orange}0.75} & 1.00 & 0.70 \\
+& Monk2 & 67.13 & \color{orange}65.42 & \color{orange}0.68 & 0.02 & 67.13 & \color{orange}65.38 & \color{orange}0.68 & 0.02 & 67.13 & \color{orange}65.26 & \color{orange}0.68 & 0.02 & -0.90 & 67.13 & \color{orange}65.32 & \color{orange}0.68 & 0.02 & -0.40 & \textbf{67.82} & \textbf{\color{orange}66.87} & \textbf{\color{orange}0.69} & 8.00 & -0.20 \\
+& Monk3 & 81.02 & \color{orange}79.18 & \color{orange}0.81 & 0.06 & 84.03 & \color{orange}83.45 & \color{orange}0.85 & 0.13 & 84.26 & \color{orange}83.32 & \color{orange}0.85 & 0.02 & 1.00 & 86.34 & \color{orange}85.67 & \color{orange}0.87 & 0.25 & -0.40 & \textbf{88.89} & \textbf{\color{orange}89.21} & \textbf{\color{orange}0.91} & 0.50 & -0.30 \\
+& Pima-Indian & 76.42 & \color{orange}71.27 & \color{orange}0.74 & 0.02 & 77.36 & \color{orange}72.41 & \color{orange}0.75 & 0.02 & 78.30 & \color{orange}73.19 & \color{orange}0.76 & 0.25 & -1.00 & 76.42 & \color{orange}71.35 & \color{orange}0.74 & 0.02 & -0.30 & \textbf{79.25} & \textbf{\color{orange}75.83} & \textbf{\color{orange}0.78} & 8.00 & 0.20 \\
+& WDBC & 86.67 & \color{orange}85.23 & \color{orange}0.87 & 0.06 & 85.00 & \color{orange}84.17 & \color{orange}0.86 & 0.06 & 86.67 & \color{orange}85.31 & \color{orange}0.87 & 0.06 & 0.00 & 86.67 & \color{orange}85.29 & \color{orange}0.87 & 0.06 & 0.00 & \textbf{87.50} & \textbf{\color{orange}87.66} & \textbf{\color{orange}0.89} & 0.06 & 0.20 \\
+& Echo & \textbf{94.04} & \textbf{\color{orange}92.45} & \textbf{\color{orange}0.93} & 2.00 & 93.38 & \color{orange}91.62 & \color{orange}0.92 & 8.00 & \textbf{94.04} & \textbf{\color{orange}92.38} & \textbf{\color{orange}0.93} & 2.00 & 0.00 & \textbf{94.04} & \textbf{\color{orange}92.42} & \textbf{\color{orange}0.93} & 2.00 & 0.00 & 92.72 & \color{orange}90.58 & \color{orange}0.91 & 4.00 & 0.70 \\
+& Ionosphere & 67.09 & \color{orange}65.78 & \color{orange}0.68 & 0.02 & \textbf{79.91} & \textbf{\color{orange}78.55} & \textbf{\color{orange}0.80} & 2.00 & 67.95 & \color{orange}66.42 & \color{orange}0.69 & 0.06 & -1.00 & 71.15 & \color{orange}70.63 & \color{orange}0.73 & 8.00 & -0.70 & 78.85 & \color{orange}75.92 & \color{orange}0.78 & 2.00 & 0.40 \\
+& Heberman & 79.29 & \color{orange}78.63 & \color{orange}0.80 & 0.02 & \textbf{98.82} & \textbf{\color{orange}98.37} & \textbf{\color{orange}0.99} & 0.06 & 95.86 & \color{orange}95.24 & \color{orange}0.96 & 0.02 & 0.10 & 95.86 & \color{orange}95.31 & \color{orange}0.96 & 0.02 & 0.10 & \textbf{98.82} & \textbf{\color{orange}98.55} & \textbf{\color{orange}0.99} & 0.50 & -0.20 \\
+& Statlog & 70.59 & \color{orange}70.32 & \color{orange}0.73 & 0.02 & 88.24 & \color{orange}87.51 & \color{orange}0.88 & 0.03 & 70.59 & \color{orange}70.28 & \color{orange}0.73 & 0.02 & 0.00 & 90.20 & \color{orange}89.46 & \color{orange}0.91 & 0.25 & -0.20 & \textbf{92.16} & \textbf{\color{orange}91.74} & \textbf{\color{orange}0.93} & 0.25 & -0.50 \\
+& Germans & 32.80 & \color{orange}30.55 & \color{orange}0.33 & 0.02 & 68.00 & \color{orange}67.36 & \color{orange}0.69 & 0.02 & 67.20 & \color{orange}65.82 & \color{orange}0.67 & 0.25 & -1.00 & 67.20 & \color{orange}65.74 & \color{orange}0.67 & 8.00 & -0.80 & \textbf{76.20} & \textbf{\color{orange}75.69} & \textbf{\color{orange}0.77} & 2.00 & -0.10 \\
+& Australian & 84.48 & \color{orange}83.76 & \color{orange}0.85 & 0.03 & 86.55 & \color{orange}85.42 & \color{orange}0.87 & 0.03 & 84.48 & \color{orange}83.61 & \color{orange}0.85 & 0.03 & 0.00 & \textbf{87.24} & \textbf{\color{orange}86.58} & \textbf{\color{orange}0.88} & 0.03 & -0.30 & \textbf{87.24} & \textbf{\color{orange}87.82} & \textbf{\color{orange}0.89} & 0.03 & -0.90 \\
+& Votes & 85.11 & \color{orange}84.63 & \color{orange}0.86 & 0.02 & \textbf{95.74} & \textbf{\color{orange}95.28} & \textbf{\color{orange}0.96} & 1.00 & 94.04 & \color{orange}94.15 & \color{orange}0.95 & 0.02 & -0.90 & 91.49 & \color{orange}91.37 & \color{orange}0.93 & 0.02 & -0.10 & 95.32 & \color{orange}95.76 & \color{orange}0.97 & 0.50 & 0.00 \\
+& Diabetes & 67.91 & \color{orange}66.41 & \color{orange}0.69 & 0.02 & \textbf{81.72} & \textbf{\color{orange}80.57} & \textbf{\color{orange}0.82} & 1.00 & 67.91 & \color{orange}66.38 & \color{orange}0.69 & 0.02 & 0.00 & 72.76 & \color{orange}71.45 & \color{orange}0.73 & 8.00 & -0.80 & 81.72 & \color{orange}80.83 & \color{orange}0.82 & 2.00 & -0.50 \\
+& Fertility & \textbf{94.00} & \textbf{\color{orange}93.27} & \textbf{\color{orange}0.94} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.31} & \textbf{\color{orange}0.94} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.25} & \textbf{\color{orange}0.94} & 0.02 & 0.00 & \textbf{94.00} & \textbf{\color{orange}93.30} & \textbf{\color{orange}0.94} & 0.02 & 0.00 & \textbf{94.00} & \textbf{\color{orange}94.66} & \textbf{\color{orange}0.95} & 0.02 & -1.00 \\
+& Sonar & 69.44 & \color{orange}68.55 & \color{orange}0.71 & 0.13 & 74.07 & \color{orange}73.62 & \color{orange}0.76 & 0.06 & 72.22 & \color{orange}70.89 & \color{orange}0.73 & 0.02 & -1.00 & 74.07 & \color{orange}73.58 & \color{orange}0.76 & 0.03 & -0.30 & \textbf{76.85} & \textbf{\color{orange}75.74} & \textbf{\color{orange}0.78} & 0.50 & 0.40 \\
+& Ecoil & 86.61 & \color{orange}85.38 & \color{orange}0.87 & 0.25 & \textbf{94.49} & \textbf{\color{orange}94.23} & \textbf{\color{orange}0.95} & 0.13 & \textbf{94.49} & \textbf{\color{orange}94.18} & \textbf{\color{orange}0.95} & 0.06 & 0.90 & \textbf{94.49} & \textbf{\color{orange}94.21} & \textbf{\color{orange}0.95} & 0.25 & -0.10 & \textbf{94.49} & \textbf{\color{orange}94.77} & \textbf{\color{orange}0.96} & 0.02 & -1.00 \\
+& Plrx & 67.07 & \color{orange}66.42 & \color{orange}0.69 & 0.02 & 67.07 & \color{orange}66.35 & \color{orange}0.69 & 0.02 & 67.07 & \color{orange}66.28 & \color{orange}0.69 & 0.02 & 0.00 & 67.07 & \color{orange}66.32 & \color{orange}0.69 & 0.02 & -1.00 & \textbf{70.73} & \textbf{\color{orange}70.59} & \textbf{\color{orange}0.73} & 2.00 & 0.40 \\
+\cmidrule{2-25}
+& \textbf{Ave.} & 74.73 & {\color{orange}71.58} & {\color{orange}0.75} & & 82.59 & {\color{orange}78.00} & {\color{orange}0.76} & & 80.15 & {\color{orange}76.15} & {\color{orange}0.76} & & & 81.33 & {\color{orange}76.30} & {\color{orange}0.76} & & & \textbf{84.25} & \textbf{\color{orange}82.53} & \textbf{\color{orange}0.84} & & \\
+
+\midrule
+
+\multirow{17}[4]{*}{$\eta$ = 0.0625} 
+& Monk1 & 62.73 & \color{orange}61.35 & \color{orange}0.62 & 0.13 & 67.59 & \color{orange}66.60 & \color{orange}0.68 & 0.06 & 65.28 & \color{orange}64.10 & \color{orange}0.65 & 0.03 & 0.20 & 66.44 & \color{orange}65.00 & \color{orange}0.66 & 4.00 & -0.40 & \textbf{68.29} & \textbf{\color{orange}72.45} & \textbf{\color{orange}0.74} & 1.00 & 0.70 \\
+& Monk2 & 67.13 & \color{orange}65.32 & \color{orange}0.67 & 0.02 & 67.13 & \color{orange}65.28 & \color{orange}0.67 & 0.02 & 67.13 & \color{orange}65.16 & \color{orange}0.67 & 0.02 & -0.90 & 67.13 & \color{orange}65.22 & \color{orange}0.67 & 0.02 & -0.40 & \textbf{67.59} & \textbf{\color{orange}66.77} & \textbf{\color{orange}0.68} & 8.00 & -0.20 \\
+& Monk3 & 81.02 & \color{orange}79.08 & \color{orange}0.80 & 0.06 & 84.03 & \color{orange}83.35 & \color{orange}0.84 & 0.13 & 84.26 & \color{orange}83.22 & \color{orange}0.84 & 0.02 & 1.00 & 86.34 & \color{orange}85.57 & \color{orange}0.86 & 0.25 & -0.40 & \textbf{88.89} & \textbf{\color{orange}89.11} & \textbf{\color{orange}0.90} & 0.50 & -0.30 \\
+& Pima-Indian & 76.42 & \color{orange}71.17 & \color{orange}0.73 & 0.02 & 77.36 & \color{orange}72.31 & \color{orange}0.74 & 0.02 & 78.30 & \color{orange}73.09 & \color{orange}0.75 & 0.25 & -1.00 & 76.42 & \color{orange}71.25 & \color{orange}0.73 & 0.02 & -0.30 & \textbf{79.25} & \textbf{\color{orange}75.73} & \textbf{\color{orange}0.77} & 8.00 & 0.20 \\
+& WDBC & 86.67 & \color{orange}85.13 & \color{orange}0.86 & 0.06 & 85.00 & \color{orange}84.07 & \color{orange}0.85 & 0.06 & 86.67 & \color{orange}85.21 & \color{orange}0.86 & 0.06 & 0.00 & 86.67 & \color{orange}85.19 & \color{orange}0.86 & 0.06 & 0.00 & \textbf{87.50} & \textbf{\color{orange}87.56} & \textbf{\color{orange}0.88} & 0.06 & 0.20 \\
+& Echo & \textbf{94.04} & \textbf{\color{orange}92.35} & \textbf{\color{orange}0.92} & 2.00 & 93.38 & \color{orange}91.52 & \color{orange}0.91 & 8.00 & \textbf{94.04} & \color{orange}92.28 & \textbf{\color{orange}0.92} & 2.00 & 0.00 & \textbf{\color{black}94.04} & \color{orange}92.32 & \textbf{\color{orange}0.92} & 2.00 & 0.00 & 92.62 & \color{orange}90.48 & \color{orange}0.90 & 4.00 & 0.70 \\
+& Ionosphere & 67.09 & \color{orange}65.68 & \color{orange}0.67 & 0.02 & \textbf{79.81} & \textbf{\color{orange}78.45} & \textbf{\color{orange}0.79} & 2.00 & 67.95 & \color{orange}66.32 & \color{orange}0.68 & 0.06 & -1.00 & 71.15 & \color{orange}70.53 & \color{orange}0.72 & 8.00 & -0.70 & 78.75 & \color{orange}75.82 & \color{orange}0.77 & 2.00 & 0.40 \\
+& Heberman & 79.29 & \color{orange}78.53 & \color{orange}0.79 & 0.02 & \textbf{98.72} & \color{orange}94.14 & \color{orange}0.88 & 0.06 & 95.86 & \color{orange}95.14 & \color{orange}0.85 & 0.02 & 0.10 & 95.86 & \color{orange}95.21 & \color{orange}0.85 & 0.02 & 0.10 & \textbf{98.72} & \textbf{\color{orange}94.45} & \textbf{\color{orange}0.89} & 0.50 & -0.20 \\
+& Statlog & 70.59 & \color{orange}70.22 & \color{orange}0.72 & 0.02 & 88.24 & \color{orange}87.41 & \color{orange}0.87 & 0.03 & 70.59 & \color{orange}70.18 & \color{orange}0.72 & 0.02 & 0.00 & 90.20 & \color{orange}89.36 & \color{orange}0.90 & 0.25 & -0.20 & \textbf{92.16} & \textbf{\color{orange}91.64} & \textbf{\color{orange}0.92} & 0.25 & -0.50 \\
+& Germans & 32.80 & \color{orange}30.45 & \color{orange}0.32 & 0.02 & 68.00 & \color{orange}67.26 & \color{orange}0.68 & 0.02 & 67.20 & \color{orange}65.72 & \color{orange}0.66 & 0.25 & -1.00 & 67.20 & \color{orange}65.64 & \color{orange}0.66 & 8.00 & -0.80 & \textbf{76.20} & \textbf{\color{orange}75.59} & \textbf{\color{orange}0.76} & 2.00 & -0.10 \\
+& Australian & 84.48 & \color{orange}83.66 & \color{orange}0.84 & 0.03 & 86.55 & \color{orange}85.32 & \color{orange}0.86 & 0.03 & 84.48 & \color{orange}83.51 & \color{orange}0.84 & 0.03 & 0.00 & \textbf{87.14} & \color{orange}86.48 & \color{orange}0.87 & 0.03 & -0.30 & \textbf{87.14} & \textbf{\color{orange}87.72} & \textbf{\color{orange}0.88} & 0.03 & -0.90 \\
+& Votes & 85.11 & \color{orange}84.53 & \color{orange}0.85 & 0.02 & \textbf{95.64} & \color{orange}95.18 & \color{orange}0.85 & 1.00 & 94.04 & \color{orange}94.05 & \color{orange}0.84 & 0.02 & -0.90 & 91.49 & \color{orange}91.27 & \color{orange}0.82 & 0.02 & -0.10 & 95.22 & \color{orange}95.66 & \textbf{\color{orange}0.89} & 0.50 & 0.00 \\
+& Diabetes & 67.91 & \color{orange}66.31 & \color{orange}0.68 & 0.02 & \textbf{81.62} & \color{orange}80.47 & \textbf{\color{orange}0.81} & 1.00 & 67.91 & \color{orange}66.28 & \color{orange}0.68 & 0.02 & 0.00 & 72.76 & \color{orange}71.35 & \color{orange}0.72 & 8.00 & -0.80 & \textbf{81.62} & \textbf{\color{orange}80.73} & \textbf{\color{orange}0.81} & 2.00 & -0.50 \\
+& Fertility & \textbf{94.00} & \textbf{\color{orange}93.17} & \textbf{\color{orange}0.93} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.21} & \textbf{\color{orange}0.93} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.15} & \textbf{\color{orange}0.93} & 0.02 & 0.00 & \textbf{94.00} & \color{orange}93.20 & \color{orange}0.93 & 0.02 & 0.00 & \textbf{94.00} & \color{orange}94.56 & \color{orange}0.94 & 0.02 & -1.00 \\
+& Sonar & 69.44 & \color{orange}68.45 & \color{orange}0.70 & 0.13 & 74.07 & \color{orange}73.52 & \color{orange}0.75 & 0.06 & 72.22 & \color{orange}70.79 & \color{orange}0.72 & 0.02 & -1.00 & 74.07 & \color{orange}73.48 & \color{orange}0.75 & 0.03 & -0.30 & \textbf{76.85} & \textbf{\color{orange}75.64} & \textbf{\color{orange}0.77} & 0.50 & 0.40 \\
+& Ecoil & 86.61 & \color{orange}85.28 & \color{orange}0.86 & 0.25 & \textbf{94.49} & \color{orange}94.13 & \color{orange}0.84 & 0.13 & \textbf{94.49} & \color{orange}91.08 & \color{orange}0.84 & 0.06 & 0.90 & \textbf{94.49} & \color{orange}94.11 & \color{orange}0.94 & 0.25 & -0.10 & \textbf{94.90} & \textbf{\color{orange}94.67} & \textbf{\color{orange}0.89} & 0.02 & -1.00 \\
+& Plrx & 67.07 & \color{orange}66.32 & \color{orange}0.68 & 0.02 & 67.07 & \color{orange}66.25 & \color{orange}0.68 & 0.02 & 67.07 & \color{orange}66.18 & \color{orange}0.68 & 0.02 & 0.00 & 67.07 & \color{orange}66.22 & \color{orange}0.68 & 0.02 & -1.00 & \textbf{\color{orange}69.51} & \textbf{\color{orange}70.49} & \textbf{\color{orange}0.72} & 2.00 & 0.40 \\
+\cmidrule{2-25}
+& \textbf{Ave.} & 74.73 & \color{orange}71.07 & \color{orange}0.75 & & 82.59 & \color{orange}77.07 & \color{orange}0.76 & & 80.15 & \color{orange}75.17 & \color{orange}0.77 & & & 81.33 & \color{orange}76.27 & \color{orange}0.76 & & & \textbf{84.21} & \textbf{\color{orange}81.83} & \textbf{\color{orange}0.84} & & \\
+
+\midrule
+
+\multirow{18}[3]{*}{$\eta$ = 0.03125} 
+& Monk1 & 62.73 & \color{orange}62.21 & \color{orange}0.64 & 0.13 & 67.59 & \color{orange}68.05 & \color{orange}0.69 & 0.06 & 65.28 & \color{orange}65.30 & \color{orange}0.67 & 0.03 & 0.20 & 66.44 & \color{orange}66.12 & \color{orange}0.70 & 4.00 & -0.40 & \textbf{68.29} & \textbf{\color{orange}72.38} & \textbf{\color{orange}0.74} & 1.00 & 0.70 \\
+& Monk2 & 67.13 & \color{orange}65.58 & \color{orange}0.69 & 0.02 & 67.13 & \color{orange}65.21 & \color{orange}0.67 & 0.02 & 67.13 & \color{orange}65.41 & \color{orange}0.69 & 0.02 & -0.90 & 67.13 & \color{orange}65.47 & \color{orange}0.67 & 0.02 & -0.40 & \textbf{68.29} & \textbf{\color{orange}66.72} & \textbf{\color{orange}0.70} & 1.00 & 0.10 \\
+& Monk3 & 81.02 & \color{orange}79.33 & \color{orange}0.80 & 0.06 & 84.03 & \color{orange}83.59 & \color{orange}0.84 & 0.13 & 84.26 & \color{orange}83.17 & \color{orange}0.86 & 0.02 & 1.00 & 86.34 & \color{orange}85.82 & \color{orange}0.86 & 0.25 & -0.40 & \textbf{88.89} & \textbf{\color{orange}89.05} & \textbf{\color{orange}0.92} & 0.50 & -0.30 \\
+& Pima-Indian & 76.42 & \color{orange}71.41 & \color{orange}0.73 & 0.02 & 77.36 & \color{orange}72.56 & \color{orange}0.74 & 0.02 & 78.30 & \color{orange}73.04 & \color{orange}0.77 & 0.25 & -1.00 & 76.42 & \color{orange}71.50 & \color{orange}0.73 & 0.02 & -0.30 & \textbf{79.25} & \textbf{\color{orange}76.27} & \textbf{\color{orange}0.80} & 8.00 & 0.20 \\
+& WDBC & 86.67 & \color{orange}85.37 & \color{orange}0.86 & 0.06 & 85.00 & \color{orange}84.02 & \color{orange}0.87 & 0.06 & 86.67 & \color{orange}85.46 & \color{orange}0.86 & 0.06 & 0.00 & 86.67 & \color{orange}85.14 & \color{orange}0.88 & 0.06 & 0.00 & \textbf{87.50} & \textbf{\color{orange}87.81} & \textbf{\color{orange}0.88} & 0.06 & 0.20 \\
+& Echo & \textbf{\color{black}94.04} & \textbf{\color{orange}92.31} & \textbf{\color{orange}0.94} & 2.00 & 93.38 & \color{orange}91.77 & \color{orange}0.91 & 8.00 & \textbf{94.04} & \textbf{\color{orange}92.52} & \textbf{\color{orange}0.92} & 2.00 & 0.00 & \textbf{\color{black}94.04} & \textbf{\color{orange}92.28} & \textbf{\color{orange}0.94} & 2.00 & 0.00 & 92.72 & \color{orange}90.72 & \color{orange}0.92 & 8.00 & -0.30 \\
+& Ionosphere & 67.09 & \color{orange}65.63 & \color{orange}0.69 & 0.02 & \textbf{79.91} & \textbf{\color{orange}78.70} & \textbf{\color{orange}0.79} & 2.00 & 67.95 & \color{orange}66.57 & \color{orange}0.68 & 0.06 & -1.00 & 71.15 & \color{orange}70.48 & \color{orange}0.74 & 8.00 & -0.70 & 79.06 & \color{orange}76.07 & \color{orange}0.77 & 2.00 & 0.40 \\
+& Heberman & 79.29 & \color{orange}78.77 & \color{orange}0.79 & 0.02 & \textbf{98.82} & \textbf{\color{orange}98.22} & \textbf{\color{orange}1.00} & 0.06 & 95.86 & \color{orange}95.39 & \color{orange}0.95 & 0.02 & 0.10 & 95.86 & \color{orange}95.16 & \color{orange}0.97 & 0.02 & 0.10 & \textbf{98.82} & \textbf{\color{orange}98.40} & \textbf{\color{orange}0.98} & 0.50 & -0.20 \\
+& Statlog & 70.59 & \color{orange}70.47 & \color{orange}0.72 & 0.02 & 88.24 & \color{orange}87.36 & \color{orange}0.89 & 0.03 & 76.47 & \color{orange}75.41 & \color{orange}0.76 & 4.00 & -1.00 & 90.20 & \color{orange}89.31 & \color{orange}0.92 & 0.25 & -0.20 & \textbf{92.16} & \textbf{\color{orange}91.89} & \textbf{\color{orange}0.92} & 0.25 & -0.50 \\
+& Germans & 32.80 & \color{orange}30.40 & \color{orange}0.34 & 0.02 & 68.00 & \color{orange}67.51 & \color{orange}0.68 & 0.02 & 67.20 & \color{orange}65.67 & \color{orange}0.68 & 0.06 & -1.00 & 67.20 & \color{orange}65.89 & \color{orange}0.66 & 2.00 & -0.80 & \textbf{76.80} & \textbf{\color{orange}76.07} & \textbf{\color{orange}0.76} & 4.00 & 0.40 \\
+& Australian & 84.48 & \color{orange}83.61 & \color{orange}0.86 & 0.03 & 86.55 & \color{orange}85.57 & \color{orange}0.86 & 0.03 & 84.48 & \color{orange}83.76 & \color{orange}0.84 & 0.03 & 0.00 & \textbf{87.24} & \textbf{\color{orange}86.43} & \textbf{\color{orange}0.89} & 0.03 & -0.30 & \textbf{87.24} & \textbf{\color{orange}87.67} & \textbf{\color{orange}0.90} & 0.03 & -0.90 \\
+& Votes & 85.11 & \color{orange}84.78 & \color{orange}0.85 & 0.02 & \textbf{95.74} & \textbf{\color{orange}95.13} & \textbf{\color{orange}0.97} & 1.00 & 94.04 & \color{orange}94.30 & \color{orange}0.94 & 0.02 & -0.90 & 91.49 & \color{orange}91.22 & \color{orange}0.94 & 0.02 & -0.10 & \textbf{96.17} & \textbf{\color{orange}95.57} & \textbf{\color{orange}0.96} & 1.00 & 0.70 \\
+& Diabetes & 67.91 & \color{orange}66.56 & \color{orange}0.68 & 0.02 & \textbf{81.72} & \textbf{\color{orange}80.42} & \textbf{\color{orange}0.83} & 1.00 & 72.76 & \color{orange}71.70 & \color{orange}0.75 & 0.25 & -1.00 & 72.76 & \color{orange}71.60 & \color{orange}0.72 & 8.00 & -0.80 & 82.09 & \color{orange}81.10 & \color{orange}0.81 & 0.25 & -0.60 \\
+& Fertility & \textbf{94.00} & \textbf{\color{orange}93.41} & \textbf{\color{orange}0.93} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.16} & \textbf{\color{orange}0.95} & 0.02 & \textbf{94.00} & \textbf{\color{orange}93.40} & \textbf{\color{orange}0.93} & 0.02 & 0.00 & \textbf{94.00} & \textbf{\color{orange}93.15} & \textbf{\color{orange}0.95} & 0.02 & 0.00 & \textbf{94.00} & \textbf{\color{orange}94.51} & \textbf{\color{orange}0.94} & 0.02 & -1.00 \\
+& Sonar & 69.44 & \color{orange}68.40 & \color{orange}0.72 & 0.13 & 74.07 & \color{orange}73.77 & \color{orange}0.75 & 0.06 & 71.30 & \color{orange}70.50 & \color{orange}0.73 & 0.06 & 0.10 & 74.07 & \color{orange}73.73 & \color{orange}0.75 & 0.03 & -0.30 & \textbf{76.85} & \textbf{\color{orange}75.89} & \textbf{\color{orange}0.77} & 0.50 & 0.40 \\
+& Ecoil & 86.61 & \color{orange}85.53 & \color{orange}0.86 & 0.25 & \textbf{94.49} & \textbf{\color{orange}94.08} & \textbf{\color{orange}0.96} & 0.13 & \textbf{94.49} & \textbf{\color{orange}94.33} & \textbf{\color{orange}0.94} & 0.06 & 0.90 & \textbf{94.49} & \textbf{\color{orange}94.06} & \textbf{\color{orange}0.96} & 0.25 & -0.10 & \textbf{94.49} & \textbf{\color{orange}94.78} & \textbf{\color{orange}0.97} & 0.02 & -1.00 \\
+& Plrx & 67.07 & \color{orange}66.57 & \color{orange}0.68 & 0.02 & 67.07 & \color{orange}66.50 & \color{orange}0.68 & 0.02 & \textbf{68.29} & \textbf{\color{orange}67.10} & \textbf{\color{orange}0.71} & 0.02 & -1.00 & 67.07 & \color{orange}66.47 & \color{orange}0.68 & 0.02 & -1.00 & \textbf{69.51} & \textbf{\color{orange}69.63} & \textbf{\color{orange}0.73} & 8.00 & -0.10 \\
+\cmidrule{2-25}
+& \textbf{Ave.} & 74.85 & \color{orange}70.21 & \color{orange}0.74 & & 82.54 & \color{orange}76.94 & \color{orange}0.76 & & 80.15 & \color{orange}75.15 & \color{orange}0.77 & & & 81.33 & \color{orange}77.30 & \color{orange}0.76 & & & \textbf{84.01} & \textbf{\color{orange}81.34} & \textbf{\color{orange}0.84} & & \\
+\midrule
+& \textbf{Total Average} & 74.86 & \color{orange}71.06 & \color{orange}0.74 &  & 82.68 & \color{orange}77.75 & \color{orange}0.79 &  & 80.06 & \color{orange}75.35 & \color{orange}0.77 &  &  & 81.33 & \color{orange}76.06 & \color{orange}0.78 &  &  & \textbf{84.14} & \textbf{\color{orange}81.13} & \textbf{\color{orange}0.84} & &  \\
+\midrule
+    \end{tabular}}}
+    \label{uci2}
+\end{sTable}
+
+% ------------Supplemental Item 2-----------------
+\clearpage
+\section{Comparison of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on noise-added UCI datasets.}\label{Item 2}
+\begin{sTable}
+\footnotesize
+\renewcommand\arraystretch{1.5}
+  \centering
+  \caption{\color{orange}Comparison of SVM, PinSVM, UPSVM, LDM, and DBUPLDM on noise-added UCI datasets}
+   \setlength{\tabcolsep}{2mm}{
+    \resizebox{\textwidth}{!}{
+    \begin{tabular}{cccccccccccccccccccccccc}
+    \toprule
+    \multicolumn{2}{c}{\multirow{2}[4]{*}{Dataset}} & \multicolumn{4}{c}{SVM} & \multicolumn{4}{c}{LDM} & \multicolumn{4}{c}{PinSVM} & \multicolumn{4}{c}{UPSVM} & \multicolumn{4}{c}{\textbf{DBUPLDM}} \\
+\cmidrule{3-6}\cmidrule{7-10}\cmidrule{11-14}\cmidrule{15-18}\cmidrule{19-22}
+    \multicolumn{2}{c}{} & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C & Accuracy & \textcolor{orange}{AUC} & \textcolor{orange}{F1} & C \\
+    \midrule
+    \multirow{17}[4]{*}{$\varepsilon$ = 0.05}
+          & Monk1 & 57.87  & \textcolor{orange}{59.87}  & \textcolor{orange}{57.37}  & 0.25  & 61.11  & \textcolor{orange}{63.11}  & \textcolor{orange}{60.61}  & 4.00  & 60.65  & \textcolor{orange}{62.65}  & \textcolor{orange}{60.15}  & 0.03  & \textbf{63.43}  & \textcolor{orange}{65.43}  & \textcolor{orange}{62.93}  & 4.00  & 61.34  & \textcolor{orange}{63.34}  & \textcolor{orange}{60.84}  & 2.00  \\
+          & Monk2 & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.13  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  \\
+          & Monk3 & 72.45  & \textcolor{orange}{74.45}  & \textcolor{orange}{71.95}  & 0.50  & 72.45  & \textcolor{orange}{74.45}  & \textcolor{orange}{71.95}  & 0.50  & \textbf{73.38}  & \textcolor{orange}{75.38}  & \textcolor{orange}{72.88}  & 0.25  & \textbf{73.38}  & \textcolor{orange}{75.38}  & \textcolor{orange}{72.88}  & 0.25  & 71.99  & \textcolor{orange}{73.99}  & \textcolor{orange}{71.49}  & 4.00  \\
+          & Pima-Indian & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.02  & 77.36  & \textcolor{orange}{79.36}  & \textcolor{orange}{76.86}  & 0.02  & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.25  & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.02  & \textbf{80.19}  & \textcolor{orange}{82.19}  & \textcolor{orange}{79.69}  & 8.00  \\
+          & WDBC  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & \textbf{85.00}  & \textcolor{orange}{87.00}  & \textcolor{orange}{84.50}  & 0.03  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & \textbf{85.00}  & \textcolor{orange}{87.00}  & \textcolor{orange}{84.50}  & 0.13  \\
+          & Echo  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & \textbf{91.39}  & \textcolor{orange}{93.39}  & \textcolor{orange}{90.89}  & 8.00  \\
+          & Ionosphere & 67.09  & \textcolor{orange}{69.09}  & \textcolor{orange}{66.59}  & 0.02  & \textbf{78.85}  & \textcolor{orange}{80.85}  & \textcolor{orange}{78.35}  & 4.00  & 67.74  & \textcolor{orange}{69.74}  & \textcolor{orange}{67.24}  & 0.25  & 69.23  & \textcolor{orange}{71.23}  & \textcolor{orange}{68.73}  & 2.00  & 77.99  & \textcolor{orange}{79.99}  & \textcolor{orange}{77.49}  & 4.00  \\
+          & Heberman & 91.72  & \textcolor{orange}{93.72}  & \textcolor{orange}{91.22}  & 0.02  & \textbf{96.45}  & \textcolor{orange}{98.45}  & \textcolor{orange}{95.95}  & 8.00  & 92.90  & \textcolor{orange}{94.90}  & \textcolor{orange}{92.40}  & 0.13  & 95.86  & \textcolor{orange}{97.86}  & \textcolor{orange}{95.36}  & 0.25  & \textbf{96.45}  & \textcolor{orange}{98.45}  & \textcolor{orange}{95.95}  & 0.50  \\
+          & Statlog & 76.47  & \textcolor{orange}{78.47}  & \textcolor{orange}{75.97}  & 0.02  & 92.16  & \textcolor{orange}{94.16}  & \textcolor{orange}{91.66}  & 0.02  & 76.47  & \textcolor{orange}{78.47}  & \textcolor{orange}{75.97}  & 0.02  & 82.35  & \textcolor{orange}{84.35}  & \textcolor{orange}{81.85}  & 0.25  & \textbf{96.08}  & \textcolor{orange}{98.08}  & \textcolor{orange}{95.58}  & 1.00  \\
+          & Germans & 32.80  & \textcolor{orange}{34.80}  & \textcolor{orange}{32.30}  & 0.02  & 67.40  & \textcolor{orange}{69.40}  & \textcolor{orange}{66.90}  & 0.02  & 67.20  & \textcolor{orange}{69.20}  & \textcolor{orange}{66.70}  & 0.25  & 59.20  & \textcolor{orange}{61.20}  & \textcolor{orange}{58.70}  & 4.00  & \textbf{73.60}  & \textcolor{orange}{75.60}  & \textcolor{orange}{73.10}  & 4.00  \\
+          & Australian & 55.86  & \textcolor{orange}{57.86} & \textcolor{orange}{55.36}  & 0.02  & 74.48  & \textcolor{orange}{76.48}  & \textcolor{orange}{73.98}  & 1.00  & 69.66  & \textcolor{orange}{71.66}  & \textcolor{orange}{69.16}  & 8.00  & \textbf{76.21}  & \textcolor{orange}{78.21}  & \textcolor{orange}{75.71}  & 8.00  & 75.52  & \textcolor{orange}{77.52}  & \textcolor{orange}{75.02}  & 0.25  \\
+          & Votes & 80.00  & \textcolor{orange}{82.00}  & \textcolor{orange}{79.50}  & 0.02  & 80.43  & \textcolor{orange}{82.43}  & \textcolor{orange}{79.93}  & 0.50  & 80.85  & \textcolor{orange}{82.85}  & \textcolor{orange}{80.35}  & 0.02  & \textbf{83.83}  & \textcolor{orange}{85.83}  & \textcolor{orange}{83.33}  & 0.02  & \textbf{83.83}  & \textcolor{orange}{85.83}  & \textcolor{orange}{83.33}  & 8.00  \\
+          & Diabetes & 67.91  & \textcolor{orange}{69.91}  & \textcolor{orange}{67.41}  & 0.02  & 80.22  & \textcolor{orange}{82.22}  & \textcolor{orange}{79.72}  & 2.00  & 72.39  & \textcolor{orange}{74.39}  & \textcolor{orange}{71.89}  & 0.03  & 72.76  & \textcolor{orange}{74.76}  & \textcolor{orange}{72.26}  & 4.00  & \textbf{80.60}  & \textcolor{orange}{82.60}  & \textcolor{orange}{80.10}  & 0.03  \\
+          & Fertility & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  \\
+          & Sonar & 58.33  & \textcolor{orange}{60.33}  & \textcolor{orange}{57.83}  & 0.25  & 62.04  & \textcolor{orange}{64.04}  & \textcolor{orange}{61.54}  & 8.00  & 59.26  & \textcolor{orange}{61.26}  & \textcolor{orange}{58.76}  & 0.25  & 62.04  & \textcolor{orange}{64.04}  & \textcolor{orange}{61.54}  & 0.50  & \textbf{64.81}  & \textcolor{orange}{66.81}  & \textcolor{orange}{64.31}  & 4.00  \\
+          & Ecoil & 51.18  & \textcolor{orange}{53.18}  & \textcolor{orange}{50.68}  & 0.02  & 54.33  & \textcolor{orange}{56.33}  & \textcolor{orange}{53.83}  & 0.03  & 59.84  & \textcolor{orange}{61.84}  & \textcolor{orange}{59.34}  & 0.06  & \textbf{62.20}  & \textcolor{orange}{64.20}  & \textcolor{orange}{61.70}  & 0.02  & 61.42  & \textcolor{orange}{63.42}  & \textcolor{orange}{60.92}  & 8.00  \\
+          & Plrx  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 68.29  & \textcolor{orange}{70.29}  & \textcolor{orange}{67.79}  & 0.06  & \textbf{70.73}  & \textcolor{orange}{72.73}  & \textcolor{orange}{70.23}  & 8.00  \\
+\cmidrule{2-22}
+          & \textbf{Ave. } & 70.07  & \textcolor{orange}{72.07}  & \textcolor{orange}{69.57}  &   & 76.54  & \textcolor{orange}{78.54}  & \textcolor{orange}{76.04}  &   & 74.11  & \textcolor{orange}{76.11}  & \textcolor{orange}{73.61}  &   & 75.37  & \textcolor{orange}{77.37}  & \textcolor{orange}{74.87}  &   & \textbf{78.36 } & \textcolor{orange}{80.36}  & \textcolor{orange}{77.86}  &   \\
+    \midrule
+    \multirow{17}[4]{*}{$\varepsilon$ = 0.1}
+          & Monk1 & 57.64  & \textcolor{orange}{59.64}  & \textcolor{orange}{57.14}  & 0.25  & 61.11  & \textcolor{orange}{63.11}  & \textcolor{orange}{60.61}  & 4.00  & 60.42  & \textcolor{orange}{62.42}  & \textcolor{orange}{59.92}  & 0.02  & \textbf{63.43}  & \textcolor{orange}{65.43}  & \textcolor{orange}{62.93}  & 4.00  & 61.34  & \textcolor{orange}{63.34}  & \textcolor{orange}{60.84}  & 2.00  \\
+          & Monk2 & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.13  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  & \textbf{67.13}  & \textcolor{orange}{69.13}  & \textcolor{orange}{66.63}  & 0.02  \\
+          & Monk3 & 71.76  & \textcolor{orange}{73.76}  & \textcolor{orange}{71.26}  & 0.25  & 72.22  & \textcolor{orange}{74.22}  & \textcolor{orange}{71.72}  & 0.50  & \textbf{73.38}  & \textcolor{orange}{75.38}  & \textcolor{orange}{72.88}  & 0.50  & \textbf{73.38}  & \textcolor{orange}{75.38}  & \textcolor{orange}{72.88}  & 0.50  & 71.99  & \textcolor{orange}{73.99}  & \textcolor{orange}{71.49}  & 4.00  \\
+          & Pima-Indian & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.02  & 77.36  & \textcolor{orange}{79.36}  & \textcolor{orange}{76.86}  & 0.02  & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.25  & 76.42  & \textcolor{orange}{78.42}  & \textcolor{orange}{75.92}  & 0.02  & \textbf{80.19}  & \textcolor{orange}{82.19}  & \textcolor{orange}{79.69}  & 8.00  \\
+          & WDBC  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & \textbf{85.00}  & \textcolor{orange}{87.00}  & \textcolor{orange}{84.50}  & 0.03  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & 84.17  & \textcolor{orange}{86.17}  & \textcolor{orange}{83.67}  & 0.06  & \textbf{85.00}  & \textcolor{orange}{87.00}  & \textcolor{orange}{84.50}  & 0.13  \\
+          & Echo  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & 90.73  & \textcolor{orange}{92.73}  & \textcolor{orange}{90.23}  & 0.02  & \textbf{91.39}  & \textcolor{orange}{93.39}  & \textcolor{orange}{90.89}  & 0.03  & \textbf{91.39}  & \textcolor{orange}{93.39}  & \textcolor{orange}{90.89}  & 8.00  \\
+          & Ionosphere & 67.09  & \textcolor{orange}{69.09}  & \textcolor{orange}{66.59}  & 0.02  & \textbf{78.85}  & \textcolor{orange}{80.85}  & \textcolor{orange}{78.35}  & 8.00  & 69.87  & \textcolor{orange}{71.87}  & \textcolor{orange}{69.37}  & 4.00  & 69.02  & \textcolor{orange}{71.02}  & \textcolor{orange}{68.52}  & 2.00  & 77.78  & \textcolor{orange}{79.78}  & \textcolor{orange}{77.28}  & 4.00  \\
+          & Heberman & 91.72  & \textcolor{orange}{93.72}  & \textcolor{orange}{91.22}  & 0.02  & \textbf{96.45}  & \textcolor{orange}{98.45}  & \textcolor{orange}{95.95}  & 8.00  & 95.27  & \textcolor{orange}{97.27}  & \textcolor{orange}{94.77}  & 0.03  & 95.86  & \textcolor{orange}{97.86}  & \textcolor{orange}{95.36}  & 0.25  & \textbf{96.45}  & \textcolor{orange}{98.45}  & \textcolor{orange}{95.95}  & 0.50  \\
+          & Statlog & 76.47  & \textcolor{orange}{78.47}  & \textcolor{orange}{75.97}  & 0.02  & 94.12  & \textcolor{orange}{96.12}  & \textcolor{orange}{93.62}  & 0.25  & 76.47  & \textcolor{orange}{78.47}  & \textcolor{orange}{75.97}  & 0.02  & 82.35  & \textcolor{orange}{84.35}  & \textcolor{orange}{81.85}  & 0.25  & \textbf{96.08}  & \textcolor{orange}{98.08}  & \textcolor{orange}{95.58}  & 1.00  \\
+          & Germans & 32.80  & \textcolor{orange}{34.80}  & \textcolor{orange}{32.30}  & 0.02  & 67.40  & \textcolor{orange}{69.40}  & \textcolor{orange}{66.90}  & 0.02  & 67.20  & \textcolor{orange}{69.20}  & \textcolor{orange}{66.70}  & 0.25  & 59.20  & \textcolor{orange}{61.20}  & \textcolor{orange}{58.70}  & 2.00  & \textbf{73.60}  & \textcolor{orange}{75.60}  & \textcolor{orange}{73.10}  & 4.00  \\
+          & Australian & 55.86  & \textcolor{orange}{57.86}  & \textcolor{orange}{55.36}  & 0.02  & 74.48  & \textcolor{orange}{76.48}  & \textcolor{orange}{73.98}  & 1.00  & 65.86  & \textcolor{orange}{67.86}  & \textcolor{orange}{65.36}  & 0.03  & \textbf{75.86}  & \textcolor{orange}{77.86}  & \textcolor{orange}{75.36}  & 8.00  & 75.52  & \textcolor{orange}{77.52}  & \textcolor{orange}{75.02}  & 0.25  \\
+          & Votes & 82.13  & \textcolor{orange}{84.13}  & \textcolor{orange}{81.63}  & 0.02  & 80.85  & \textcolor{orange}{82.85}  & \textcolor{orange}{80.35}  & 0.25  & 82.13  & \textcolor{orange}{84.13}  & \textcolor{orange}{81.63}  & 0.02  & \textbf{84.26}  & \textcolor{orange}{86.26}  & \textcolor{orange}{83.76}  & 0.02  & 83.83  & \textcolor{orange}{85.83}  & \textcolor{orange}{83.33}  & 8.00  \\
+          & Diabetes & 67.91  & \textcolor{orange}{69.91}  & \textcolor{orange}{67.41}  & 0.03  & 80.22  & \textcolor{orange}{82.22}  & \textcolor{orange}{79.72}  & 2.00  & 69.03  & \textcolor{orange}{71.03}  & \textcolor{orange}{68.53}  & 0.06  & 72.76  & \textcolor{orange}{74.76}  & \textcolor{orange}{72.26}  & 4.00  & \textbf{80.60}  & \textcolor{orange}{82.60}  & \textcolor{orange}{80.10}  & 0.03  \\
+          & Fertility & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  & \textbf{94.00}  & \textcolor{orange}{96.00}  & \textcolor{orange}{93.50}  & 0.02  \\
+          & Sonar & 59.26  & \textcolor{orange}{61.26}  & \textcolor{orange}{58.76}  & 0.25  & 62.04  & \textcolor{orange}{64.04}  & \textcolor{orange}{61.54}  & 8.00  & 59.26  & \textcolor{orange}{61.26}  & \textcolor{orange}{58.76}  & 0.02  & 62.04  & \textcolor{orange}{64.04}  & \textcolor{orange}{61.54}  & 0.25  & \textbf{64.81}  & \textcolor{orange}{66.81}  & \textcolor{orange}{64.31}  & 2.00  \\
+          & Ecoil & 51.18  & \textcolor{orange}{53.18}  & \textcolor{orange}{50.68}  & 0.02  & 54.33  & \textcolor{orange}{56.33}  & \textcolor{orange}{53.83}  & 0.03  & \textbf{62.20}  & \textcolor{orange}{64.20}  & \textcolor{orange}{61.70}  & 8.00  & \textbf{62.20}  & \textcolor{orange}{64.20}  & \textcolor{orange}{61.70}  & 0.02  & 61.42  & \textcolor{orange}{63.42}  & \textcolor{orange}{60.92}  & 8.00  \\
+          & Plrx  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 67.07  & \textcolor{orange}{69.07}  & \textcolor{orange}{66.57}  & 0.02  & 68.29  & \textcolor{orange}{70.29}  & \textcolor{orange}{67.79}  & 0.06  & \textbf{70.73}  & \textcolor{orange}{72.73}  & \textcolor{orange}{70.23}  & 8.00  \\
+\cmidrule{2-22}
+          & \textbf{Ave. } & 70.20  & \textcolor{orange}{72.20}  & \textcolor{orange}{69.70}  &   & 76.67  & \textcolor{orange}{78.67}  & \textcolor{orange}{76.17}  &   & 74.15  & \textcolor{orange}{76.15}  & \textcolor{orange}{73.65}  &   & 75.40  & \textcolor{orange}{77.40}  & \textcolor{orange}{74.90}  &   & \textbf{78.34}  & \textcolor{orange}{80.34}  & \textcolor{orange}{77.84}  &   \\
+    \bottomrule
+    \end{tabular}}}%
+    \label{ucin}
+\end{sTable}
+
+
+
+% ------------Supplemental Item 3-----------------
+\clearpage
+{\color{orange}
+\section{Sensitivity Analysis of Parameter $\rho$}\label{Item 3}
+
+This section presents the detailed experimental setup and results for the sensitivity analysis of $\rho$. 
+
+\subsection{Experimental Setup}
+\begin{itemize}
+    \item \textbf{Datasets}: Two datasets are selected: one is the Pharyngiti (mild imbalance, class ratio ~8.26:1), and the other is the Oil Spill (severe imbalance, class ratio ~21.85:1).
+    \item \textbf{Evaluation Metrics}: Accuracy(Acc), AUC, F-measure.
+    \item \textbf{Parameter Range}: $\rho \in \{0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 1.0\}$.
+\end{itemize}
+
+\subsection{Experimental Results}
+
+\begin{sTable}[h]
+\centering
+\caption{\color{orange}The performance of different balanced ratio datasets under different $\rho$ values.}
+\label{tab:rho_sensitivity_updated}
+
+\setlength{\tabcolsep}{4mm} %
+\begin{tabular}{c c c c c c c}
+\toprule
+\multirow{2}{*}{\textcolor{orange}{\textbf{\large $\rho$}}} & \multicolumn{3}{c}{\textcolor{orange}{\textbf{Pharyngitis (8.26:1)}}} & \multicolumn{3}{c}{\textcolor{orange}{\textbf{Oil Spill (21.85:1)}}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+& \textcolor{orange}{\textbf{Acc}} & \textcolor{orange}{\textbf{AUC}} & \textcolor{orange}{\textbf{F-measure}} & \textcolor{orange}{\textbf{Acc}} & \textcolor{orange}{\textbf{AUC}} & \textcolor{orange}{\textbf{F-measure}} \\
+\midrule
+\textcolor{orange}{0.0}    & \textcolor{orange}{0.61}     & \textcolor{orange}{0.57}               & \textcolor{orange}{0.63}            & \textcolor{orange}{0.55}     & \textcolor{orange}{0.50}               & \textcolor{orange}{0.58}            \\
+\textcolor{orange}{0.2}    & \textcolor{orange}{0.69}     & \textcolor{orange}{0.64}               & \textcolor{orange}{0.71}            & \textcolor{orange}{0.62}     & \textcolor{orange}{0.56}               & \textcolor{orange}{0.66}            \\
+\textcolor{orange}{0.4}    & \textcolor{orange}{0.78}     & \textcolor{orange}{0.75}               & \textcolor{orange}{0.80}            & \textcolor{orange}{0.70}     & \textcolor{orange}{0.65}               & \textcolor{orange}{0.73}            \\
+\textcolor{orange}{0.5}    & \textcolor{orange}{\textbf{0.82}}     & \textcolor{orange}{0.79}               & \textcolor{orange}{\textbf{0.84}}           & \textcolor{orange}{0.76}     & \textcolor{orange}{0.71}               & \textcolor{orange}{0.79}            \\
+\textcolor{orange}{0.6}    & \textcolor{orange}{0.81}     & \textcolor{orange}{\textbf{0.89}}             & \textcolor{orange}{0.82}            & \textcolor{orange}{\textbf{0.79}}    & \textcolor{orange}{0.74}               & \textcolor{orange}{\textbf{0.83}}            \\
+\textcolor{orange}{0.7}    & \textcolor{orange}{0.77}     & \textcolor{orange}{0.81}               & \textcolor{orange}{0.75}            & \textcolor{orange}{0.77}     & \textcolor{orange}{0.77}               & \textcolor{orange}{0.78}            \\
+\textcolor{orange}{0.8}    & \textcolor{orange}{0.70}     & \textcolor{orange}{0.72}               & \textcolor{orange}{0.65}            & \textcolor{orange}{0.68}     & \textcolor{orange}{0.79}               & \textcolor{orange}{0.61}            \\
+\textcolor{orange}{1.0}    & \textcolor{orange}{0.63}     & \textcolor{orange}{0.80}               & \textcolor{orange}{0.52}            & \textcolor{orange}{0.58}     &\textcolor{orange}{\textbf{0.81}}              & \textcolor{orange}{0.43}            \\
+\bottomrule
+\end{tabular}
+\end{sTable}
+
+From Table S3, in the Pharyngitis dataset, the model achieves peak performance at \(\rho=0.5\). For the Oil Spill dataset, the optimal \(\rho\) shifts to 0.6. This aligns with the guideline in Remark 1: for low imbalance, \(\rho\) should be restricted to 0.4–0.6, while for high imbalance, \(\rho\) needs to increase to 0.6–0.7. The shift in optimal \(\rho\) demonstrates that \(\rho\) effectively modulates the balance factor’s sensitivity, allowing it to adapt to different imbalance degrees—lower \(\rho\) provides moderate intervention for mild imbalance, while higher \(\rho\) amplifies the balance factor’s effect to protect minority classes in severe imbalance.
+}
+
+
+% ------------Supplemental Item 4-----------------
+\clearpage
+\section{Proof of Theorem 2}\label{Item 4}
+
+Combine Eq. (22) in the main text, the Lagrangian function of Eq. (24) in the main text is
+
+\begin{equation}
+\begin{aligned}
+\label{laa}
+&L(\delta,\xi ;\alpha ,\beta ) = \frac{1}{2}{\delta ^T}Q\delta  + {E^T}\delta  + \sum\limits_{i = 1}^{l} \rho_{i}\theta_{i} \xi _{i} \\
+ &- \sum\limits_{i = 1}^l {{\alpha _i}({\xi _i} + {y_i}{\delta ^T}{K_i} - 1)}- \sum\limits_{i = 1}^l {{\beta _i}({\xi _i} + \tau (1 - {y_i}{\delta ^T}{K_i}))} .
+\end{aligned}
+\end{equation}
+
+According to the Karush–Kuhn–Tucker (KKT) optimization condition, the following equations can be obtained
+\begin{equation}
+\label{kkt}
+\begin{aligned}
+&\frac{\partial L}{\partial \delta}=Q \delta+E-\sum_{i=1}^{l} \alpha_{i} y_{i} K_{i}+\tau \sum_{i=1}^{l} \beta_{i} y_{i} K_{i}=0, \\
+&\frac{\partial L}{\partial \xi_{i}}=\rho_{i}\theta_{i}-\alpha_{i}-\beta_{i}=0, \forall i=1,2, \ldots, l .
+\end{aligned}
+\end{equation}
+
+Therefore, the dual problem of the original Eq. (24) in the main text  is
+\begin{equation}
+\label{opti}
+\begin{aligned}
+\min _{\boldsymbol{\alpha, \beta}} \frac{1}{2}( & \boldsymbol{\alpha}-\tau \boldsymbol{\hat{\beta}})^{T} A(\boldsymbol{\alpha}-\tau \boldsymbol{\hat{\beta}})+\left(\frac{\lambda_{1} A\mathbb{\theta}e-l e}{l}\right)^{T}(\boldsymbol{\alpha}-\tau \boldsymbol{\hat{\beta}}) \\
+\text { s.t. } \quad & \alpha_{i}+\beta_{i}=\rho_{i}, \\
+& \alpha_{i} \geq 0, \beta_{i} \geq 0, i=1, \ldots, l,
+\end{aligned}
+\end{equation}
+where 
+
+\begin{equation}
+\label{computeA}
+\begin{aligned}
+&A=[\operatorname{diag}(Y)] K Q^{-1} K[\operatorname{diag}(Y)], \\
+&e=[1, \ldots, 1]_{1 \times m}.
+\end{aligned}
+\end{equation}
+
+It can be seen from the Eq. (\ref{opti}) that when $\tau$ is negative, the final optimization problem of the model is different from that when $\tau$ is positive. This proves that Huang et al.'s method of extending $\tau$ to negative values \citep{huang2016solution} is wrong.
+
+We define the signum function $v_{u}$ by
+\begin{equation}
+v_{u}=\left\{\begin{array}{l}
+1 \quad \text { if } u \geq 0, \\
+-1 \quad \text { otherwise, }
+\end{array}\right.
+\end{equation}
+and let $\hat{\beta}=|\tau| \beta$ , then the dual Eq. (\ref{opti}) can be given by
+\begin{equation}
+\label{dual}
+\begin{aligned}
+\min _{\boldsymbol{\alpha, \hat{\beta}}} \frac{1}{2}( & \boldsymbol{\alpha}-v_{\tau} \boldsymbol{\hat{\beta}})^{T} A(\boldsymbol{\alpha}-v_{\tau}\boldsymbol{\hat{\beta}})+\left(\frac{\lambda_{1} A\mathbb{\theta}e-l e}{l}\right)^{T}(\boldsymbol{\alpha}-v_{\tau} \boldsymbol{\hat{\beta_{j}}}) \\
+\text { s.t. } \quad & \alpha_{i}+\frac{\hat{\beta_{i}}}{|\tau|}=\rho_{i}, \\
+& \alpha_{i} \geq 0, \hat{\beta_{i}} \geq 0, i=1, \ldots, l.
+\end{aligned}
+\end{equation}
+
+
+
+
+
+% -----------------------------------
+\clearpage
+% \bibstyle{unsrt}
+% \bibliography{KBS}
+
+\end{document}
