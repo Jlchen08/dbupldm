@@ -463,11 +463,18 @@ We agree that the unusually consistent ordering required auditable evidence. The
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author response}}}
+We thank the reviewer for asking for the test setup: the identical p-values are expected, not an error. Each of the four Wilcoxon signed-rank tests pairs the per-$\eta$ win counts of DBUPLDM against one baseline (SVM, UPSVM, PinSVM, or LDM) across the six $\eta$ settings, so there are $n=6$ paired observations per comparison (the WIN rows of the win/draw/loss table). DBUPLDM records more wins than each baseline at every $\eta$ value, i.e., all six paired differences favor DBUPLDM in every comparison, for which the exact two-sided p-value is $2/2^6=0.03125$ in all four cases. The revised manuscript now states this setup explicitly and additionally reports effect sizes: the matched-pairs rank-biserial correlation is $1.00$ and the standardized effect size is $r=Z/\sqrt{n}\approx 0.90$ ($Z\approx 2.20$), both indicating a large effect.
 }
 
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author action}}}
+\begin{center}
+{\color{red}\fbox{\parbox{0.92\linewidth}{$\blacktriangleright\blacktriangleright$ \textbf{Location in the revised manuscript: Section~5, the paragraph below the win/draw/loss table in the ``Experiments on UCI datasets'' subsection.}}}}
+\end{center}
+\textbf{Original text:} ``To validate the statistical significance of the observed performance differences, we conducted Wilcoxon signed-rank tests across the 17 datasets for each $\eta$ value. Specifically, we compared the number of wins achieved by DBUPLDM against four baseline models: SVM, UPSVM, PinSVM, and LDM. The test results indicate statistically significant differences in performance across all comparisons (p-value = 0.03125 in each case), thereby reinforcing the robustness of DBUPLDM’s superiority beyond random fluctuations.''
+
+\textbf{Revised text:} ``{\color{red}To validate the statistical significance of the observed performance differences, we conducted two-sided Wilcoxon signed-rank tests comparing the win counts of DBUPLDM against four baseline models (SVM, UPSVM, PinSVM, and LDM). Each comparison pairs the two models' win counts across the six $\eta$ settings ($n=6$ paired observations; see the WIN rows of the win/draw/loss table). DBUPLDM records more wins than each baseline at every $\eta$ value, so all six paired differences favor DBUPLDM and the exact two-sided p-value is $0.03125$ in all four comparisons. The matched-pairs rank-biserial correlation is $1.00$ and the standardized effect size is $r=Z/\sqrt{n}\approx 0.90$ ($Z\approx 2.20$), both indicating a large effect that reinforces the robustness of DBUPLDM's superiority beyond random fluctuations.}''
 }
 
 
