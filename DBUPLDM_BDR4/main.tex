@@ -175,7 +175,7 @@ The main contributions of this paper are summarized below:
     \item [$\bullet$] To achieve better noise immunity, the quantile distance is introduced to replace the shortest distance between
  sample sets in traditional LDM.
     \item [$\bullet$] \textcolor{blue}{Extensive experiments on meteorological, financial, and medical datasets show DBUPLDM outperforms existing methods in imbalanced classification tasks.}
-\end{itemize} 
+\end{itemize}
 % and classification capability
 % inherited from SVM 
     % \item [$\bullet$] We consider the impact of imbalanced data, and set different penalties $C_{i}$ for the sample points, which can be regarded as a cost-sensitive function. Therefore, our LDM model is actually a cost-sensitive model.
@@ -486,6 +486,8 @@ The performance of DBUPLDM will be affected by the value of $\tau$ and the balan
 \item[$\bullet$] When $\lambda_{1} = \lambda_{2} = 0$ and $\theta_i=1$, the proposed DBUPLDM is degenerated into UPSVM \citep{anand2021improvement}.
 \item[$\bullet$] When $\lambda_{1} = \lambda_{2} = 0$, and $\tau \geq 0$, the proposed model is degenerated into Pin-SVM \citep{huang2013support,huang2016solution}.
 \end{remark}
+
+{\color{red}We stress that DBUPLDM is not a direct combination of existing ingredients: its innovation lies in how imbalance and noise are jointly addressed through a redefined margin within a single LDM. First, none of the existing methods redefines the margin itself for imbalance: Gu et al.'s twin bounded classifier~\citep{gu2024twin} keeps the margin definition unchanged in a twin framework, while CS-LDM~\citep{cheng2016cost} adjusts the margin with a coefficient built from class counts alone, ignoring the bias term and leaving majority-class samples untreated. Our dual balanced composite distance is new in coupling the imbalance ratio with the bias term and in treating both classes explicitly ($\theta_i>1$ for minority samples and $\theta_i\in(0,1)$ for majority samples), and it enters both the margin mean and the second-order statistics of the LDM. Second, the integration itself is non-trivial: reshaping the margin distribution while replacing the hinge loss with the UP loss leads to a new QPP whose explicit solution is derived in Section~\ref{3.2}, and the resulting model unifies several existing models as special cases (dual balanced LDM with hinge loss, Pin-LDM, UPSVM, and Pin-SVM).}
 
 % (DBUPLDM UPLDM UPSVM PinSVM SVM)
 %  when $\rho_{i}=C_{0}$ (i=1, \ldots, l), the proposed DBUPLDM model is degenerated into a cost-insensitive model, which can be called UP-LDM.

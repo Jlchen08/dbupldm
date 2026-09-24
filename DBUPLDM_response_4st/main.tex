@@ -524,11 +524,16 @@ We agree that the Australia example did not support the stated comparison: DBUPL
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author response}}}
+We thank the reviewer for this comment. We agree that our original writing did not explain the innovation clearly, so that the model could appear to be a simple combination of Gu et al.~2024 and Cheng et al.~2016. Following this suggestion, we have clarified the novelty in Section~3.1. The genuine innovation is the redefined margin itself: neither prior study redefines the margin for imbalance (Gu et al.~2024 keep the margin unchanged in a twin framework; CS-LDM uses a counts-only coefficient that ignores the bias and leaves majority-class samples untreated), whereas our dual balanced composite distance couples the imbalance ratio with the bias term, treats both classes explicitly, and enters both the margin mean and the second-order statistics of a single LDM. Moreover, the integration is non-trivial: jointly reshaping the margin distribution and replacing the hinge loss with the UP loss yields a new QPP with a derived explicit solution (Section~3.2) that unifies several existing models as special cases. The added paragraph is placed right after the special-cases remark in Section~3.1, where the unification is already established.
 }
 
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author action}}}
+\begin{center}
+{\color{red}\fbox{\parbox{0.92\linewidth}{$\blacktriangleright\blacktriangleright$ \textbf{Location in the revised manuscript: Section~3.1 (Model construction), added paragraph after the special-cases remark.}}}}
+\end{center}
+\textbf{Added text:} ``{\color{red}We stress that DBUPLDM is not a direct combination of existing ingredients: its innovation lies in how imbalance and noise are jointly addressed through a redefined margin within a single LDM. First, none of the existing methods redefines the margin itself for imbalance: Gu et al.'s twin bounded classifier~(2024) keeps the margin definition unchanged in a twin framework, while CS-LDM~(2016) adjusts the margin with a coefficient built from class counts alone, ignoring the bias term and leaving majority-class samples untreated. Our dual balanced composite distance is new in coupling the imbalance ratio with the bias term and in treating both classes explicitly ($\theta_i>1$ for minority samples and $\theta_i\in(0,1)$ for majority samples), and it enters both the margin mean and the second-order statistics of the LDM. Second, the integration itself is non-trivial: reshaping the margin distribution while replacing the hinge loss with the UP loss leads to a new QPP whose explicit solution is derived in Section~3.2, and the resulting model unifies several existing models as special cases (dual balanced LDM with hinge loss, Pin-LDM, UPSVM, and Pin-SVM).}''
 }
 
 
