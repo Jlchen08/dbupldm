@@ -1,6 +1,6 @@
-% !BIB program = bibtex
+% !TEX program = pdflatex
 %\documentclass[journal,12pn, twocolumn]{IEEEtran}
-\documentclass[journal,12pn, onecolumn]{IEEEtran}
+\documentclass[journal,12pt, onecolumn]{IEEEtran}
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{mathrsfs}
@@ -305,16 +305,7 @@ When revising your manuscript, please consider all issues mentioned in the revie
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Response}}}
-We sincerely appreciate the Editor-in-Chief and all reviewers for their constructive feedback and for granting us the opportunity to further refine our manuscript. We have carefully addressed all comments raised in this fourth round of review. The detailed point-by-point responses will be added below under Sections ``Reviewer 7'' and ``Reviewer 8''.}\\
-
-{\color{blue}
-The point-by-point responses to Reviewer \#7 and Reviewer \#8 will be added in the sections below. Author responses and author actions are left blank for now and will be completed during the revision.
 }
-{\color{black}
-To facilitate reviewers in checking our revisions, we have prepared detailed response documents. The concrete revisions and responses to the reviewers are presented in Sections ``Reviewer 7'' and ``Reviewer 8''. Note that reference numbers are in accordance with the references at the end of \textbf{this response document}. For clarity, we present the section or subsection, page, and line numbers of the revisions based on \textbf{the newly revised version manuscript}, NOT the previous manuscript. Moreover, we mark the revised contents in the manuscript using {\color{magenta} magenta color} to distinguish them from previous revisions. The detailed revisions are presented as follows.
-}
-
-
 
 \newpage
 
@@ -388,13 +379,56 @@ To facilitate reviewers in checking our revisions, we have prepared detailed res
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author response}}}
+We thank the reviewer for identifying the architectural inconsistency. We implemented LDAM with a tabular MLP backbone rather than ResNet-18: two hidden layers of 128 and 64 units with batch normalization, ReLU, and dropout 0.3. The LDAM loss uses class-dependent margins with maximum margin $\Delta=0.5$, scale 30, and deferred class reweighting after epoch 160. DeepSMOTE and Balanced Softmax are also implemented with explicit tabular architectures, and all three baselines are evaluated by stratified 5-fold cross-validation. Thus, the revised comparison is directly applicable to feature vectors with 3--61 dimensions and is reproducible from the released implementation.
 }
-
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author action}}}
-}
+\begin{center}
+{\color{red}\fbox{\parbox{0.92\linewidth}{$\blacktriangleright\blacktriangleright$ \textbf{Location in the revised manuscript: Section~5.3, the paragraph introducing the three imbalance-learning baselines (beginning ``We additionally evaluate three recent imbalance-learning baselines\ldots'').}}}}
+\end{center}
+\textbf{Original text:} ``Additionally, we compare with three recent deep learning methods representing different paradigms in imbalanced learning: DeepSMOTE (Dablain et al., 2022) employs an encoder-decoder architecture with latent dimension 128, three hidden layers (256-128-64 neurons), ReLU activation, and penalized loss weight 0.1; LDAM (Cao et al., 2019) adapts ResNet-18 for tabular data with class-dependent margin parameter $\Delta=0.5$ and deferred re-weighting schedule; Balanced Softmax (Ren et al., 2020) implements frequency-based reweighting with temperature parameter $T=1.0$. All experiments employ 5-fold cross-validation.''
 
+\textbf{Revised text:} ``{\color{red}We additionally evaluate three recent imbalance-learning baselines using tabular architectures. DeepSMOTE uses an encoder--decoder with latent dimension 128 and encoder widths 256--128--64; minority samples are interpolated among latent-space nearest neighbors and decoded before classification, with reconstruction penalty weight 0.1. LDAM uses the same two-hidden-layer tabular MLP backbone as the other neural baselines, class-dependent margins with maximum margin $\Delta=0.5$, scale 30, and deferred class reweighting after epoch 160. Balanced Softmax uses the same MLP backbone and adds the logarithm of the training class counts to the logits with temperature $T=1.0$. All three baselines use Adam (learning rate 0.001, weight decay $1\times10^{-5}$), batch size 32, at most 200 epochs, early stopping patience 10, and stratified 5-fold cross-validation. The released code reports the seed and each fold's Accuracy, AUC, and F1-score.}''
+
+\noindent\textbf{Revised Table 7 (in the revised manuscript, Sec.~5.3):} each entry reports Acc/AUC/F1-score averaged over five stratified folds, the best value in each column is bold, and the numbers that changed in this revision are shown in red.
+
+\begin{table}[htbp]
+  \centering
+  \footnotesize
+  \caption{Performance Comparison (Acc/AUC/F1-score) Among DBUPLDM, MLP+Focal Loss, DeepSMOTE, Tabular-MLP LDAM, and Tabular-MLP Balanced Softmax on 17 Benchmark Datasets}
+  \setlength{\tabcolsep}{1.4mm}{
+  \begin{tabular}{lcccccc}
+    \toprule
+    \textbf{Model} & Monk1 & Monk2 & Monk3 & Pima & WDBC & Echo \\
+    \midrule
+    \textbf{DBUPLDM} & 68.29/72.13/0.69 & 67.82/78.64/0.76 & 88.89/92.43/0.89 & \textbf{79.25}/79.34/0.72 & 87.50/91.43/0.89 & \textbf{92.72}/83.66/0.76 \\
+    MLP+Focal        & {\color{red}92.80}/{\color{red}98.59}/{\color{red}0.93} & {\color{red}77.38}/{\color{red}93.28}/{\color{red}0.78} & {\color{red}96.03}/{\color{red}99.26}/{\color{red}0.96} & {\color{red}70.95}/{\color{red}82.56}/{\color{red}0.71} & {\color{red}96.14}/{\color{red}99.62}/{\color{red}0.96} & {\color{red}77.81}/{\color{red}88.28}/{\color{red}0.78} \\
+    DeepSMOTE        & {\color{red}93.71}/{\color{red}98.85}/{\color{red}0.94} & \textbf{\color{red}87.38}/{\color{red}94.36}/\textbf{\color{red}0.88} & \textbf{\color{red}96.93}/\textbf{\color{red}99.52}/\textbf{\color{red}0.97} & {\color{red}74.86}/{\color{red}82.79}/{\color{red}0.75} & {\color{red}96.31}/{\color{red}99.36}/{\color{red}0.96} & {\color{red}77.01}/{\color{red}85.42}/{\color{red}0.78} \\
+    LDAM             & {\color{red}92.99}/{\color{red}98.62}/{\color{red}0.93} & {\color{red}83.20}/{\color{red}90.57}/{\color{red}0.83} & {\color{red}96.03}/{\color{red}99.21}/{\color{red}0.96} & {\color{red}77.47}/\textbf{\color{red}83.11}/\textbf{\color{red}0.77} & \textbf{\color{red}97.36}/{\color{red}99.60}/\textbf{\color{red}0.97} & {\color{red}84.64}/\textbf{\color{red}88.75}/\textbf{\color{red}0.85} \\
+    Balanced Softmax & \textbf{\color{red}96.94}/\textbf{\color{red}99.72}/\textbf{\color{red}0.97} & {\color{red}86.69}/\textbf{\color{red}96.08}/{\color{red}0.87} & {\color{red}96.57}/{\color{red}99.46}/{\color{red}0.97} & {\color{red}73.69}/{\color{red}83.01}/{\color{red}0.74} & {\color{red}96.67}/\textbf{\color{red}99.63}/{\color{red}0.97} & {\color{red}82.39}/{\color{red}87.99}/{\color{red}0.83} \\
+    \midrule
+    \textbf{Model} & Iono & Habe & Stat & Germ & Aust & Vote \\
+    \midrule
+    \textbf{DBUPLDM} & 78.85/89.23/0.76 & \textbf{98.82}/\textbf{85.51}/\textbf{0.86} & \textbf{92.16}/79.46/\textbf{0.91} & \textbf{76.40}/73.21/\textbf{0.78} & \textbf{87.24}/83.44/0.84 & \textbf{95.32}/\textbf{87.29}/\textbf{0.79} \\
+    MLP+Focal        & {\color{red}94.29}/{\color{red}98.79}/{\color{red}0.94} & {\color{red}36.30}/{\color{red}67.95}/{\color{red}0.31} & {\color{red}81.11}/{\color{red}87.61}/{\color{red}0.81} & {\color{red}60.90}/{\color{red}77.54}/{\color{red}0.62} & {\color{red}85.51}/{\color{red}92.44}/\textbf{\color{red}0.86} & {\color{red}58.62}/{\color{red}64.71}/{\color{red}0.58} \\
+    DeepSMOTE        & \textbf{\color{red}94.86}/{\color{red}98.58}/\textbf{\color{red}0.95} & {\color{red}71.57}/{\color{red}69.76}/{\color{red}0.71} & {\color{red}81.48}/{\color{red}89.33}/{\color{red}0.81} & {\color{red}70.90}/{\color{red}77.13}/{\color{red}0.72} & {\color{red}85.94}/{\color{red}92.75}/{\color{red}0.86} & {\color{red}60.92}/{\color{red}64.52}/{\color{red}0.61} \\
+    LDAM             & {\color{red}93.73}/{\color{red}98.61}/{\color{red}0.94} & {\color{red}71.56}/{\color{red}66.54}/{\color{red}0.66} & {\color{red}80.74}/{\color{red}87.17}/{\color{red}0.81} & {\color{red}75.50}/{\color{red}77.19}/{\color{red}0.75} & {\color{red}84.93}/{\color{red}92.65}/{\color{red}0.85} & {\color{red}63.91}/{\color{red}64.40}/{\color{red}0.64} \\
+    Balanced Softmax & {\color{red}94.86}/\textbf{\color{red}98.97}/{\color{red}0.95} & {\color{red}68.95}/{\color{red}69.49}/{\color{red}0.70} & {\color{red}84.07}/\textbf{\color{red}89.44}/{\color{red}0.84} & {\color{red}71.00}/\textbf{\color{red}77.58}/{\color{red}0.72} & {\color{red}84.93}/\textbf{\color{red}92.96}/{\color{red}0.85} & {\color{red}62.76}/{\color{red}66.56}/{\color{red}0.63} \\
+    \midrule
+    \textbf{Model} & Diab & Fert & Sonar & Ecoil & Plrx & Avg \\
+    \midrule
+    \textbf{DBUPLDM} & \textbf{82.09}/80.12/\textbf{0.79} & \textbf{96.00}/\textbf{92.88}/\textbf{0.88} & 76.85/72.42/0.78 & 94.49/82.18/0.75 & \textbf{69.51}/\textbf{68.72}/\textbf{0.68} & 84.16/82.78/0.81 \\
+    MLP+Focal        & {\color{red}70.95}/{\color{red}82.56}/{\color{red}0.71} & {\color{red}32.00}/{\color{red}59.05}/{\color{red}0.35} & {\color{red}82.23}/{\color{red}91.93}/{\color{red}0.82} & \textbf{\color{red}96.03}/{\color{red}98.90}/\textbf{\color{red}0.96} & {\color{red}38.36}/{\color{red}44.60}/{\color{red}0.37} & {\color{red}73.38}/{\color{red}83.98}/{\color{red}0.73} \\
+    DeepSMOTE        & {\color{red}74.86}/{\color{red}82.79}/{\color{red}0.75} & {\color{red}87.00}/{\color{red}56.44}/{\color{red}0.82} & {\color{red}81.29}/{\color{red}91.03}/{\color{red}0.81} & \textbf{\color{red}96.03}/{\color{red}98.81}/\textbf{\color{red}0.96} & {\color{red}54.37}/{\color{red}42.26}/{\color{red}0.55} & {\color{red}81.50}/{\color{red}83.75}/{\color{red}0.81} \\
+    LDAM             & {\color{red}77.47}/\textbf{\color{red}83.11}/{\color{red}0.77} & {\color{red}84.00}/{\color{red}63.30}/{\color{red}0.83} & {\color{red}80.78}/{\color{red}90.76}/{\color{red}0.81} & \textbf{\color{red}96.03}/{\color{red}98.78}/\textbf{\color{red}0.96} & {\color{red}62.09}/{\color{red}42.36}/{\color{red}0.56} & {\color{red}82.50}/{\color{red}83.81}/\textbf{\color{red}0.82} \\
+    Balanced Softmax & {\color{red}73.69}/{\color{red}83.01}/{\color{red}0.74} & {\color{red}36.00}/{\color{red}56.37}/{\color{red}0.41} & \textbf{\color{red}84.63}/\textbf{\color{red}92.22}/\textbf{\color{red}0.85} & {\color{red}96.03}/\textbf{\color{red}99.13}/{\color{red}0.96} & {\color{red}52.67}/{\color{red}39.17}/{\color{red}0.51} & {\color{red}78.97}/\textbf{\color{red}84.16}/{\color{red}0.79} \\
+    \bottomrule
+  \end{tabular}
+  }
+  \label{tab:table7_response}
+\end{table}
+}
 
 {\color{customgreen}
 \subsubsection*{\underline{\textbf{Reviewer 8, Major Concern 2}}}
@@ -404,13 +438,22 @@ To facilitate reviewers in checking our revisions, we have prepared detailed res
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author response}}}
+We agree that the unusually consistent ordering required auditable evidence. The reproducibility package now contains the complete baseline source code, the fixed seed (42), the exact run configuration, stratified fold assignments, and one record per dataset, method, and fold with Accuracy, AUC, F1-score, and the number of epochs trained. All Table 7 values are computed as the arithmetic mean of the five fold-level records; no fold or metric is removed or selected. The new experimental results are reported in Revised Table 7 above. The code and the benchmark datasets are openly released at \url{https://github.com/Jlchen08/dbupldm_code}, and a Data and Code Availability statement has been added to the revised manuscript. The results from the new experiments also lead to a more measured conclusion, which we state explicitly in Sec.~5.3: DBUPLDM improves on MLP+Focal in average accuracy (84.16\% versus 73.38\%) and average F1-score (0.81 versus 0.73), while MLP+Focal has a higher average AUC (83.98\% versus 82.78\%); and against the three deep baselines DBUPLDM has the highest average accuracy (84.16\%), Balanced Softmax the highest average AUC (84.16\%), and LDAM the highest average F1-score (0.82).
 }
-
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author action}}}
-}
+\begin{center}
+{\color{red}\fbox{\parbox{0.92\linewidth}{$\blacktriangleright\blacktriangleright$ \textbf{Location in the revised manuscript: Section~5.3, Table~7 (Performance Comparison) and the comparison paragraphs below it; the Data and Code Availability statement; code and data at \url{https://github.com/Jlchen08/dbupldm_code}.}}}}
+\end{center}
+\textbf{Original text:} ``Additionally, we compare with three recent deep learning methods representing different paradigms in imbalanced learning: DeepSMOTE (Dablain et al., 2022) employs an encoder-decoder architecture with latent dimension 128, three hidden layers (256-128-64 neurons), ReLU activation, and penalized loss weight 0.1; LDAM (Cao et al., 2019) adapts ResNet-18 for tabular data with class-dependent margin parameter $\Delta=0.5$ and deferred re-weighting schedule; Balanced Softmax (Ren et al., 2020) implements frequency-based reweighting with temperature parameter $T=1.0$. All experiments employ 5-fold cross-validation.''
 
+\textbf{Revised text:} ``{\color{red}We additionally evaluate three recent imbalance-learning baselines using tabular architectures. DeepSMOTE uses an encoder--decoder with latent dimension 128 and encoder widths 256--128--64; minority samples are interpolated among latent-space nearest neighbors and decoded before classification, with reconstruction penalty weight 0.1. LDAM uses the same two-hidden-layer tabular MLP backbone as the other neural baselines, class-dependent margins with maximum margin $\Delta=0.5$, scale 30, and deferred class reweighting after epoch 160. Balanced Softmax uses the same MLP backbone and adds the logarithm of the training class counts to the logits with temperature $T=1.0$. All three baselines use Adam (learning rate 0.001, weight decay $1\times10^{-5}$), batch size 32, at most 200 epochs, early stopping patience 10, and stratified 5-fold cross-validation. Early stopping, learning-rate scheduling, and checkpoint selection use a held-out selection split inside each training fold, so the reported fold is evaluated only once at the end. The released code reports the seed and each fold's Accuracy, AUC, and F1-score.}'' Table 7 is replaced by Revised Table 7 above (changed values in red, best-per-column value in bold), and the comparison paragraphs in Sec.~5.3 are updated accordingly in red.
+
+\textbf{Original text:} ``As shown in Table 7, DBUPLDM surpasses MLP-Focal in accuracy on 14 of 17 datasets, and likewise leads in AUC (13/17) and F1-score (14/17). While MLP with Focal Loss shows competitive performance on a few datasets (e.g., WDBC, Ionosphere), DBUPLDM consistently provides more reliable results, particularly on datasets with higher class imbalance and smaller sample sizes. Compared with recent deep learning methods (DeepSMOTE, LDAM, Balanced Softmax), DBUPLDM demonstrates competitive performance across all 17 evaluated datasets. While deep learning methods show strong performance on certain datasets (e.g., LDAM on Ionosphere and Australia), DBUPLDM achieves the best average performance across all three metrics (Accuracy: 84.16\%, AUC: 82.78\%, F1: 0.81), demonstrating its robustness and consistency. This stems from the synergistic effect of dual-balanced distance and unified pinball loss, which jointly address both class imbalance and noise sensitivity without requiring extensive architectural engineering or large-scale training data. These results validate the generalization ability and imbalance-awareness of our proposed DBUPLDM model.''
+
+\textbf{Revised text:} ``{\color{red}As shown in Table 7, compared with the MLP+Focal baseline in the new experiment, DBUPLDM achieves higher accuracy on 10 of 17 datasets and a higher average accuracy (84.16\% versus 73.38\%) and average F1-score (0.81 versus 0.73), whereas MLP+Focal attains higher AUC on 13 of 17 datasets and a higher average AUC (83.98\% versus 82.78\%). Against the three recent deep baselines, DBUPLDM remains competitive but does not dominate on every metric: DBUPLDM reaches the highest average accuracy (84.16\%), Balanced Softmax has the highest average AUC (84.16\%), LDAM has the highest average F1-score (0.82), and DBUPLDM reports 84.16\%, 82.78\%, and 0.81, respectively. We therefore do not claim that DBUPLDM is best on all three averages. Its advantages are (i) the best average classification accuracy, improving on the plain MLP+Focal baseline, (ii) high interpretability, since the decision boundary is determined by a small number of support vectors, and (iii) much lower computational cost than deep learning. DBUPLDM leads MLP+Focal on datasets such as Pima, Echo, Haberman, Statlog Heart, German, Australian, Votes, Diabetes, Fertility, and Plrx, and is competitive on the remaining benchmarks. These results validate the generalization ability and imbalance-awareness of our proposed DBUPLDM model.}''
+}
 
 {\color{customgreen}
 \subsubsection*{\underline{\textbf{Reviewer 8, Major Concern 3}}}
@@ -437,13 +480,18 @@ To facilitate reviewers in checking our revisions, we have prepared detailed res
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author response}}}
+We agree that the Australia example did not support the stated comparison: DBUPLDM's accuracy is 87.24\%, compared with 84.93\% for LDAM in the new experiment. We also revised the performance summary to reflect the new experiment: DBUPLDM has the highest average accuracy (84.16\%), Balanced Softmax the highest average AUC (84.16\%), and LDAM the highest average F1-score (0.82). Accordingly, the revised text no longer claims that DBUPLDM is best on all three average metrics. On Ionosphere, the new experiment gives LDAM accuracy of 93.73\% and DBUPLDM accuracy of 78.85\%; we retain this as an example of a dataset on which LDAM performs strongly.
 }
-
 
 {\color{black}
 \subsubsection*{\textbf{\underline{Author action}}}
-}
+\begin{center}
+{\color{red}\fbox{\parbox{0.92\linewidth}{$\blacktriangleright\blacktriangleright$ \textbf{Location in the revised manuscript: Section~5.3, the comparison paragraph below Table~7 (the same paragraph reported in full under Major Concern~2).}}}}
+\end{center}
+\textbf{Original text:} ``While deep learning methods show strong performance on certain datasets (e.g., LDAM on Ionosphere and Australia), DBUPLDM achieves the best average performance across all three metrics (Accuracy: 84.16\%, AUC: 82.78\%, F1: 0.81), demonstrating its robustness and consistency.''
 
+\textbf{Revised text:} ``{\color{red}Against the three recent deep baselines, DBUPLDM remains competitive but does not dominate on every metric: DBUPLDM reaches the highest average accuracy (84.16\%), Balanced Softmax has the highest average AUC (84.16\%), LDAM has the highest average F1-score (0.82), and DBUPLDM reports 84.16\%, 82.78\%, and 0.81, respectively. We therefore do not claim that DBUPLDM is best on all three averages.}'' (The full revised comparison paragraph is given under Major Concern 2.)
+}
 
 {\color{customgreen}
 \subsubsection*{\underline{\textbf{Reviewer 8, Major Concern 5}}}

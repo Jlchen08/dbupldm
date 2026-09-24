@@ -70,6 +70,16 @@ python run_experiment.py
 - MLP + Focal Loss（深度学习基线）
 - SVM（传统机器学习基线，RBF核，class_weight=balanced）
 
+### Table 7 可复现实验
+
+`imbalanced_baselines.py` 实现了三种可用于表格数据的基线：DeepSMOTE、MLP+LDAM 和 MLP+Balanced Softmax。LDAM 使用两层 MLP，而不是不适用于表格输入的 ResNet-18。运行下面的命令会在 17 个 Table 7 数据集上执行分层 5 折实验，并写入每个数据集、方法和 fold 的原始结果：
+
+```bash
+python run_table7_baselines.py --dataset-dir datasets --results-dir results/table7 --seed 42 --folds 5
+```
+
+输出包括 `fold_level_results.json`、`fold_assignments.json`、`summary.csv` 和 `run_config.json`。每条 fold-level 记录还保存真实标签、预测标签和预测概率，便于重新计算 Accuracy、AUC 和 F1。表格中的均值必须直接由 `fold_level_results.json` 聚合得到；不得手工修改、筛选或替换任何 fold。当前仓库未包含数据集文件时，命令会明确报错，而不会生成占位结果。
+
 ### 4. 生成报告
 ```bash
 # 生成审稿回应文档

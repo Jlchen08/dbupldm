@@ -1,0 +1,44 @@
+{
+  "config": {
+    "seed": 42,
+    "hidden_dims": [
+      128,
+      64
+    ],
+    "latent_dim": 128,
+    "dropout": 0.3,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "batch_size": 32,
+    "epochs": 200,
+    "patience": 10,
+    "scheduler_patience": 5,
+    "gamma": 2.0,
+    "ldam_max_margin": 0.5,
+    "ldam_scale": 30.0,
+    "deferred_reweight_epoch": 160,
+    "smote_penalty": 0.1,
+    "smote_k_neighbors": 5
+  },
+  "folds": 5,
+  "device": "cpu",
+  "datasets": [
+    "Australian.mat",
+    "Diabetes.mat",
+    "Echocardiogram.mat",
+    "Ecoil.mat",
+    "Fertility.mat",
+    "German.mat",
+    "Haberman.mat",
+    "Ionosphere.mat",
+    "Monk_1.mat",
+    "Monk_2.mat",
+    "Monk_3.mat",
+    "Pima_Indians.mat",
+    "Plrx.mat",
+    "Sonar.mat",
+    "Statlog_Heart.mat",
+    "Votes.mat",
+    "WDBC.mat"
+  ]
+}
